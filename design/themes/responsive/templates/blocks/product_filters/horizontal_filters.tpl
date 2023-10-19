@@ -9,7 +9,7 @@
     {$curl = "products.search"|fn_url}
     {$ajax_div_ids = ""}
 {/if}
-dddddddddd
+
 {$filter_base_url = $curl|fn_query_remove:"result_ids":"full_render":"filter_id":"view_all":"req_range_id":"features_hash":"subcats":"page":"total"}
 
 <div class="ty-horizontal-product-filters cm-product-filters cm-horizontal-filters"
