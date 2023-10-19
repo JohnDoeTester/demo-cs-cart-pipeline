@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<addon scheme="4.0">
+    <id>vendor_panel_configurator</id>
+    <version>1.0</version>
+    <priority>10000</priority>
+    <auto_install>MULTIVENDOR</auto_install>
+    <status>active</status>
+    <default_language>en</default_language>
+    <settings>
+        <sections>
+            <section id="product_page_settings">
+                <items>
+                    <item id="product_fields_configuration">
+                        <type>hidden</type>
+                        <default_value>{"detailed":{"information":{"status":0},"pricing_inventory":{"list_price":0},"availability":{"usergroup_ids":0,"timestamp":0,"avail_since":0,"out_of_stock_actions":0},"extra":{"details_layout":0,"short_description":0,"popularity":0, "search_words":0, "promo_text":0}}}</default_value>
+                    </item>
+                    <item id="product_tabs_configuration">
+                        <type>hidden</type>
+                        <default_value>{"seo":"0","qty_discounts":"0","subscribers":"0","addons":"0","tags":"0","attachments":"0","reward_points":"0","required_products":"0"}</default_value>
+                    </item>
+                    <item id="config_form">
+                        <type>template</type>
+                        <default_value>config.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="vendor_panel_style">
+                <items>
+                    <item id="color_schema">
+                        <default_value>Light</default_value>
+                        <type>hidden</type>
+                    </item>
+                    <item id="sidebar_color">
+                        <type>hidden</type>
+                        <default_value>#eef1f3</default_value>
+                    </item>
+                    <item id="element_color">
+                        <type>hidden</type>
+                        <default_value>#024567</default_value>
+                    </item>
+                    <item id="sidebar_background_image">
+                        <type>hidden</type>
+                    </item>
+                    <item id="vendor_panel_config">
+                        <type>template</type>
+                        <default_value>panel.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+
+    <autoload>
+        <psr4 prefix="Tygh\Addons\VendorPanelConfigurator\">src</psr4>
+    </autoload>
+
+    <bootstrap>\Tygh\Addons\VendorPanelConfigurator\Bootstrap</bootstrap>
+</addon>

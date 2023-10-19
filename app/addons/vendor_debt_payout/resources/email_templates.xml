@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<email_templates scheme="1.0">
+    <templates>
+        <item>
+            <code><![CDATA[vendor_debt_payout_email_admin_notification_vendor_status_changed_to_suspended]]></code>
+            <area><![CDATA[A]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{{ __("vendor_debt_payout.vendor_status_changed.subject", {"[vendor_name]": vendor_name, "[status]": status_to}) }}]]></default_subject>
+            <template/>
+            <default_template>
+                <![CDATA[{{ snippet("header") }}
+{{ __("vendor_debt_payout.vendor_status_changed.message", {"[vendor_name]": vendor_name, "[status]": status_to}) }}
+{% if reason %}
+    {{ __("reason") }}: {{ reason }}
+    <br /><br />
+{% endif %}
+{{ snippet("footer") }}]]>
+            </default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_debt_payout]]></addon>
+        </item>
+        <item>
+            <code><![CDATA[vendor_debt_payout_email_admin_notification_vendor_status_changed_to_disabled]]></code>
+            <area><![CDATA[A]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{{ __("vendor_debt_payout.vendor_status_changed.subject", {"[vendor_name]": vendor_name, "[status]": status_to}) }}]]></default_subject>
+            <template/>
+            <default_template>
+                <![CDATA[{{ snippet("header") }}
+{{ __("vendor_debt_payout.vendor_status_changed.message", {"[vendor_name]": vendor_name, "[status]": status_to}) }}
+{% if reason %}
+    {{ __("reason") }}: {{ reason }}
+    <br /><br />
+{% endif %}
+{{ snippet("footer") }}]]>
+            </default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_debt_payout]]></addon>
+        </item>
+        <item>
+            <code><![CDATA[vendor_debt_payout_vendor_days_before_suspended]]></code>
+            <area><![CDATA[A]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{{ __("vendor_debt_payout.vendor_days_before_suspend.subject") }}]]></default_subject>
+            <template/>
+            <default_template>
+                <![CDATA[{{ snippet("header") }}
+{{ __("vendor_debt_payout.vendor_days_before_suspend.message", {"[marketplace]": marketplace}) }}
+{% if reason %}
+    {{ __("reason") }}: {{ reason }}
+    <br /><br />
+{% endif %}
+{{ snippet("footer") }}]]>
+            </default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_debt_payout]]></addon>
+        </item>
+        <item>
+            <code><![CDATA[vendor_debt_payout_weekly_digest_of_debtors]]></code>
+            <area><![CDATA[A]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{{ __("vendor_debt_payout.weekly_digest_of_debtors.subject", {"[marketplace_name]": marketplace_name}) }}]]></default_subject>
+            <template/>
+            <default_template>
+                <![CDATA[{{ snippet("header") }}
+{{ __("vendor_debt_payout.weekly_digest_of_debtors.message", {"[href]": href}) }}
+<br /><br />
+{% if suspended_vendors %}
+    <b>{{ __("vendor_debt_payout.list_of_vendors_got_suspended_label") }}</b>
+    <br /><br />
+    <table width="50%">
+        <tr><th>{{ __("vendor") }}</th><th>{{ __("vendor_debt_payout.debt_owned") }}</th></tr>
+        {% for vendor in suspended_vendors %}
+            <tr><td>{{vendor.company}}</td><td>{{vendor.debt}}</td></tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <b>{{ __("vendor_debt_payout.empty_list_of_vendors_got_suspended_label") }}</b>
+{% endif %}
+<br /><br />
+{% if active_vendors %}
+    <b>{{ __("vendor_debt_payout.list_of_vendors_got_suspended_and_paid_label") }}</b>
+    <br /><br />
+    <table width="50%">
+        <tr><th>{{ __("vendor") }}</th><th>{{ __("vendor_debt_payout.account_balance") }}</th></tr>
+        {% for vendor in active_vendors %}
+            <tr><td>{{vendor.company}}</td><td>{{vendor.balance}}</td></tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <b>{{ __("vendor_debt_payout.empty_list_of_vendors_got_suspended_and_paid_label") }}</b>
+{% endif %}
+<br /><br />
+<b>{{ __("vendor_debt_payout.total_debts", {"[total_debt]": total_debt}) }}</b>
+{{ snippet("footer") }}]]>
+            </default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_debt_payout]]></addon>
+        </item>
+    </templates>
+</email_templates>

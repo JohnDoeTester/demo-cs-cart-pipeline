@@ -1,0 +1,31 @@
+/*
+    views/addons/components/addons/addon_reviews.tpl
+*/
+
+.addons-addon-reviews__grid {
+    grid-gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    @media (min-width: @DesktopBreakpoint + 1) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.addons-addon-reviews__grid:not(.hidden) {
+    display: grid;
+}
+
+.addons-addon-reviews__item {
+    padding: 20px;
+    background: #f6f6f6;
+    border-radius: @baseBorderRadius;
+}
+
+.addons-addon-reviews__item .cs-content-more__btn {
+    background: #f6f6f6;
+}
+
+.addons-addon-reviews__item .cs-content-more__btn:before {
+    background-image: linear-gradient(90deg, rgb(244, 251, 255, 0), #f6f6f6);
+}

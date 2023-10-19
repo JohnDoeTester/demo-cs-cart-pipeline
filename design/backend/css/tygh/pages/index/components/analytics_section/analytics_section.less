@@ -1,0 +1,31 @@
+// design/backend/templates/views/index/components/analytics_section/analytics_section.tpl
+
+.analytics-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.analytics-section__title {
+    margin: 0;
+}
+
+.analytics-section__content {
+    display: flex;
+    flex-direction: var(--dashboard-responsive-column);
+    gap: 16px;
+}
+
+.analytics-section__no-items {
+    width: 100%;
+}
+
+.analytics-section__column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-basis: 0;
+    flex-grow: 1;
+    min-width: 0;
+}

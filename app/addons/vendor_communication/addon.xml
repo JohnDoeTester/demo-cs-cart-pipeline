@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>vendor_communication</id>
+    <version>1.0</version>
+    <priority>1000</priority>
+    <position>45</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings edition_type="ROOT,STOREFRONT">
+        <sections>
+            <section id="general" edition_type="MVE:ROOT">
+                <items>
+                    <item id="vendor_to_customer_communication">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="vendor_to_admin_communication">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="vendor_to_customer">
+                <items>
+                    <item id="show_on_product">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="show_on_vendor" edition_type="MVE:ROOT,MVE:STOREFRONT">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="show_on_messages" edition_type="ULT:VENDOR">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="show_on_order">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:vendor_communications;</item>
+        <item>DROP TABLE IF EXISTS ?:vendor_communication_messages;</item>
+        <item>
+            CREATE TABLE `?:vendor_communications` (
+            `thread_id` int(11) unsigned NOT NULL auto_increment,
+            `storefront_id` int(11) unsigned NOT NULL DEFAULT '0',
+            `status` char(1) NOT NULL default 'N',
+            `user_id` mediumint(8) unsigned NOT NULL,
+            `company_id` int(11) unsigned NOT NULL,
+            `object_id` int(11) unsigned default 0,
+            `object_type` char(1) default '',
+            `created_at` int(11) unsigned NOT NULL default 0,
+            `last_message` varchar(255) default '',
+            `last_message_user_id` mediumint(8) unsigned NOT NULL default 0,
+            `last_message_user_type` char(1) NOT NULL default '',
+            `last_updated` int(11) unsigned NOT NULL default 0,
+            `subject` varchar(255) NOT NULL default '',
+            `communication_type` varchar(40) NOT NULL default '',
+            PRIMARY KEY (`thread_id`),
+            KEY `idx_company_id` (`company_id`),
+            KEY `idx_user_id` (`user_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE `?:vendor_communication_messages` (
+            `message_id` int(11) unsigned NOT NULL auto_increment,
+            `thread_id` int(11) unsigned NOT NULL,
+            `user_id` mediumint(8) unsigned NOT NULL,
+            `user_type` char(1) NOT NULL,
+            `timestamp` int(11) unsigned NOT NULL DEFAULT '0',
+            `message` text,
+            PRIMARY KEY (`message_id`),
+            KEY `idx_thread_id` (`thread_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>INSERT INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_vendor_communication', 'Y', 'users', 'vendor_communication', 'N');</item>
+        <item>INSERT INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('view_vendor_communication', 'Y', 'users', 'vendor_communication', 'Y');</item>
+        <item>INSERT INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_order_communication', 'Y', 'orders', 'order_communication', 'N');</item>
+        <item>INSERT INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('view_order_communication', 'Y', 'orders', 'order_communication', 'Y');</item>
+        <item editions="MULTIVENDOR">INSERT INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_admin_communication', 'Y', 'administration', 'admin_communication', 'N');</item>
+        <item editions="MULTIVENDOR">INSERT INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('view_admin_communication', 'Y', 'administration', 'admin_communication', 'Y');</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'manage_vendor_communication';</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'view_vendor_communication';</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'manage_order_communication';</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'view_order_communication';</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'manage_admin_communication';</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'view_admin_communication';</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:vendor_communications;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:vendor_communication_messages;</item>
+    </queries>
+    <functions>
+        <item for="install">fn_vendor_communication_install</item>
+        <item for="uninstall">fn_vendor_communication_uninstall</item>
+    </functions>
+    <email_templates type="file">resources/email_templates.xml</email_templates>
+    <internal_templates type="file">resources/internal_templates.xml</internal_templates>
+</addon>

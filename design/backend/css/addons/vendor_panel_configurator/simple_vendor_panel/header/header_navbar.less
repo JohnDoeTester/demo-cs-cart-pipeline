@@ -1,0 +1,93 @@
+// Header: Line 1
+@media (min-width: @TabletBreakpoint + 1) {
+    // Navbar inner
+    .navbar-inner {
+        && {
+            padding: 0;
+        }
+
+        &&& {
+            background: transparent;
+        }
+    }
+
+    // Navbar right
+    .navbar-right {
+        && {
+            display: flex;
+            flex-direction: row-reverse;
+            float: none;
+            margin: 0;
+        }
+    }
+
+    // Menu items
+    .dropdown-top-menu-item-link {
+        border-radius: @baseBorderRadius;
+        
+        &&&&&&,
+        &&&&&&:hover,
+        &&&&&&:focus,
+        &&&&&&.open,
+        &&&&&&.active {
+            color: @mainColor;
+            text-shadow: none;
+        }
+    }
+
+    .dropdown-top-menu-item {
+
+        &:hover,
+        &:focus,
+        &.open,
+        &.active {
+
+            .dropdown-top-menu-item-link.dropdown-top-menu-item-link.dropdown-top-menu-item-link.dropdown-top-menu-item-link.dropdown-top-menu-item-link.dropdown-top-menu-item-link {
+                background: @menuSidebarColorActive;
+            }
+        }
+    }
+
+    // User menu
+    .nav__user-menu {
+        width: 100%;
+    }
+
+    .nav__user-menu-dropdown {
+        position: fixed;
+        top: 40px;
+
+        &&&&& {
+            left: var(--content-offset);
+
+            right: auto;
+            width: @menuSidebarWidth;
+
+            // Arrow popover
+            &:before {
+                left: 9px;
+                right: auto;
+            }
+
+            &:after {
+                left: 10px;
+                right: auto;
+            }
+
+            .languages, 
+            .curriencies {
+                .dropdown-menu {
+                    top: 0;
+                    left: 100%;
+                    right: auto;
+                }
+            }
+
+            .languages .dropdown-menu {
+                @media (min-width: 768px) {
+                    max-height: ~"calc(100vh - 40px - var(--bp-bottom-panel-height) - 90px - 10px)"; // Top menu + Bottom panel + Top offset + Margin
+                }
+            }
+        }
+    }
+}

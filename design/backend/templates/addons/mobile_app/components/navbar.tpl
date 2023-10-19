@@ -1,0 +1,10 @@
+{include 
+    file="addons/mobile_app/components/container.tpl" 
+    content="" 
+    title=__("mobile_app.section.navbar") 
+    add_bottom_tabs=false 
+    is_button=true 
+    navbar_title="CS-CART" 
+    meta="mockup__category"
+    input_name="navbar"
+}

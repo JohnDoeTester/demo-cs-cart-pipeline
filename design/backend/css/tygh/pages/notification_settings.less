@@ -1,0 +1,129 @@
+@editor-spacing: 16px;
+@editor-width: 500px;
+@editor-footer-border-color: #eee;
+@editor-padding: 17px;
+
+.notification-group {
+    &__toggle-editor {
+        white-space: nowrap;
+    }
+
+    &__editor {
+        width: calc(~"100vw" - 2 * @editor-padding);
+        max-width: @editor-width;
+    }
+}
+
+.notification-group__existing-receivers {
+    @media (min-width: @TabletBreakpoint + 2) {
+        margin-top: 5px;
+    }
+}
+
+.notification-group-existing-receivers__item {
+
+    &::after {
+        content: ',';
+    }
+
+    &:last-of-type::after {
+        content: '';
+    }
+}
+
+.notification-group-editor {
+    &__body {
+        padding: @editor-spacing;
+    }
+
+    &__input-group {
+        margin-bottom: @editor-spacing;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .select2-search__field {
+            width: 100% !important;
+        }
+
+        .select2-container--disabled {
+            &.select2-container--default .select2-selection--multiple {
+                border: none;
+                background: none;
+            }
+
+            .select2-search--inline {
+                display: none;
+            }
+        }
+    }
+
+    &__label {
+        font-weight: bold;
+    }
+
+    &__footer {
+        border-top: 1px solid @editor-footer-border-color;
+        padding: @editor-spacing;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__btn {
+        margin-left: @editor-spacing / 2;
+    }
+}
+td.notification-settings__name {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.notification-settings {
+    &__table {
+        table-layout: fixed;
+
+        p {
+            margin: 0;
+        }
+
+        .mobile-hide {
+            @media (max-width: @TabletBreakpoint + 1) {
+                display: none;
+            }
+        }
+
+        .dropdown {
+            text-align: right;
+        }
+    }
+
+    .table-responsive tbody tr&__receiver  {
+        td {
+            display: table-cell;
+            
+            &:first-child {
+        
+                @media (max-width: @TabletBreakpoint + 1) {
+                    margin-right: 8%;
+                }
+
+                @media (max-width: 320px) {
+                    margin-right: 17%;
+                }
+            }
+
+            @media (max-width: @TabletBreakpoint + 1) {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: @TabletBreakpoint + 1) {
+            display: flex;
+        }
+    }
+
+    tbody + tbody &__group th,
+    tbody + tbody &__group td {
+        padding-top: 30px;
+    }
+}

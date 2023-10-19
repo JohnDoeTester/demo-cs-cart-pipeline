@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>product_reviews</id>
+    <version>1.0</version>
+    <!-- The priority depends on the priority of the "Discussion" module -->
+    <priority>3001</priority>
+    <position>140</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings edition_type="ROOT,STOREFRONT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="notice">
+                        <type>info</type>
+                        <handler>fn_product_reviews_copy_old_reviews_notice</handler>
+                    </item>
+                    <item id="reviews_per_page">
+                        <type>input</type>
+                        <default_value>10</default_value>
+                    </item>
+                    <item id="review_approval" edition_type="ROOT,STOREFRONT">
+                        <type>selectbox</type>
+                        <default_value>any</default_value>
+                        <variants>
+                            <item id="any">
+                            </item>
+                            <item id="anonymous">
+                            </item>
+                            <item id="disabled">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="review_ip_check" edition_type="ROOT,STOREFRONT">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                    <item id="review_fields" edition_type="ROOT,ULT:VENDOR">
+                        <type>selectbox</type>
+                        <default_value>advanced</default_value>
+                        <variants>
+                            <item id="advanced">
+                            </item>
+                            <item id="simple">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="review_after_purchase" edition_type="ROOT,STOREFRONT">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                    <item id="review_ask_for_customer_location" edition_type="ROOT,STOREFRONT">
+                        <type>selectbox</type>
+                        <default_value>none</default_value>
+                        <variants>
+                            <item id="none">
+                            </item>
+                            <item id="country">
+                            </item>
+                            <item id="city">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="split_reviews_by_storefronts" edition_type="ROOT">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                    <item id="images_upload_allowed" edition_type="ROOT,STOREFRONT">
+                        <type>hidden</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="product_variations" edition_type="ROOT">
+                        <type>template</type>
+                        <default_value>product_variations.tpl</default_value>
+                    </item>
+                    <item id="split_reviews_for_variations_as_separate_products" edition_type="ROOT">
+                        <type>hidden</type>
+                        <default_value>Y</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:product_reviews;</item>
+        <item>DROP TABLE IF EXISTS ?:product_review_votes;</item>
+        <item>DROP TABLE IF EXISTS ?:product_review_prepared_data;</item>
+        <item>
+            CREATE TABLE ?:product_reviews (
+                product_review_id mediumint(8) unsigned NOT NULL auto_increment,
+                product_id mediumint(8) unsigned NOT NULL default '0',
+                user_id mediumint(8) unsigned NOT NULL default '0',
+                name varchar(255) NOT NULL default '',
+                advantages mediumtext,
+                disadvantages mediumtext,
+                comment mediumtext,
+                rating_value tinyint(4) unsigned NOT NULL default '0',
+                ip_address varbinary(40) NOT NULL default '',
+                is_buyer char(1) NOT NULL default 'N',
+                product_review_timestamp int(11) unsigned NOT NULL default '0',
+                country_code char(2) NOT NULL default '',
+                city varchar(255) NOT NULL default '',
+                reply_user_id mediumint(8) unsigned NOT NULL default '0',
+                reply mediumtext,
+                reply_timestamp int(11) unsigned NOT NULL default '0',
+                helpfulness mediumint(8) NOT NULL default '0',
+                status char(1) NOT NULL default 'D',
+                storefront_id int(11) unsigned NOT NULL DEFAULT '0',
+                images_count int(2) unsigned NOT NULL DEFAULT '0',
+                vote_up smallint(5) unsigned NOT NULL DEFAULT '0',
+                vote_down smallint(5) unsigned NOT NULL DEFAULT '0',
+                PRIMARY KEY (product_review_id),
+                KEY idx_product_id (product_id),
+                KEY idx_user_id (user_id)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE ?:product_review_votes (
+                user_id mediumint(8) unsigned NOT NULL default '0',
+                product_review_id mediumint(8) unsigned NOT NULL default '0',
+                value int(2) NOT NULL default '0',
+                ip_address varbinary(40) NOT NULL default '',
+                timestamp int(11) unsigned NOT NULL default '0',
+                PRIMARY KEY  (user_id, product_review_id, ip_address)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE ?:product_review_prepared_data (
+                product_id mediumint(8) unsigned NOT NULL DEFAULT '0',
+                storefront_id int(11) unsigned NOT NULL DEFAULT '0',
+                average_rating decimal(4,2),
+                reviews_count mediumint(8) unsigned DEFAULT '0',
+                PRIMARY KEY  (product_id, storefront_id)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="demo" type="file">database/demo.sql</item>
+        <item editions="MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('view_product_reviews', 'Y', 'products', 'product_reviews', 'Y');</item>
+        <item editions="MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_product_reviews', 'Y', 'products', 'product_reviews', 'N');</item>
+        <item editions="MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('create_product_reviews', 'Y', 'products', 'product_reviews', 'N');</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:product_reviews;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:product_review_votes;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:product_review_prepared_data;</item>
+        <item for="uninstall" editions="MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'view_product_reviews'</item>
+        <item for="uninstall" editions="MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'manage_product_reviews'</item>
+        <item for="uninstall" editions="MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'create_product_reviews'</item>
+    </queries>
+    <email_templates>
+        <templates>
+            <item>
+                <code><![CDATA[product_reviews_reply_notification]]></code>
+                <area><![CDATA[C]]></area>
+                <status><![CDATA[A]]></status>
+                <default_subject><![CDATA[{{ company_name }}: {{ __("product_reviews.text_new_reply_notification") }}]]></default_subject>
+                <default_template><![CDATA[{{ snippet("header") }}
+
+  {{ __("hello") }}, {{ user_data.firstname }} {{ user_data.lastname }}<br /><br />
+
+{{ __("product_reviews.text_new_reply_notification") }}:&nbsp;<a href="{{ product_url }}">{{ product_data.product }}</a>
+<br /><br />
+
+<b>{{ __("product_reviews.reply") }}</b>:<br />
+{{ product_review_data.reply.reply|nl2br }}
+<br /><br />
+
+{{ __("view") }}:<br />
+<a href="{{ product_url }}">{{ product_url|puny_decode }}</a>
+{{ snippet("footer") }}]]></default_template>
+                <addon><![CDATA[product_reviews]]></addon>
+            </item>
+            <item>
+                <code><![CDATA[product_reviews_notification]]></code>
+                <area><![CDATA[A]]></area>
+                <status><![CDATA[A]]></status>
+                <default_subject><![CDATA[{{ company_name }}: {{ __("product_reviews.text_new_post_notification") }}]]></default_subject>
+                <default_template><![CDATA[{{ snippet("header") }}
+
+  {{ __("hello") }},<br /><br />
+
+{{ __("product_reviews.text_new_post_notification") }}:&nbsp;<a href="{{ product_url }}">{{ product_data.product }}</a>
+<br /><br />
+<b>{{ __("person_name") }}</b>:&nbsp;{% if product_review_data.user_data.name %}{{ product_review_data.user_data.name }}{% else %}{{ __("customer") }}{% endif %}<br />
+
+<b>{{ __("product_reviews.rating") }}</b>:&nbsp;<span style="color:#feba0f">{% if product_review_data.rating_value == "5" %}&#9733;&#9733;&#9733;&#9733;&#9733;</span>{% elseif product_review_data.rating_value == "4" %}&#9733;&#9733;&#9733;&#9733;&#9734;{% elseif product_review_data.rating_value == "3" %}&#9733;&#9733;&#9733;&#9734;&#9734;{% elseif product_review_data.rating_value == "2" %}&#9733;&#9733;&#9734;&#9734;&#9734;{% elseif product_review_data.rating_value == "1" %}&#9733;&#9734;&#9734;&#9734;&#9734;{% endif %}</span>
+<br />
+
+{% if review_fields == 'advanced' %}
+    {% if product_review_data.message.advantages %}
+    <b>{{ __("product_reviews.advantages") }}</b>:<br />
+    {{ product_review_data.message.advantages|nl2br }}
+    <br />
+    {% endif %}
+
+    {% if product_review_data.message.disadvantages %}
+    <b>{{ __("product_reviews.disadvantages") }}</b>:<br />
+    {{ product_review_data.message.disadvantages|nl2br }}
+    <br />
+    {% endif %}
+{% endif %}
+
+{% if product_review_data.message.comment %}
+<b>{{ __("product_reviews.comment") }}</b>:<br />
+{{ product_review_data.message.comment|nl2br }}
+<br /><br />
+{% endif %}
+
+{% if product_review_data.status == 'D' %}
+<b>{{ __("product_reviews.text_approval_notice") }}</b>
+<br />
+{% endif %}
+{{ __("view") }}:<br />
+<a href="{{ product_review_url }}">{{ product_review_url|puny_decode }}</a>
+{{ snippet("footer") }}]]></default_template>
+                <addon><![CDATA[product_reviews]]></addon>
+            </item>
+        </templates>
+    </email_templates>
+    <functions>
+        <item for="install">fn_product_reviews_addon_install</item>
+        <item for="uninstall">fn_product_reviews_addon_uninstall</item>
+    </functions>
+</addon>

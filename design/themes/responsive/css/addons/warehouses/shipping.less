@@ -1,0 +1,78 @@
+.ty-warehouses-shipping {
+
+    &__wrapper {
+        margin-top: 20px;
+        border-top: 1px solid darken(@base, 7%);
+    }
+
+    &__title {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    &__item {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    &__label {
+        display: inline-block;
+    }
+
+    &__value {
+        display: inline-block;
+    }
+
+    &__link {
+
+        &-text {
+            border-bottom: 1px dotted currentColor;
+        }
+    }
+
+    &__delay {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        color: @warehousesShippingDelayTextColor;
+    }
+}
+
+.ty-warehouses__geolocation {
+    display: inline-block;
+    max-width: 100%;
+
+    &__opener {
+        display: flex;
+        align-items: center;
+        padding: 8px 2px;
+
+        &-text {
+            margin-left: 5px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+
+.ty-product-list {
+    .ty-warehouses-shipping__wrapper {
+        display: flex;
+        align-items: center;
+        padding-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .ty-warehouses-shipping__item {
+        padding-right: 20px;
+    }
+
+    .ty-warehouses-shipping__title {
+        display: none;
+    }
+
+    .ty-warehouses-shipping__delay {
+        width: 100%;
+    }
+}

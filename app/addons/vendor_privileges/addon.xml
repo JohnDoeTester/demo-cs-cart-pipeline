@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>vendor_privileges</id>
+    <version>1.0</version>
+    <priority>4294967294</priority>
+    <position>0</position>
+    <status>disabled</status>
+    <auto_install>MULTIVENDOR</auto_install>
+    <default_language>en</default_language>
+    <compatibility>
+        <core_edition>MULTIVENDOR</core_edition>
+    </compatibility>
+    <settings>
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="default_vendor_usesrgroup">
+                        <type>selectbox</type>
+                        <default_value>0</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <functions>
+        <item for="install">fn_vendor_privileges_install</item>
+    </functions>
+    <queries>
+        <item for="install">INSERT INTO ?:usergroups (status, type) VALUES ('A', 'V');</item>
+        <item for="install" lang="en" table="usergroup_descriptions">REPLACE INTO ?:usergroup_descriptions (usergroup_id, lang_code, usergroup) VALUES ((SELECT usergroup_id FROM ?:usergroups WHERE type = 'V' LIMIT 1), 'en', 'Vendor');</item>
+        <item for="install" lang="ru" table="usergroup_descriptions">REPLACE INTO ?:usergroup_descriptions (usergroup_id, lang_code, usergroup) VALUES ((SELECT usergroup_id FROM ?:usergroups WHERE type = 'V' LIMIT 1), 'ru', 'Продавец');</item>
+
+        <item for="uninstall">DELETE FROM ?:usergroup_privileges WHERE usergroup_id IN (SELECT usergroup_id FROM ?:usergroups WHERE type = 'V');</item>
+        <item for="uninstall">DELETE FROM ?:usergroup_descriptions WHERE usergroup_id IN (SELECT usergroup_id FROM ?:usergroups WHERE type = 'V');</item>
+        <item for="uninstall">DELETE FROM ?:usergroup_links WHERE usergroup_id IN (SELECT usergroup_id FROM ?:usergroups WHERE type = 'V');</item>
+        <item for="uninstall">DELETE FROM ?:usergroups WHERE type = 'V';</item>
+
+        <item for="demo">INSERT INTO ?:usergroup_links (user_id, usergroup_id, status) (SELECT users.user_id, usergroups.usergroup_id, 'A' FROM ?:users AS users LEFT JOIN ?:usergroups AS usergroups ON usergroups.type = 'V' WHERE users.user_type = 'V' GROUP BY users.user_id, usergroups.usergroup_id);</item>
+        <item for="demo">REPLACE INTO ?:usergroup_privileges (usergroup_id, privilege) (SELECT usergroup_id, 'view_payments' FROM ?:usergroups WHERE type = 'V');</item>
+        <item for="demo">REPLACE INTO ?:usergroup_privileges (usergroup_id, privilege) (SELECT usergroup_id, 'manage_payments' FROM ?:usergroups WHERE type = 'V');</item>
+        <item>REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_vendor_usergroups', 'Y', 'users', 'user_groups', 'N');</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'manage_vendor_usergroups'</item>
+    </queries>
+</addon>

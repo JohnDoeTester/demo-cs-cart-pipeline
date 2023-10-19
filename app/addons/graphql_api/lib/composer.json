@@ -1,0 +1,10 @@
+{
+    "version": "0.0.1",
+    "require": {
+        "webonyx/graphql-php": "^0.13.1"
+    },
+    "scripts": {
+        "post-update-cmd": ["echo [WARNING] Delete all .git, examples, docs dirs", "rm -rf vendor/**/**/.git vendor/**/**/docs vendor/**/**/examples"],
+        "post-install-cmd": ["echo [WARNING] Delete all .git, examples, docs dirs", "rm -rf vendor/**/**/.git vendor/**/**/docs vendor/**/**/examples"]
+    }
+}

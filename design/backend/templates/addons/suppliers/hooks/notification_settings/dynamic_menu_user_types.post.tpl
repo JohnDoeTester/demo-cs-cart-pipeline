@@ -1,0 +1,1 @@
+<li class="{if ($receiver_type == 'S')} active{/if}"><a href="{"notification_settings.manage?receiver_type=S"|fn_url}">{__('suppliers.supplier_notifications')}</a></li>

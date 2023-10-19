@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<internal_templates scheme="1.0">
+  <templates>
+    <item>
+      <code><![CDATA[vendor_data_premoderation_product_approved]]></code>
+      <area><![CDATA[A]]></area>
+      <status><![CDATA[A]]></status>
+      <subject/>
+      <default_subject><![CDATA[{{ __("vendor_data_premoderation.notification.approved.title", {0: products_count}) }}]]></default_subject>
+      <template/>
+      <default_template><![CDATA[{{ __("vendor_data_premoderation.notification.approved.message", {
+    0: products_count, 
+    "[product]": product_name
+}) }}]]></default_template>
+      <params_schema/>
+      <params/>
+      <addon><![CDATA[vendor_data_premoderation]]></addon>
+    </item>
+    <item>
+      <code><![CDATA[vendor_data_premoderation_product_disapproved]]></code>
+      <area><![CDATA[A]]></area>
+      <status><![CDATA[A]]></status>
+      <subject/>
+      <default_subject><![CDATA[{{ __("vendor_data_premoderation.notification.disapproved.title", {0: products_count}) }}]]></default_subject>
+      <template/>
+      <default_template><![CDATA[{{ __("vendor_data_premoderation.notification.disapproved.message", {
+    0: products_count, 
+    "[product]": product_name
+}) }}]]></default_template>
+      <params_schema/>
+      <params/>
+      <addon><![CDATA[vendor_data_premoderation]]></addon>
+    </item>
+  </templates>
+  <snippets/>
+</internal_templates>

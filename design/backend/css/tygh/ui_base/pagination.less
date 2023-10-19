@@ -1,0 +1,100 @@
+//pagination
+.pagination-wrap {
+
+    display: flex;
+    flex-wrap: wrap; 
+
+    .pagination-total-items {
+        font-size: @baseFontSize;
+    }
+    .pagination {
+        margin: 6px 0px 9px 0px;
+
+        ul > li > a {
+            padding-right: 18px;
+            padding-left: 18px;
+        }
+        .disabled {
+            a {
+                text-decoration: none;
+            }
+        }
+        &.pagination-start ul > li:last-child > a {
+            .border-right-radius(0);
+        }
+        &.pagination-end ul > li:first-child > a {
+            .border-left-radius(0);
+        }
+    }
+    .pagination-dropdown {
+        margin: 6px 0px 9px 0px;
+
+        .btn-group {
+            .box-shadow(0 1px 2px rgba(0,0,0,.05));
+            background-color: @paginationBackground;
+            min-width: 90px;
+
+            .dropdown-toggle {
+                width: 100%;
+                border-radius: 0;
+                border-left: 0;
+                border-right: 0;
+                text-overflow: ellipsis;
+                overflow-x: hidden;
+            }
+            &:hover,
+            &:focus,
+            &.open {
+                background-color: @paginationActiveBackground;
+            }
+        }
+        &-btn {
+            display: block;
+            padding: 3px 20px;
+            opacity: 0.5;
+            white-space: nowrap;
+        }
+        &-total {
+            display: none;
+
+            & + .divider {
+                display: none;
+            }
+        }
+
+    }
+}
+.paginate-top .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+}
+.pagination-desc {
+    margin: 0px 0px 0px 6px;
+    color: #979797;
+    line-height: 17px;
+    .btn-toolbar {
+        margin-top: 14px;
+        margin-bottom: 0px;
+    }
+    .btn-group {
+        vertical-align: top;
+    }
+    .btn.btn-text.dropdown-toggle {
+        font-size: @baseFontSize;
+        line-height: @baseLineHeight;
+        font-weight: normal;
+    }
+}
+.pagination__extra {
+    margin: 6px 0 9px auto;
+    padding-left: 5px;
+    width: 100%;
+    
+    @media (max-width: 900px) {
+        margin: 10px 0 0 auto;
+    }
+    
+    @media (min-width: 769px) {
+        width: auto;
+    }
+}

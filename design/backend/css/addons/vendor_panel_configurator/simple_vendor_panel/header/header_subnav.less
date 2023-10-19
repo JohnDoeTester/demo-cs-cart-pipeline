@@ -1,0 +1,58 @@
+// Header: Line 2
+@media (min-width: @TabletBreakpoint + 1) {
+
+    // Subnav
+    .header-subnav,
+    .nav__menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-subnav {
+        gap: 20px;
+        background-color: transparent;
+        box-shadow: none;
+        max-width: none;
+        z-index: auto;
+    }
+
+    // Home button
+    .nav__home-icon {
+        && {
+            display: none;
+        }
+    }
+
+    .nav__home-text {
+        display: block;
+    }
+
+    // User menu
+    .nav__user-menu-link {
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+
+        && {
+            display: flex;
+        }
+    }
+
+    .nav__profile-text {
+        display: inline-block;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+    
+    .nav__user-menu {
+        // TODO
+        max-width: ~"calc(100% - 58px)";
+    }
+
+    .nav__profile-text {
+        font-size: @fontSizeLarge;
+        font-weight: bold;
+    }
+
+}

@@ -1,0 +1,19 @@
+/*
+    views/addons/components/rating/addon_rating_overview.tpl
+*/
+
+.cs-addons-rating-addon-rating-overview {
+    display: grid;
+
+    @media (min-width: @TabletBreakpoint + 1px) {
+        grid-auto-flow: column;
+        align-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    > *:last-child {
+        @media (min-width: @TabletBreakpoint + 1px) {
+            justify-self: end;
+        }
+    }
+}

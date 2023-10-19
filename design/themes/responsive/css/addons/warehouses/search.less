@@ -1,0 +1,147 @@
+.ty-warehouses-stores-list {
+
+    &__header {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: flex;
+            flex-flow: row wrap;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-flow: row wrap;
+        border-bottom: 1px solid @warehousesStoreBorderColor;
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+.ty-warehouses-store {
+    &__group-name {
+        padding: 4px 20px;
+        border-top: 1px solid @warehousesStoreBorderColor;
+        border-bottom: 1px solid @warehousesStoreBorderColor;
+        margin-top: -1px;
+        background-color: @warehousesCityBackgroundColor;
+        font-weight: bold;
+    }
+
+    &__name {
+        display: inline-block;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    &__address {
+        font-size: 12px;
+        color: @warehousesAdditionalInfoColor;
+    }
+
+    &__open-hours {
+        font-size: 12px;
+        color: @warehousesAdditionalInfoColor;
+    }
+
+    &__phone {
+        font-size: 12px;
+        color: @warehousesAdditionalInfoColor;
+    }
+}
+
+.ty-warehouses-store__header-item {
+    font-weight: bold;
+    width: 100%;
+}
+
+.ty-warehouses-store__name-wrapper,
+.ty-warehouses-store__header-item--name-wrapper {
+    padding: 15px 20px 0 20px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        padding-bottom: 15px;
+        flex: 0.40;
+    }
+}
+
+.ty-warehouses-store__open-hours,
+.ty-warehouses-store__header-item--open-hours {
+    padding: 0 20px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        flex: 0.30;
+    }
+}
+
+.ty-warehouses-store__phone,
+.ty-warehouses-store__header-item--phone {
+    padding: 0 20px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        flex: 0.15;
+    }
+}
+
+.ty-warehouses-store__availability,
+.ty-warehouses-store__header-item--availability {
+    padding: 0 20px 15px 20px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        padding-top: 15px;
+        flex: 0.15;
+    }
+}
+
+.ty-warehouses-stores-search {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__query-wrapper {
+        padding: 0 10px 0 10px;
+        width: 100%;
+
+        @media (min-width: 768px) {
+            flex-grow: 1;
+            padding-right: 20px;
+            width: auto;
+        }
+    }
+
+    &__view-wrapper {
+        display: flex;
+        padding: 10px 0 10px 0;
+        justify-content: center;
+        width: 100%;
+
+        @media (min-width: 768px) {
+            justify-content: flex-end;
+            width: auto;
+        }
+    }
+
+    &__view {
+        padding-right: 30px;
+    }
+
+    &__query {
+        display: block;
+        width: 100%;
+        font-size: 14px  !important;
+        height: 41px  !important;
+        border: 1px solid @warehousesSearchQueryBorderColor !important;
+        border-radius: @warehousesSearchQueryBorderRadius !important;
+    }
+}

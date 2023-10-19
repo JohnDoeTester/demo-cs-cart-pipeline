@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+  <id>onekpay</id>
+  <version>1.0.1</version>
+  <default_language>en</default_language>
+  <priority>100</priority>
+  <status>active</status>
+
+  <functions>
+    <item for="install">fn_onekpay_install</item>
+    <item for="uninstall">fn_onekpay_uninstall</item>
+  </functions>
+</addon>

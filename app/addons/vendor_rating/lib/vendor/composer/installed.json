@@ -1,0 +1,55 @@
+{
+    "packages": [
+        {
+            "name": "seregas/formula",
+            "version": "0.3.0",
+            "version_normalized": "0.3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/socialist/formula.git",
+                "reference": "373d8569df4b61c1672517263c704a949b51920c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/socialist/formula/zipball/373d8569df4b61c1672517263c704a949b51920c",
+                "reference": "373d8569df4b61c1672517263c704a949b51920c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/dbunit": "2.0.*",
+                "phpunit/php-code-coverage": "^4",
+                "phpunit/php-invoker": "1.1.*",
+                "phpunit/phpunit": "5.4.*"
+            },
+            "time": "2019-01-24T10:40:30+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "socialist\\formula\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Social IST",
+                    "email": "sergey@socialist.pw"
+                }
+            ],
+            "description": "Formula",
+            "support": {
+                "issues": "https://github.com/socialist/formula/issues",
+                "source": "https://github.com/socialist/formula/tree/master"
+            },
+            "install-path": "../seregas/formula"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

@@ -1,0 +1,1 @@
+{$company_data.company_name nofilter}: {__("product_reviews.text_new_reply_notification")}

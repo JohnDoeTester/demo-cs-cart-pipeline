@@ -1,0 +1,13 @@
+/* Custom blocks card video content */
+/* tygh/pages/index/components/custom_blocks_section/custom_blocks_card.less */
+@supports (aspect-ratio: 1) {
+    .redactor-box iframe[src*="youtube.com"] {
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+    }
+
+    .custom-blocks-card__inner iframe[src*="youtube.com"] {
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+    }
+}

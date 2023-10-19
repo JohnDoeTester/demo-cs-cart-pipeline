@@ -1,0 +1,9 @@
+{include 
+    file="addons/mobile_app/components/container.tpl" 
+    content="" 
+    add_navbar=false 
+    title=__("mobile_app.section.bottom_tabs") 
+    meta="mockup__category"
+    input_name="bottom_tabs"
+    status_bar_base_style=true
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>graphql_api</id>
+    <version>1.0</version>
+    <priority>4200</priority>
+    <status>active</status>
+    <unmanaged>1</unmanaged>
+    <auto_install>ULTIMATE,MULTIVENDOR</auto_install>
+    <default_language>en</default_language>
+    <compatibility>
+        <php_version>
+            <min>7.1.0</min>
+        </php_version>
+        <dependencies>storefront_rest_api</dependencies>
+    </compatibility>
+</addon>

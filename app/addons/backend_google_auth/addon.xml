@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>backend_google_auth</id>
+    <version>1.0.0</version>
+    <priority>1</priority>
+    <status>active</status>
+    <default_language>en</default_language>
+    <compatibility>
+        <dependencies>hybrid_auth</dependencies>
+    </compatibility>
+    <settings edition_type="ROOT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="backend_google_warning" edition_type="ROOT">
+                        <type>template</type>
+                        <default_value>warning.tpl</default_value>
+                    </item>
+                    <item id="credentials">
+                        <type>header</type>
+                    </item>
+                    <item id="backend_google_auth_info" edition_type="ROOT">
+                        <type>template</type>
+                        <default_value>credentials.tpl</default_value>
+                    </item>
+                    <item id="backend_google_auth_client_id" edition_type="ROOT">
+                        <type>input</type>
+                    </item>
+                    <item id="backend_google_auth_client_secret" edition_type="ROOT">
+                        <type>input</type>
+                    </item>
+                    <item id="backend_google_auth_check" edition_type="ROOT">
+                        <type>template</type>
+                        <default_value>check.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+</addon>

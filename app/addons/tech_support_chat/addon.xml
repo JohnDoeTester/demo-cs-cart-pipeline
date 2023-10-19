@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>tech_support_chat</id>
+    <version>1.0</version>
+    <priority>4294967294</priority>
+    <position>0</position>
+    <status>active</status>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <unmanaged>1</unmanaged>
+    <default_language>en</default_language>
+</addon>

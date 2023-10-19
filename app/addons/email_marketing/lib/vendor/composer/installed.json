@@ -1,0 +1,58 @@
+{
+    "packages": [
+        {
+            "name": "jhut89/mailchimp3php",
+            "version": "3.2.2",
+            "version_normalized": "3.2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP.git",
+                "reference": "56e10b29393b52b81bead2577e5f88845499c278"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jhut89/Mailchimp-API-3.0-PHP/zipball/56e10b29393b52b81bead2577e5f88845499c278",
+                "reference": "56e10b29393b52b81bead2577e5f88845499c278",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "php": ">=7.2.0",
+                "phpunit/phpunit": "^5",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "time": "2020-05-20T13:20:01+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MailchimpAPI\\": "src/",
+                    "MailchimpTests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Hutcheson",
+                    "email": "hutch@theresearchgrp.com"
+                }
+            ],
+            "description": "A php library for version 3.0 of MailChimp's API",
+            "homepage": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP",
+            "support": {
+                "issues": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP/issues",
+                "source": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP/tree/3.2.2"
+            },
+            "install-path": "../jhut89/mailchimp3php"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

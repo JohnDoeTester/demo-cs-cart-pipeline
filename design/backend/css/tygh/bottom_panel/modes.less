@@ -1,0 +1,127 @@
+.bp-modes {
+    display: none;
+    grid-area: modes;
+
+    &__item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        opacity: 0.6;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+        height: 100%;
+        border: 0;
+        color: #fff;
+        background: none;
+
+        &:hover,
+        &:focus,
+        &--active {
+            outline: 0;
+            opacity: 1;
+            color: #fff;
+        }
+
+        &:hover &-icon {
+            -webkit-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+        &:hover&--preview,
+        &--active&--preview {
+            color: var(--bp-preview-color);
+        }
+
+        &:hover&--build,
+        &--active&--build {
+            color: var(--bp-build-color);
+        }
+
+        &:hover&--text,
+        &--active&--text {
+            color: var(--bp-text-color);
+        }
+
+        &:hover&--theme,
+        &--active&--theme {
+            color: var(--bp-theme-color);
+        }
+
+        &--disabled &-icon {
+            opacity: 0.1;
+        }
+
+        &--disabled&:hover {
+            color: #fff;
+            cursor: auto;
+        }
+
+        &--disabled&:hover &-icon {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    &__item-icon {
+        -webkit-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+
+    &__active {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 4px;
+        background: transparent;
+        width:~"calc(100% / 4)";
+        -webkit-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+
+        &--preview {
+            background-color: var(--bp-preview-color);
+        }
+
+        &--build {
+            background-color: var(--bp-build-color);
+        }
+
+        &--text {
+            background-color: var(--bp-text-color);
+        }
+
+        &--theme {
+            background-color: var(--bp-theme-color);
+        }
+    }
+
+    @media (min-width: 768px) {
+        display: -ms-grid;
+        display: grid;
+        position: relative;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+        -ms-grid-columns:
+            minmax(48px, 64px)
+            minmax(48px, 64px)
+            minmax(48px, 64px)
+            minmax(48px, 64px);
+        grid-template-columns:
+            minmax(48px, 64px)
+            minmax(48px, 64px)
+            minmax(48px, 64px)
+            minmax(48px, 64px);
+    }
+}

@@ -1,0 +1,32 @@
+// Header: Line 3
+@media (min-width: @TabletBreakpoint + 1) {
+    .nav__actions {
+        top: 0;
+        padding: 6px 0;
+        box-shadow: none;
+        border: 0;
+    }
+
+    .actions__wrapper {
+        gap: 20px;
+    }
+
+    .nav__actions-title {
+        && {
+            padding: 0;
+        }
+    }
+
+    .title__heading {
+        && {
+            font-size: 30px;
+            font-weight: bold;
+            line-height: normal;
+        }
+    }
+
+    // Remover border from action buttons
+    .nav__actions .btn:not(.btn-primary):not(:hover) {
+        border-color: transparent;
+    }
+}

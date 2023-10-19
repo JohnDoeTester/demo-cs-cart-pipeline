@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+	<id>image_zoom</id>
+	<priority>3500</priority>
+	<version>1.0</version>
+	<position>100</position>
+	<status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+        <tab_order>prepend</tab_order>
+        <settings edition_type="ROOT,STOREFRONT">
+            <sections>
+                <section id="general">
+                    <items>
+                        <item id="cz_animation_time">
+                            <type>input</type>
+                            <default_value>200</default_value>
+                        </item>
+                        <item id="cz_zoom_position">
+                            <type>selectbox</type>
+                            <default_value>3</default_value>
+                            <variants>
+                                <item id="3">
+                                </item>
+                                <item id="5">
+                                </item>
+                                <item id="13">
+                                </item>
+                                <item id="11">
+                                </item>
+                            </variants>
+                        </item>
+                    </items>
+                </section>
+            </sections>
+        </settings>
+</addon>

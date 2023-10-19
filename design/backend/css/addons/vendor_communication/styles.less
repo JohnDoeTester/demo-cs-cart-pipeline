@@ -1,0 +1,296 @@
+@import "../../config.less";
+/* ==========================================================================
+Vendor communication
+========================================================================== */
+
+// Main wrapper
+#content_view_thread {
+    height: 100%;
+}
+
+// Fix: Tabs are not 100% high.
+.vendor_communication__view-thread-wrapper {
+    min-height: 1020px;
+}
+
+.vendor_communication__view-thread-wrapper:not(.hidden) {
+    display: flex;
+}
+
+.vendor_communication__view-thread {
+    display: flex;
+    min-height: 100%;
+}
+
+// Message writing form
+.add_message_form {
+    margin: 0;
+
+    & &--wrapper {
+        padding: 20px 20px 35px 20px;
+
+        .controls {
+            margin-left: 80px;
+        }
+    }
+
+    & &--textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    & &--refresh-btn.btn {
+        padding: 4px 10px;
+    }
+}
+
+// Tickets
+.messages {
+    margin-top: auto;
+    padding-bottom: 220px;
+}
+.message-title {
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    a {
+        display: block;
+    }
+}
+.no-link {
+    color: #333;
+    
+    &:hover, &:focus {
+        cursor: auto;
+        color: #333;
+        text-decoration: none;
+    }
+}
+.vendor-communication__message {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+// Chat
+.vendor-communication-post {
+    position: relative;
+    margin-top: 3px;
+    padding: 12px 15px 17px;
+    border: 1px solid #e9e9e9;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+
+    &__content {
+        margin-bottom: 10px;
+        text-align: center;
+        position: relative;
+    }
+    &__img {
+        float: right;
+        width: 55px;
+        height: 55px;
+
+        img {
+            border-radius: 50%;
+            border: 1px solid #e1e1e1;
+        }
+        .icon-user {
+            border-radius: 50%;
+            border: 1px solid #e1e1e1;
+            width: 60px;
+            height: 60px;
+            font-size: @inputHeight;
+            line-height: 1.9;
+            color: rgba(0, 0, 0, 0.3);
+            background-color: #f5f5f5;
+        }
+    }
+    &__info {
+        overflow: hidden;
+        padding-right: 25px;
+    }
+    &__author {
+        font-weight: bold;
+        text-align: right;
+        margin-top: 15px;
+    }
+    &__date {
+        color: #adadad;
+    }
+    &__message {
+        word-wrap: break-word;
+        text-align: left;
+    }
+}
+
+// New thread from
+.vendor-communication-add-message__title {
+    width:auto !important;
+}
+
+// Customer post
+.vendor-communication-post__customer {
+
+    .vendor-communication-post {
+        background-color: #fff;
+
+        &__author {
+            text-align: left;
+        }
+    }
+    .icon-caret {
+        left: 14px;
+        right: auto;
+        transform: scaleX(-1);
+        
+        &-inner {
+            border-right-color: #fff;
+        }
+    }
+}
+
+.vendor-communication-logo__image {
+    border-radius: 50%;
+    border: 1px solid #dce3ea;
+}
+
+// New message
+.btn.btn-icon-link {
+    text-decoration: none;
+    padding-left: 0;
+    padding-right: 0;
+
+    .cs-icon {
+        color: inherit;
+        opacity: 1;
+    }
+}
+.btn-send {
+    min-width: 80px;
+}
+.post-object {
+    margin-left: 50px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 500px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.additional {
+    &-info {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &-text {
+        color: #999;
+    }
+}
+.animation-rotate {
+    
+    .cs-icon {
+        transition-property: transform;
+    }
+    &:focus .cs-icon {
+        transform: rotate(180deg);
+        transition-duration: 0.5s;
+    }
+}
+
+.vendor-communication-object-data {
+    .post-object {
+        margin-left: 20px;
+    }
+}
+
+.vendor-communication-thread {
+    .select2-search__field {
+        margin-left: 5px;
+        padding-right: 0px;
+    }
+}
+// Fixed bottom
+.admin-content-wrap {
+
+    .fixed-bottom {
+        display: inline-block;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        color: #333;
+        background: #f5f5f5;
+
+        border-top: 1px solid #e9e9e9;
+
+        &-wrapper {
+            width: 100%;
+            display: inline-block;
+        }
+    }
+}
+
+// New message label
+.status {
+
+    &-label {
+        min-width: 10px;
+    }
+    &-new {
+        
+        &__label {
+            display: inline-block;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            background: #10a1f5;
+        }
+        &__text {
+            font-weight: bold;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+}
+
+// Caret
+.icon-caret {
+    position: absolute;
+    bottom: -16px;
+    right: 14px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+
+    &-outer,
+    &-inner {
+        position: absolute;
+        left: 0;
+        width:0;
+        height:0;
+        border-bottom: 16px solid transparent;
+        border-right: 16px solid #e9e9e9;
+    }
+    &-inner {
+        left: 1px;
+        border-width: 14px;
+        border-right-color: #f5f5f5;
+    }
+}
+
+@media (max-width: @TabletBreakpoint) {
+    .message-title {
+        max-width: unset !important;
+    }
+}
+
+/* ==========================================================================
+/Vendor communication
+========================================================================== */

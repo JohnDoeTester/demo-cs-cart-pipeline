@@ -1,0 +1,69 @@
+.bp-info {
+    display: inline; // Do not use flex https://bugs.webkit.org/show_bug.cgi?id=169125
+    -webkit-transform: translate3d(0, 50%, 1px); // Firefox transparent text fix
+    transform: translate3d(0, 50%, 1px);
+    margin-top: -1.2em;
+    color: var(--bp-text-color-gray);
+    font-size: var(--bp-font-size);
+    font-family: var(--bp-font);
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+
+    @media (min-width: 1024px) {
+        display: inline;
+    }
+
+    &--animation {
+        color: transparent;
+        background: -webkit-gradient(linear, left top, right top,
+            from(var(--bp-text-color-gray)),
+                color-stop(60%, var(--bp-text-color-gray)),
+                color-stop(80%, var(--bp-text-color-inverse)),
+            to(var(--bp-text-color-gray)));
+        background: -webkit-linear-gradient(left,
+            var(--bp-text-color-gray) 0%,
+            var(--bp-text-color-gray) 60%,
+            var(--bp-text-color-inverse) 80%,
+            var(--bp-text-color-gray) 100%);
+        background: -o-linear-gradient(left,
+            var(--bp-text-color-gray) 0%,
+            var(--bp-text-color-gray) 60%,
+            var(--bp-text-color-inverse) 80%,
+            var(--bp-text-color-gray) 100%);
+        background: linear-gradient(90deg,
+            var(--bp-text-color-gray) 0%,
+            var(--bp-text-color-gray) 60%,
+            var(--bp-text-color-inverse) 80%,
+            var(--bp-text-color-gray) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-animation: 10s bp-info--animation infinite linear;
+        animation: 10s bp-info--animation infinite linear;
+        -webkit-transition: all 5s;
+        -o-transition: all 5s;
+        transition: all 5s;
+    }
+
+}
+
+@-webkit-keyframes bp-info--animation {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: 300px;
+    }
+}
+
+@keyframes bp-info--animation {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: 300px;
+    }
+}

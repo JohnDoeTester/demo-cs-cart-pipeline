@@ -1,0 +1,45 @@
+:root {
+    --bp-bottom-panel-height: 0px;
+}
+
+:root.bp-panel-active {
+    --bp-bottom-panel-height: 48px;
+}
+
+@media (min-width: 768px) {
+    :root.bp-panel-active {
+        --bp-bottom-panel-height: 56px;
+    }
+}
+
+.bp__container {
+    --bp-font-size: 13px;
+    --bp-font:
+        -apple-system, BlinkMacSystemFont, 'San Francisco', Roboto, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
+    --bp-main-color: #0284d5;
+    --bp-cscart-color: #51ccfb;
+    --bp-main-color-hover: #0374ae;
+    --bp-main-color-animation: #51ccfb;
+    --bp-radius: 4px;
+
+    --bp-panel-bg: rgba(0, 0, 0, 0.8);
+    --bp-panel-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.5);
+
+    --bp-bottom-button-bg-hover: #f7f7f7;
+    --bp-bottom-button-shadow:
+        0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 6px 4px 0 rgba(0, 0, 0, 0.14);
+    --bp-bottom-button-shadow--hover:
+        0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+
+    --bp-preview-color: #29b6f6;
+    --bp-build-color: #ffca28;
+    --bp-text-color: #66bb6a;
+    --bp-theme-color: #ec407a;
+
+    --bp-text-color-inverse: #fff;
+    --bp-text-color-gray: #999;
+
+    --bp-dropdown-menu-bg: #333;
+    --bp-dropdown-menu-group-divider: 1px solid rgba(255, 255, 255, 0.1);
+    --bp-dropdown-menu-item-hover-bg: rgba(255, 255, 255, 0.15);
+}

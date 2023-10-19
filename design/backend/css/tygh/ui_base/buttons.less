@@ -1,0 +1,424 @@
+// Btn
+.btn {
+    padding-left: round(@baseLineHeight / 1.7);
+    padding-right: round(@baseLineHeight / 1.7);
+    color: @textButtonColor;
+    background-color: #fff;
+    background-image: none;
+    text-shadow: none;
+    box-shadow: none;
+    .box-shadow(none);
+    border: 1px solid @btnBorder;
+    .caret {
+        margin-top: @baseLineHeight / 2 - 2px;
+        border-top: 4px solid @textButtonColor;
+    }
+    &.disabled, &[disabled] {
+        background: #fafbfc;
+        [class^="exicon-"],[class*=" exicon-"], [class^="icon-"], [class*=" icon-"] {
+            color: #999;
+        }
+    }
+    &:hover {
+        color: @textButtonColor;
+        background-color: #f5f6f7;
+
+        &.disabled,
+        &[disabled] {
+            color: #333;
+            background: #fafbfc;
+        }
+    }
+    &:focus {
+        color: @textButtonColor;
+        outline: none;
+        background-color: #f0f1f2;
+        .box-shadow(none);
+    }
+}
+.btn-link--contents {
+    padding: 0;
+    margin: 0;
+    display: inline;
+    padding-bottom: 5px;
+}
+.btn.active,
+.btn:active {
+    color: @textButtonColor;
+    background-color: #f5f6f7;
+    background-image: none;
+    outline: 0;
+    .box-shadow(none);
+}
+
+.btn-link,
+.btn-link:active,
+.btn-link[disabled] {
+  background-color: transparent;
+  background-image: none;
+  .box-shadow(none);
+}
+.btn-link {
+  border-color: transparent;
+}
+.btn-link:hover,
+.btn-link:focus {
+  color: @linkColorHover;
+  text-decoration: underline;
+  background-color: transparent;
+}
+.btn-link[disabled]:hover,
+.btn-link[disabled]:focus {
+  color: @grayDark;
+  text-decoration: none;
+}
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary.active,
+
+.btn-primary.disabled,
+.btn-primary[disabled] {
+    color: @btnPrimaryText;
+    background-color: @btnPrimaryBackground;
+    border: 1px solid @btnPrimaryBackground;
+
+    [class^="icon-"] {
+        color: #fff;
+    }
+    &:hover, &:focus {
+        color: #fff;
+        background-color: darken(@btnPrimaryBackground, 6%);
+        border: 1px solid darken(@btnPrimaryBackground, 6%);
+    }
+    > .inverse-icon {
+        color: white;
+    }
+}
+.btn-text {
+    background: none !important;
+    border: 0px !important;
+    display: inline-block;
+    margin-top: -2px;
+    padding-right: 0px;
+    padding-left: 0px;
+    //.box-shadow(none !important);
+    color: @textButtonColor;
+    text-decoration: none !important;
+    font-size: @baseFontSize;
+    &:hover {
+        color: darken(@textButtonColor, 6%);
+    }
+    .caret {
+        margin-top: @baseLineHeight / 2 - 2px;
+        border-top-color: @textButtonCaretColor;
+        border-bottom-color: @textButtonCaretColor;
+        line-height: 5px !important;
+        opacity: 1;
+    }
+}
+.btn-small {
+    font-size: @baseFontSize;
+    .caret {
+        margin-top: @baseLineHeight / 2 - 2px;
+    }
+}
+.btn-checkbox {
+    position: relative;
+    margin: -4px -8px;
+    input[type="checkbox"] {
+        position: absolute;
+        top: 4px;
+        left: 7px;
+        z-index: 5;
+    }
+    .caret {
+        margin-left: 100%;
+    }
+    .dropdown-toggle {
+        .box-shadow(none);
+        .border-radius(@baseBorderRadius);
+        padding: 3px 13px 3px 6px;
+        width: 50px;
+        height: @inputHeight;
+        border: 1px solid white ;
+        background: transparent;
+    }
+    .dropdown-menu, .caret {
+        visibility: hidden;
+    }
+}
+.btn-text.dropdown-toggle {
+    .icon-user {
+        color: #00a0d0;
+    }
+}
+.dropdown > .btn-text {
+    white-space: nowrap;
+}
+.btn-success{
+    background-color: @successButton;
+    color: #fff;
+    border-color: @successButton;
+    &:hover, &:focus {
+        color: #fff;
+        background-color: darken(@successButton, 6%);
+        border: 1px solid darken(@successButton, 6%);
+    }
+    &.disabled, &[disabled], &.disabled:hover, &[disabled]:hover {
+        opacity: 0.5;
+        color: #fff;
+        background-color: darken(@successButton, 6%);
+        border: 1px solid darken(@successButton, 6%);
+    }
+}
+.btn-group {
+    .btn-text {
+        font-size: @baseFontSize;
+    }
+    .btn.dropdown-toggle:first-child,
+    .btn.dropdown-toggle:last-child {
+        .border-radius(@baseBorderRadius);
+    }
+    &.open {
+        .dropdown-toggle {
+            .box-shadow(none);
+        }
+    }
+}
+.btn-group > .btn-mini {
+    font-size: @fontSizeMini;
+}
+.btn-group > .btn-small {
+    font-size: @fontSizeSmall;
+}
+.btn-group > .btn-large {
+    font-size: @fontSizeLarge;
+}
+.btn-indent {
+    margin-bottom: 10px;
+}
+// .btn-group must open at all width on mobile devices
+@media (max-width: @TabletBreakpoint) {
+    .btn-group,
+    .dropdown {
+        &.open {
+            position: unset;
+
+            .dropdown-menu {
+                top: auto;
+                left: 17px;
+                right: 17px;
+            }
+        }
+    }
+    .controls {
+        .btn-group,
+        .dropdown {
+            &.open .dropdown-menu {
+                left: 0;
+                right: 0;
+            }
+        }
+    }
+}
+@media (width: @TabletBreakpoint) {
+    .controls {
+        .btn-group,
+        .dropdown {
+            &.open .dropdown-menu {
+                right: auto;
+            }
+        }
+    }
+}
+
+.input-color {
+    .box-shadow(none);
+    width: 50px;
+}
+.checkbox-list label{
+    display: inline-block;
+    margin-right: 10px;
+    min-width: 185px;
+    input[type="checkbox"] {
+        margin-top: 0 !important;
+        margin-right: 9px;
+    }
+}
+.btn-live-edit {
+    margin: 12px 0px;
+}
+// show dropdown menu on hover
+.btn-hover {
+    padding-bottom: 2px;
+    &:hover ul.dropdown-menu{
+        display: block;
+    }
+    ul.dropdown-menu{
+        margin-top: 0px;
+    }
+}
+
+[class*="o-status-"] {
+    white-space: nowrap;
+}
+
+
+// FF bug with btn height
+input[type="submit"].btn {
+    height: @inputHeight;
+}
+textarea {
+    resize: vertical;
+}
+.btn-toolbar {
+    .hidden + .btn,
+    .hidden + .btn-group {
+        margin-left: 5px;
+    }
+    // ff bug with height
+    .btn-group input.btn {
+        box-sizing: border-box;
+        height: 30px;
+    }
+}
+.btn-toolbar .tab-tools {
+    > .btn + .btn,
+    > .btn-group + .btn,
+    > .btn + .btn-group {
+      margin-left: 5px;
+    }
+}
+.tab-tools {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.control-toolbar {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.control-toolbar__btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.control-toolbar__btns-left {
+    display: flex;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+.control-toolbar__btns-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 3;
+    gap: 10px;
+
+    @media (min-width: @TabletBreakpoint + 1px) {
+        flex-direction: row;
+    }
+}
+.control-toolbar__btns-right {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+.control-toolbar__select {
+    width: 100%;
+    max-width: 500px;
+
+    .select2-search__field {
+        width: 100% !important;
+        min-width: 200px !important;
+        margin-bottom: 0;
+    }
+}
+.rigth-bar {
+    .clearfix();
+    float: right;
+    margin-bottom: 15px;
+}
+
+// List with button
+.list-with-btns {
+    margin-top: 15px;
+    li {
+        margin-bottom: 20px;
+    }
+    .list-description {
+        display: inline-block;
+        width: 143px;
+        vertical-align: top;
+    }
+    .list-btns {
+
+    }
+}
+
+.form-edit.form-horizontal .controls .btn-group {
+    margin-top: 2px;
+}
+
+.btn-expand {
+    display: flex;
+    width: @inputHeight;
+    height: @inputHeight;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+
+    &--header {
+        height: 22px;
+        vertical-align: top;
+    }
+
+    .icon-caret-right {
+        margin-top: 0;
+    }
+
+    &-wrapper {
+        display: inline-block;
+        width: @inputHeight;
+        height: 22px;
+        text-align: center;
+        vertical-align: top;
+    }
+}
+
+button.label, button.badge {
+    border: 0;
+}
+
+.btn-group.open {
+    .btn-primary.dropdown-toggle {
+        background-color: darken(@btnPrimaryBackground, 6%);
+    }
+}
+
+.btn-primary,
+.btn-warning,
+.btn-danger,
+.btn-info,
+.btn-success,
+.btn-inverse {
+    .caret {
+        border-top-color: #fff;
+        border-bottom-color: #fff;
+    }
+}
+
+.btn-group > {
+
+    .btn-add,
+    .btn-clone {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}

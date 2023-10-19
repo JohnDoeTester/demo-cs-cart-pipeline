@@ -1,0 +1,28 @@
+.bp {
+    
+    * {
+        box-sizing: border-box;
+    }
+}
+
+.bp-tygh-main-container {
+    padding-bottom: var(--bp-bottom-panel-height);
+}
+
+.dialog-is-open .bp__container {
+    display: none;
+}
+
+// Admin panel
+// Sidebar
+@media (max-width: 1340px) {
+    .admin-content-wrap .sidebar {
+        margin-bottom: var(--bp-bottom-panel-height);
+    }
+}
+
+// Storefront
+// Theme editor
+html.bp-panel-active .theme-editor {
+    bottom: var(--bp-bottom-panel-height);
+}

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2018-03-05 14:34">
+    <shop>
+        <name>SHOP NAME</name>
+        <company>Company name</company>
+        <url>https://example.com/</url>
+        <email>support@example.com</email>
+        <currencies>
+            <currency id="UAH" rate="1"/>
+        </currencies>
+        <categories>
+            <category id="2" parentId="1">Автоинструмент</category>
+            <category id="1">Каталог товаров</category>
+            <category id="3" parentId="2">Наборы инструментов</category>
+            <category id="4" parentId="2">Ключи</category>
+        </categories>
+        <offers>
+            <offer id="128675" available="true" available-kiev="true" available-kharkov="true" type="vendor.model">
+                <url>https://exmaple.com/</url>
+                <price>589.00</price>
+                <currencyId>UAH</currencyId>
+                <categoryId>46</categoryId>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-1.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-2.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-3.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-4.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-5.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-6.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-7.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-8.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-9.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-10.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-11.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/kompressori-avtomobilnie/intertool-ac-0001-source-12.jpg</picture>
+                <store>true</store>
+                <pickup>true</pickup>
+                <delivery>true</delivery>
+                <vendor>VENDOR</vendor>
+                <vendorCode>AC-0001</vendorCode>
+                <model>AC-0001</model>
+                <typePrefix>Компрессор автомобильный 12В. Один цилиндр 19 мм</typePrefix>
+                <name><![CDATA[Компрессор автомобильный 12В. Один цилиндр 19 мм VENDOR AC-0001]]></name>
+                <description>&lt;div&gt;&lt;font face=&quot;Arial&quot; size=&quot;2&quot;&gt;Компактный автомобильный компрессор INTERTOOL AC-0001 станет &lt;/font&gt;&lt;span style=&quot;font-family: Arial; font-size: small; line-height: 1.6em;&quot;&gt;вашим надежными помощником в гараже, в дороге или в путешествии. &lt;/span&gt;&lt;span style=&quot;font-family: Arial; font-size: small; line-height: 1.6em;&quot;&gt;Рабочее давление до 7 атмосфер позволит накачать до рабочего состояния колеса автомобиля, мотоцикла или велосипеда, а также мячи, матрацы, круги и любые другие надувные изделия благодаря набору насадок, который поставляется в комплекте.&lt;/span&gt;&lt;/div&gt; &lt;div&gt;&lt;span style=&quot;font-family: Arial; font-size: small; line-height: 1.6em;&quot;&gt;Особенно удобным в использовании этот компрессор становится благодаря ряду его особенностей:&lt;/span&gt;&lt;/div&gt; &lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-family: Arial; font-size: small; line-height: 1.6em;&quot;&gt;Точный контрастный манометр для контроля текущего давления&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;span style=&quot;font-family: Arial; font-size: small; line-height: 1.6em;&quot;&gt;Встроенный яркий LED-фонарик (работает от обычных батареек)&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;span style=&quot;font-family: Arial; font-size: small; line-height: 1.6em;&quot;&gt;Гибкий шланг в тканевой оболочке длиной 70 см долговечен и удобен в работе&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;span style=&quot;font-family: Arial; font-size: small; line-height: 1.6em;&quot;&gt;Резиновые антивибрационные ножки сделают работу компрессора максимально тихой&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;span style=&quot;font-family: Arial; font-size: small; line-height: 1.6em;&quot;&gt;Питание от автомобильной сети 12В&lt;/span&gt;&lt;/li&gt; &lt;li&gt;Набор переходников для накачки матрасов, мячей и прочих надувных изделий&lt;/li&gt; &lt;/ul&gt;</description>
+                <param name="Гарантия" unit="месяцев">12</param>
+                <param name="Напряжение питания" unit="В">12</param>
+                <param name="Производительность" unit="л/мин">20</param>
+                <param name="Длина шланга" unit="см">70</param>
+                <param name="Максимальное давление" unit="бар">7</param>
+                <param name="Максимальный ток" unit="А">15</param>
+                <param name="Вес" unit="кг">1,375</param>
+                <param name="Объем" unit="м.куб">0,003523</param>
+                <manufacturer_warranty>true</manufacturer_warranty>
+                <multiplicity>1</multiplicity>
+                <unit>шт</unit>
+            </offer>
+            <offer id="128389" available="true" available-kiev="false" available-kharkov="true" type="vendor.model">
+                <url>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010.html</url>
+                <price>2549.00</price>
+                <currencyId>UAH</currencyId>
+                <categoryId>26</categoryId>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-1.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-2.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-3.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-4.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-5.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-6.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-7.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-8.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-9.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-10.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-11.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-12.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-13.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-14.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-15.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-16.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-17.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-18.jpg</picture>
+                <picture>https://example.com/catalog/avtoinstrument/ustroystva-zaryadnie-i-pusko-zaryadnie-dlya-akb/intertool-at-3010-source-19.jpg</picture>
+                <store>true</store>
+                <pickup>true</pickup>
+                <delivery>true</delivery>
+                <vendor>VENDOR</vendor>
+                <vendorCode>AT-3010</vendorCode>
+                <model>AT-3010</model>
+                <typePrefix>Набор пускозарядное устройство универсальное 16800 mАч. + мини компрессор.</typePrefix>
+                <name>Набор пускозарядное устройство универсальное 16800 mАч и мини компрессор VENDOR AT-3010</name>
+                <description>&lt;p&gt;Набор пускозарядное устройство и автомобильный компрессор VENDOR AT-3010 сможет стать постоянным помощником, как заядлому автомобилисту, так и любому человеку, ведущему активный образ жизни!&lt;/p&gt; &lt;p&gt;С помощью этого пускозарядного устройства можно осуществлять запуск двигателя при отсутствующем или замерзшем основном аккумуляторе. Кроме того оно оснащено электрическими выходами, с помощью которых можно заряжать большинство распространённых мобильных устройств и ноутбуков. Для этого в нём предусмотрено два USB выхода (5В/2А) и регулируемый выход с несколькими положениями: (12В/2А, 16В/3,5А, 19В/3,5А). К тому же вам не придется докупать никаких дополнительных переходников и адаптеров, потому что в базовую комплектацию уже включены USB-адаптер с переходниками для IPhone, IPad и устройств с разъемами mini- и micro-USB. А в корпус устройства вмонтирован экстренный молоток, нож и яркие LED фонарики для освещения(белый свет) и подачи экстренного сигнала (красный и синий).&lt;/p&gt; &lt;p&gt;Зарядка же аккумулятора самого устройства возможна как от бытовой сети 220В, так и от прикуривателя автомобиля, для чего в комплекте поставляется два зарядных устройства для любого из этих случаев.&lt;/p&gt; &lt;p&gt;Благодаря этим особенностям и малому весу устройства (всего 415 грамм) с небольшими габаритами (165х79х40) пускозарядное устройство INTERTOOL AT-3010 будет полезным в туристических походах и длительных переездах, где его можно будет использовать как подзарядку для ваших мобильных устройств.&lt;/p&gt; &lt;p&gt;Купить пускозарядное устройство INTERTOOL AT-3010 стоит ещё и из-за компрессора, который идет в комплекте. Имея также компактный размер (164х54х124) и небольшой вес (448 грамм) он тоже станет верным помощником в дороге. Его рабочее давление до 4 бар позволит осуществлять подкачку колес автомобилей, мотоциклов и велосипедов, а поставляемый в комплекте набор переходников позволит накачивать даже матрасы, круги и прочие надувные изделия.&lt;/p&gt; &lt;p&gt;&lt;strong&gt;В базовый комплект поставки входят:&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;-Пускозарядое устройство&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;-Автомобильный мини компрессор&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;-Зажимные клеммы для подсоединения к автомобильному аккумулятору&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;-Зарядное устройство от сети 220В&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;-Зарядное устройство от прикуривателя&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;-USB-адаптер с переходниками под разъемы mini-USB, micro-USB, IPhone, IPad&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;-Переходник с комплектом насадок для зарядки ноутбуков&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;-Комплект переходников для компрессора&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Весь набор поставляется кейсе из ударопрочного пластика для удобства хранения и транспортировки.&lt;/p&gt;</description>
+                <param name="Аккумулятор" >Li-ion</param>
+                <param name="Емкость аккумулятора" unit="мАч">16800</param>
+                <param name="Стартовый ток" unit="А">300</param>
+                <param name="Максимальный ток" unit="А">600</param>
+                <param name="Время заряда аккумулятора" unit="ч">2-3</param>
+                <param name="Напряжение питания" >2хUSB(5В/2А); 12В/2А; 16В/3,5А; 19В/3,5А</param>
+                <param name="Рабочая температура" >от -10 до +60град</param>
+                <param name="Рабочее давление" unit="бар">4</param>
+                <param name="Габаритные размеры" >ПЗУ:165х79х40мм; Компрессор:134х54х124мм</param>
+                <param name="Вес" unit="кг">1,300</param>
+                <param name="Объем" unit="м.куб">0,006514</param>
+                <manufacturer_warranty>true</manufacturer_warranty>
+                <multiplicity>1</multiplicity>
+                <unit>шт</unit>
+            </offer>
+        </offers>
+    </shop>
+</yml_catalog>

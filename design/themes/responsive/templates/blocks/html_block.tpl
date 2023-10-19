@@ -1,0 +1,1 @@
+<div class="ty-wysiwyg-content" {live_edit name="block:content:{$block.block_id}" input_type="wysiwyg"} data-ca-live-editor-object-id="{$block.object_id}" data-ca-live-editor-object-type="{$block.object_type}">{$content nofilter}</div>

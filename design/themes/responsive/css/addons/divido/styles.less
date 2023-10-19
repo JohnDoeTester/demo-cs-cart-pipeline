@@ -1,0 +1,78 @@
+.ty-divido-logo {
+    float: right;
+    margin-top: 7px;
+}
+
+.ty-divido-both {
+    clear: both;
+}
+
+.divido-info {
+    dd {
+        display: inline-block;
+    }
+
+    dt {
+        display: inline-block;
+        min-width: 170px;
+        max-width: 55%;
+        width: 40%;
+    }
+}
+
+.divido-calculator {
+    border: none;
+    min-width: 250px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 15px 22px;
+    margin-bottom: 20px;
+
+    label {
+        font-weight: bold;
+        display: block;
+        padding: 6px 0;
+    }
+
+    dd {
+        margin: 0;
+    }
+
+    .divido-deposit-holder {
+        margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+        width: auto;
+    }
+}
+
+.divido-range-slider {
+    margin-top: 5px;
+
+    input[type="range"] {
+        min-width: 170px;
+        width: 40%;
+        width: ~"calc(40% - 10px)";
+    }
+
+    .percentage {
+        vertical-align: top;
+        margin-left: 10px;
+    }
+}
+
+select[name="divido_finance"] {
+    width: 100%;
+    height: 41px;
+    border: 1px solid #acbdcd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #2e3a47;
+}
+
+@media (max-width: 768px) {
+    .ty-payments-list {
+        padding-right: 0;
+    }
+}

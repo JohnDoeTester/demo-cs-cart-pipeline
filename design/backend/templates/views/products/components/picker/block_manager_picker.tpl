@@ -1,0 +1,10 @@
+{include
+    file="views/products/components/picker/picker.tpl"
+    item_ids=","|explode:$item_ids
+    multiple=$multiple
+    view_mode=$view_mode
+    show_positions=$show_positions
+    allow_clear=false
+    for_current_storefront=true
+    additional_query_params=http_build_query($additional_query_params|default:[])
+}

@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>vendor_data_premoderation</id>
+    <version>1.0</version>
+    <priority>1900</priority>
+    <position>45</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR</auto_install>
+    <settings>
+        <sections>
+            <section id="vendors">
+                <items>
+                    <item id="vendors_prior_approval">
+                        <type>selectbox</type>
+                        <default_value>all</default_value>
+                        <variants>
+                            <item id="none">
+                            </item>
+                            <item id="all">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="vendor_profile_updates_approval">
+                        <type>selectbox</type>
+                        <default_value>all</default_value>
+                        <variants>
+                            <item id="none">
+                            </item>
+                            <item id="custom">
+                            </item>
+                            <item id="all">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="approval_info">
+                        <type>info</type>
+                        <handler>fn_vendor_data_premoderation_get_approval_info_text</handler>
+                    </item>
+                    <item id="preventing_registration_info">
+                        <type>info</type>
+                        <handler>fn_vendor_data_premoderation_get_preventing_registration_info_text</handler>
+                    </item>
+                </items>
+            </section>
+            <section id="products">
+                <items>
+                    <item id="products_prior_approval">
+                        <type>selectbox</type>
+                        <default_value>all</default_value>
+                        <variants>
+                            <item id="none">
+                            </item>
+                            <item id="custom">
+                            </item>
+                            <item id="all">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="products_updates_approval">
+                        <type>selectbox</type>
+                        <default_value>all</default_value>
+                        <variants>
+                            <item id="none">
+                            </item>
+                            <item id="custom">
+                            </item>
+                            <item id="all">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="product_premoderation_fields">
+                        <type>multiple checkboxes</type>
+                        <default_value><![CDATA[#M#product_prices:*=Y&products:list_price=Y]]></default_value>
+                    </item>
+                    <item id="approval_info">
+                        <type>info</type>
+                        <handler>fn_vendor_data_premoderation_get_approval_info_text</handler>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item for="install">ALTER TABLE ?:companies ADD `pre_moderation` char(1) NOT NULL DEFAULT 'N'</item>
+        <item for="uninstall">ALTER TABLE ?:companies DROP `pre_moderation`</item>
+        <item for="install">ALTER TABLE ?:companies ADD `pre_moderation_edit` char(1) NOT NULL DEFAULT 'N'</item>
+        <item for="uninstall">ALTER TABLE ?:companies DROP `pre_moderation_edit`</item>
+        <item for="install">ALTER TABLE ?:companies ADD `pre_moderation_edit_vendors` char(1) NOT NULL DEFAULT 'N'</item>
+        <item for="uninstall">ALTER TABLE ?:companies DROP `pre_moderation_edit_vendors`</item>
+        <item for="install">REPLACE INTO  ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_product_premoderation', 'Y', 'vendors', 'product_premoderation', 'N');</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'manage_product_premoderation'</item>
+        <item for="install">DROP TABLE IF EXISTS ?:premoderation_products;</item>
+        <item for="install">
+            CREATE TABLE ?:premoderation_products (
+                product_id mediumint(8) unsigned NOT NULL COMMENT 'Moderated product ID',
+                original_status char(1) NOT NULL default 'A' COMMENT 'Status of the product before it was sent to moderation',
+                updated_timestamp int(11) unsigned NOT NULL default 0 COMMENT 'Last moderation action timestamp',
+                reason text NOT NULL default '' COMMENT 'Last moderation reason',
+                initial_product_state text COMMENT 'Initial product state before changes',
+                initial_timestamp int(11) unsigned NOT NULL default 0 COMMENT 'Timestamp when the product was sent to moderation',
+                PRIMARY KEY (product_id)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">
+            UPDATE ?:products AS products SET status = (
+                SELECT original_status
+                FROM ?:premoderation_products AS premoderation
+                WHERE products.product_id = premoderation.product_id
+            ) WHERE products.status IN ('R', 'X')
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:premoderation_products;</item>
+    </queries>
+    <email_templates>
+        <templates>
+            <item>
+                <code><![CDATA[vendor_data_premoderation_notification]]></code>
+                <area><![CDATA[A]]></area>
+                <status><![CDATA[A]]></status>
+                <default_subject><![CDATA[{% if status == "Y" %}    {% set text_status=__("approved") %}{% else %}    {% set text_status=__("disapproved") %}{% endif %}{{ company_name }}: {{ __("products_approval_status_changed", {"[status]": text_status}) }}]]></default_subject>
+                <default_template><![CDATA[{% if status == "Y" %}
+    {% set text_status=__("approved") %}
+{% else %}
+    {% set text_status=__("disapproved") %}
+{% endif %}
+
+{{ snippet("header") }}
+
+  {{ __("hello") }},<br /><br />
+
+{% if status == "Y" %}
+    {{ __("products_approval_status_approved") }}<br />
+{% else %}
+    {{ __("products_approval_status_disapproved") }}<br />
+{% endif %}
+
+{% for product in products %}
+    {{ loop.index }}) <a href="{{ product.url }}">{{ product.product }}</a><br />
+{% endfor %}
+
+{% if status == "Y" %}
+    <br />{{ __("text_shoppers_can_order_products") }}
+{% endif %}
+{% if reason %}
+    <p>{{ reason }}</p>
+{% endif %}
+
+{{ snippet("footer") }}]]></default_template>
+                <addon><![CDATA[vendor_data_premoderation]]></addon>
+            </item>
+            <item>
+                <code><![CDATA[vendor_data_premoderation_added_product]]></code>
+                <area><![CDATA[A]]></area>
+                <status><![CDATA[A]]></status>
+                <default_subject><![CDATA[{{__("vendor_data_premoderation.added_product.title", {0: count})}}]]></default_subject>
+                <default_template><![CDATA[{{ snippet("header") }}
+{{ __("hello") }},
+<br>
+<br>
+{{ __("vendor_data_premoderation.added_product.message", {0: count, "[since_at]": since_at}) }}
+<br>
+<br>
+{{ __("vendor_data_premoderation.added_product.action", {"[url]": url}) }}
+<br>
+{{ snippet("footer") }}]]></default_template>
+                <addon><![CDATA[vendor_data_premoderation]]></addon>
+            </item>
+        </templates>
+    </email_templates>
+    <internal_templates type="file">resources/internal_templates.xml</internal_templates>
+    <functions>
+        <item for="install">fn_vendor_data_premoderation_install</item>
+        <item for="uninstall">fn_vendor_data_premoderation_uninstall</item>
+    </functions>
+</addon>

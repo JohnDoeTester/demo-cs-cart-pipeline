@@ -1,0 +1,19 @@
+/*
+    templates/addons/product_reviews/views/product_reviews/components/reviews_sidebar.tpl
+*/
+
+.ty-product-review-reviews-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+
+.ty-product-review-reviews-sidebar--with-reviews {
+    margin-top: var(--space-xxxl);
+    margin-bottom: var(--space-l);
+}
+
+.ty-product-review-reviews-sidebar > [class^="ty-product-review"]:not(:first-child) {
+    border-top: 1px solid @decorative;
+    padding-top: var(--space-s);
+}

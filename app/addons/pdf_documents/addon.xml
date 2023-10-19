@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<addon scheme="4.0">
+    <id>pdf_documents</id>
+    <version>1.0</version>
+    <priority>1500</priority>
+    <status>active</status>
+    <default_language>en</default_language>
+
+    <settings>
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="service_url">
+                        <type>hidden</type>
+                        <default_value>https://converter.cart-services.com</default_value>
+                        <variants>
+                            <item id="https://converter.cart-services.com"/>
+                        </variants>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+
+    <autoload>
+        <psr4 prefix="Tygh\Addons\PdfDocuments\">src</psr4>
+    </autoload>
+
+    <bootstrap>\Tygh\Addons\PdfDocuments\Bootstrap</bootstrap>
+</addon>

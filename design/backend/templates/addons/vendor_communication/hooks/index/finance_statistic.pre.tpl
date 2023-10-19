@@ -1,0 +1,1 @@
+{include file="addons/vendor_communication/views/vendor_communication/components/dashboard_thread_button.tpl"}

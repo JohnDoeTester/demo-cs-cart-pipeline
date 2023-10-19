@@ -1,0 +1,70 @@
+.ty-table--sorter th {
+    position: relative;
+}
+
+.ty-table--sorter .header:not(.sorter-false),
+.ty-table--sorter .tablesorter-header:not(.sorter-false) {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.ty-table--sorter .tablesorter-header-inner {
+    font-weight: bold;
+}
+
+.ty-table--sorter .headerSortUp,
+.ty-table--sorter .tablesorter-headerSortUp,
+.ty-table--sorter .tablesorter-headerAsc {
+    text-decoration: underline;
+
+    &:before {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 0;
+        font-family: glyphs;
+        text-transform: none;
+        content: "\e000";
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+
+        @media (min-width: 980px) {
+            right: 5px;
+        }
+    }
+}
+
+.ty-table--sorter .headerSortDown,
+.ty-table--sorter .tablesorter-headerSortDown,
+.ty-table--sorter .tablesorter-headerDesc {
+    text-decoration: underline;
+
+    &:after {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 0;
+        font-family: glyphs;
+        text-transform: none;
+        content: "\e002";
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+
+        @media (min-width: 980px) {
+            right: 5px;
+        }
+    }
+}

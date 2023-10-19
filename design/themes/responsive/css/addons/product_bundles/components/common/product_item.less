@@ -1,0 +1,86 @@
+// design/themes/responsive/templates/addons/product_bundles/components/common/product_item.tpl
+
+// General
+.ty-product-bundles-product-item {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: var(--ty-product-bundles__padding);
+
+    &:before {
+        .ty-product-bundles__products-separator();
+    }
+}
+
+.ty-product-bundles-product-item__content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+// Product image
+.ty-product-bundles-product-item__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    min-height: ~"calc(var(--ty-product-lists-thumbnail-height) - 5px * 2)";    // Thumbnail height - Image padding
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid var(--ty-product-bundles__border-color);
+    width: 100%;
+    background: #fff;
+}
+
+.ty-product-bundles-product-item__image-link {
+    display: flex;
+    justify-content: center;
+}
+
+.ty-product-bundles-product-item__image-content {
+    @media (max-width: 767px) {
+        max-width: ~"calc(100% * var(--ty-product-bundles__image-coefficient-mobile))";
+    }
+}
+
+// Product information
+.ty-product-bundles-product-item__info {
+    .word-break();
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+// Product name
+.ty-product-bundles-product-item__name-link {
+    .product-title-color();
+}
+
+// Control
+.ty-product-bundles-product-item__control {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+// Options
+.ty-product-bundles-product-item__control-link {
+
+    // Multiline dotted text-underline
+    -webkit-text-decoration-line: underline;
+       -moz-text-decoration-line: underline;
+            text-decoration-line: underline;
+    -webkit-text-decoration-style: dotted;
+       -moz-text-decoration-style: dotted;
+            text-decoration-style: dotted;
+    text-decoration-thickness: 0;
+}
+
+.ty-product-bundles-product-item__control-link--required:after {
+    padding-left: 3px;
+    color: #ea7162;
+    content: "*";
+    font-size: 13px;
+    line-height: 1px;
+}

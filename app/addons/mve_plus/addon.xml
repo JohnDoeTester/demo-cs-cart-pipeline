@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>mve_plus</id>
+    <version>1.0</version>
+    <priority>1000</priority>
+    <position>45</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <unmanaged>1</unmanaged>
+    <auto_install>MULTIVENDOR</auto_install>
+    <compatibility>
+        <core_edition>MULTIVENDOR</core_edition>
+    </compatibility>
+</addon>

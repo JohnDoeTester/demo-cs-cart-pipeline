@@ -1,0 +1,64 @@
+// design/backend/css/tygh/admin_content.less
+@media (min-width: @TabletBreakpoint + 1) {
+    // Wrapper level 1
+    .main-wrap {
+        
+    }
+    
+    // Wrapper level 2
+    .admin-content {
+
+    }
+    
+    // Wrapper level 3
+    .admin-content-wrap {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        gap: 20px;
+        height: 100%;
+        max-width: none;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        
+        &&&& {
+            padding-left: ~"calc(20px + "@menuSidebarWidth~")";
+        }
+    }
+    
+    // Wrapper level 4
+    .admin-content-wrapper {
+        gap: 20px;
+        flex-basis: 100%;
+    }
+
+    // Wrapper level 5
+    .page-content {
+        flex-grow: 1;
+
+        &&& {
+            min-width: auto;
+            padding: 0;
+        }
+    }
+
+    // Wrapper level 6
+    .content-wrap {
+        min-height: auto;
+
+        &&&& {
+            padding: 0;
+            min-width: auto;
+            max-width: none;
+            box-shadow: none;
+        }
+
+        > form,
+        > form > .tabs,
+        > .tabs,
+        > .cm-tabs-content {
+            margin: 0;
+            max-width: none;
+        }
+    }
+
+}

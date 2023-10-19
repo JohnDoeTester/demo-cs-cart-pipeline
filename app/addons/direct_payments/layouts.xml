@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<block_scheme scheme="1.0">
+  <settings>
+    <default_language>en</default_language>
+  </settings>
+  <location dispatch="separate_checkout.cart" is_default="0" layout_id="1" object_ids="" custom_html="" position="50" lang_code="en" name="Cart (Direct Payments)" title="" meta_description="" meta_keywords="">
+    <containers>
+      <container container_id="121" location_id="30" position="TOP_PANEL" width="16" user_class="" linked_to_default="Y" status="A" company_id="0"/>
+      <container container_id="122" location_id="30" position="HEADER" width="16" user_class="" linked_to_default="Y" status="A" company_id="0"/>
+      <container container_id="123" location_id="30" position="CONTENT" width="16" user_class="content-grid" linked_to_default="Y" status="A" company_id="0">
+        <grid width="16" user_class="breadcrumbs-grid" linked_to_default="Y" status="A" company_id="0" offset="0" omega="1" alpha="1" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+          <blocks>
+            <block>
+              <type><![CDATA[breadcrumbs]]></type>
+              <properties>
+                <template><![CDATA[common/breadcrumbs.tpl]]></template>
+              </properties>
+              <lang_code><![CDATA[en]]></lang_code>
+              <name><![CDATA[Breadcrumbs]]></name>
+              <object_id><![CDATA[0]]></object_id>
+              <object_type><![CDATA[]]></object_type>
+              <content><![CDATA[]]></content>
+              <object_ids><![CDATA[]]></object_ids>
+              <wrapper><![CDATA[]]></wrapper>
+              <user_class><![CDATA[]]></user_class>
+              <order><![CDATA[0]]></order>
+              <status><![CDATA[A]]></status>
+              <translations>
+                <translation lang_code="ru"><![CDATA[Строка навигации]]></translation>
+              </translations>
+              <contents/>
+            </block>
+          </blocks>
+        </grid>
+        <grid width="16" user_class="main-content-grid" linked_to_default="Y" status="A" company_id="0" offset="0" omega="1" alpha="1" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+          <blocks>
+            <block>
+              <type><![CDATA[main]]></type>
+              <properties><![CDATA[]]></properties>
+              <lang_code><![CDATA[en]]></lang_code>
+              <name><![CDATA[Main Content]]></name>
+              <object_id><![CDATA[0]]></object_id>
+              <object_type><![CDATA[]]></object_type>
+              <content><![CDATA[]]></content>
+              <object_ids><![CDATA[]]></object_ids>
+              <wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+              <user_class><![CDATA[]]></user_class>
+              <order><![CDATA[0]]></order>
+              <status><![CDATA[A]]></status>
+              <translations>
+                <translation lang_code="ru"><![CDATA[Главное содержимое]]></translation>
+              </translations>
+              <contents/>
+            </block>
+          </blocks>
+        </grid>
+      </container>
+      <container container_id="124" location_id="30" position="FOOTER" width="16" user_class="" linked_to_default="Y" status="A" company_id="0"/>
+    </containers>
+    <translations>
+      <translation lang_code="ru">
+        <meta_keywords><![CDATA[]]></meta_keywords>
+        <page_title><![CDATA[]]></page_title>
+        <meta_description><![CDATA[]]></meta_description>
+        <name>Корзина (Оплата от продавцов администратору)</name>
+      </translation>
+    </translations>
+  </location>
+</block_scheme>

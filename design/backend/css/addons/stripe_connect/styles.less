@@ -1,0 +1,39 @@
+.stripe-payment-form {
+    &__card,
+    &__expiry,
+    &__cvc,
+    &__postal_code{
+        padding: 4px 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: white;
+        min-height: 21px;
+    }
+
+    &__card {
+        width: 256px;
+    }
+
+    &__expiry {
+        max-width: 75px;
+    }
+
+    &__cvc {
+        width: 45px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.stripe-config-form {
+
+    &__3d-secure-description,
+    &__delay-transfer-of-funds-description {
+        max-width: 400px;
+        padding: 10px 0;
+    }
+}
+
+.ty-control-group.error .sc-field {
+    border-color: #bf4d4d;
+}

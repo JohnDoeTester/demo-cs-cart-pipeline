@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<email_templates scheme="1.0">
+    <templates>
+        <item>
+            <code><![CDATA[vendor_communication.notify_admin]]></code>
+            <area><![CDATA[A]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{{ __("vendor_communication.subject_email", {"[message_from]": message_from}) }}]]></default_subject>
+            <template/>
+            <default_template>
+                <![CDATA[{{ snippet("header") }}
+                <p>
+                    {{ __("hello") }},
+                </p>
+                <p>
+                    {{ __("vendor_communication.you_have_new_message", {"[thread_url]": thread_url, "[message_from]": message_from}) }}
+                </p>
+                {{ snippet("footer") }}]]>
+            </default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_communication]]></addon>
+        </item>
+        <item>
+            <code><![CDATA[vendor_communication.notify_customer]]></code>
+            <area><![CDATA[C]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{{ __("vendor_communication.subject_email", {"[message_from]": message_from}) }}]]></default_subject>
+            <template/>
+            <default_template>
+                <![CDATA[{{ snippet("header") }}
+                <p>
+                    {{ __("hello") }},
+                </p>
+                <p>
+                    {{ __("vendor_communication.you_have_new_message", {"[thread_url]": thread_url, "[message_from]": message_from}) }}
+                </p>
+                {{ snippet("footer") }}]]>
+            </default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_communication]]></addon>
+        </item>
+    </templates>
+</email_templates>

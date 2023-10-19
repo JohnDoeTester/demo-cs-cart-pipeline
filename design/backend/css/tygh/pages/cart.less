@@ -1,0 +1,98 @@
+.cart {
+
+    &__customer {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &-data-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &-data {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        &-email {
+            display: flex;
+            width: 24px;
+            margin-right: 5px;
+        }
+
+        &-name {
+            margin-right: 5px;
+        }
+        
+        &-phone {
+            display: flex;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    &__detailed {
+        display: flex;
+        flex-wrap: wrap;
+
+        &-user {
+            padding-left: 8px;
+            padding-right: 8px;
+            width: 100%;
+
+            .row-more .row-more-body & dl {
+
+                dt {
+                    width: 80px;
+                    word-break: break-all;
+                    word-break: break-word;
+                }
+
+                dd {
+                    padding-left: 85px;
+                    word-break: break-all;
+                    word-break: break-word;
+                }
+            }
+
+            @media (min-width: 768px) {
+                padding-left: 0;
+                padding-right: 16px;
+                flex: 0 0 50%;
+            }
+        }
+
+        &-products {
+            padding-left: 8px;
+            padding-right: 8px;
+            width: 100%;
+            
+            @media (min-width: 768px) {
+                padding-left: 16px;
+                padding-right: 0;
+                flex: 0 0 50%;
+            }
+
+            &-name {
+                word-break: break-all;
+                word-break: break-word;
+            }
+        }
+
+        &-wrapper {
+
+            &&:before {
+                display: none;
+            }
+        }
+    }
+}
+
+.table--cart.table tbody + tbody {
+    border-top-width: 0;
+}

@@ -1,0 +1,23 @@
+.ty-image-zoom {
+    &__wrapper {
+        display: inline;
+    }
+
+    &__flyout {
+        opacity: 0;
+
+        transition: opacity var(--image-zoom-animation-time);
+
+        box-shadow: 0 0 8px @base;
+
+        &--visible {
+            opacity: 1;
+        }
+
+        border: 1px solid @base;
+
+        img {
+            max-width: unset;
+        }
+    }
+}

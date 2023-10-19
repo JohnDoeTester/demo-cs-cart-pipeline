@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<addon scheme="3.0" edition_type="ROOT,ULT:VENDOR">
+    <id>payment_dependencies</id>
+    <version>1.0</version>
+    <default_language>en</default_language>
+    <priority>100</priority>
+    <status>active</status>
+    <compatibility>
+        <conflicts>payments_by_country</conflicts>
+    </compatibility>
+    <queries>
+        <item>
+            DROP TABLE IF EXISTS ?:payment_dependencies;
+        </item>
+        <item for="install">
+            CREATE TABLE ?:payment_dependencies (
+            `shipping_id` mediumint(8) unsigned NOT NULL,
+            `disable_payment_id` mediumint(8) unsigned NOT NULL,
+            PRIMARY KEY (`shipping_id`, `disable_payment_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:payment_dependencies;
+        </item>
+    </queries>
+</addon>

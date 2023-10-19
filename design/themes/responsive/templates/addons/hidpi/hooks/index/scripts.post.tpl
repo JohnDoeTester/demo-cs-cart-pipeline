@@ -1,0 +1,1 @@
+{script src="js/addons/hidpi/frontend/index.js"}

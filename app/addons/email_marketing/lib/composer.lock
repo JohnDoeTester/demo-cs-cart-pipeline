@@ -1,0 +1,68 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "419350747982ecb3bc127b9afebf0cdc",
+    "packages": [
+        {
+            "name": "jhut89/mailchimp3php",
+            "version": "3.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP.git",
+                "reference": "56e10b29393b52b81bead2577e5f88845499c278"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jhut89/Mailchimp-API-3.0-PHP/zipball/56e10b29393b52b81bead2577e5f88845499c278",
+                "reference": "56e10b29393b52b81bead2577e5f88845499c278",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "php": ">=7.2.0",
+                "phpunit/phpunit": "^5",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MailchimpAPI\\": "src/",
+                    "MailchimpTests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Hutcheson",
+                    "email": "hutch@theresearchgrp.com"
+                }
+            ],
+            "description": "A php library for version 3.0 of MailChimp's API",
+            "homepage": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP",
+            "support": {
+                "issues": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP/issues",
+                "source": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP/tree/3.2.2"
+            },
+            "time": "2020-05-20T13:20:01+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

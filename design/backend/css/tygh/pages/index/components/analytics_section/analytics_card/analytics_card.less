@@ -1,0 +1,75 @@
+// design/backend/templates/views/index/components/analytics_section/analytics_card/analytics_card.tpl
+
+.analytics-card {
+    border: 1px solid @dashboardBorderColor;
+    border-radius: @baseBorderRadius;
+    padding: 16px;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+.analytics-card__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.analytics-card__preheader {
+    color: @textMutedColor;
+}
+
+.analytics-card__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.analytics-card__title {
+    margin: 0;
+    font-size: @fontSizeLarge;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.analytics-card__title-button {
+    margin-left: auto;
+    text-align: right;
+}
+
+.analytics-card__numbers {
+    display: flex;
+    justify-content: space-between;
+    font-size: @baseFontSize * 1.75;
+}
+
+.analytics-card__number {
+    font-weight: bold;
+}
+
+.analytics-card__number-dynamics--positive {
+    color: @successText;
+}
+
+.analytics-card__number-dynamics--positive:before {
+    content: '↑';
+}
+
+.analytics-card__number-dynamics--negative {
+    color: @errorText;
+}
+
+.analytics-card__number-dynamics--negative:before {
+    content: '↓';
+}
+
+.analytics-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.analytics-card__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}

@@ -1,0 +1,36 @@
+// Store-mode
+.store-mode {
+    margin-top: 10px;
+    > li {
+        width: 310px;
+        background: #fafafa;
+        .border-radius(5px);
+        padding: 7px 14px !important;
+        min-height: 220px;
+        vertical-align: top;
+        margin-right: 10px;
+    }
+    li:last-child {
+        margin-right: 0px;
+    }
+    li.active {
+        background: #f0f5f7;
+    }
+    li.disabled {
+        .muted;
+    }
+    input[type="text"] {
+        width: 240px;
+    }
+    .radio {
+        margin-bottom: 5px;
+    }
+    .choice-text {
+        padding-top: 10px;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+}
+.store-mode.free-mode {
+    max-width: 800px;
+}

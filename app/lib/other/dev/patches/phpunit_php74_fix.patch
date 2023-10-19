@@ -1,0 +1,28 @@
+diff --git a/src/Framework/MockObject/Generator.php b/src/Framework/MockObject/Generator.php
+index bfb899d..a326dd0 100644
+--- a/src/Framework/MockObject/Generator.php
++++ b/src/Framework/MockObject/Generator.php
+@@ -1004,7 +1004,7 @@ private function generateMockedMethodDefinitionFromExisting($templateDir, Reflec
+         }
+ 
+         if ($this->hasReturnType($method)) {
+-            $returnType = (string) $method->getReturnType();
++            $returnType = $method->getReturnType()->getName();
+         } else {
+             $returnType = '';
+         }
+@@ -1187,12 +1187,12 @@ private function getMethodParameters(ReflectionMethod $method, $forCall = false)
+             $typeDeclaration = '';
+ 
+             if (!$forCall) {
+-                if ($this->hasType($parameter) && (string) $parameter->getType() !== 'self') {
++                if ($this->hasType($parameter) && $parameter->getType()->getName() !== 'self') {
+                     if (version_compare(PHP_VERSION, '7.1', '>=') && $parameter->allowsNull() && !$parameter->isVariadic()) {
+                         $nullable = '?';
+                     }
+ 
+-                    $typeDeclaration = (string) $parameter->getType() . ' ';
++                    $typeDeclaration = $parameter->getType()->getName() . ' ';
+                 } elseif ($parameter->isArray()) {
+                     $typeDeclaration = 'array ';
+                 } elseif ($parameter->isCallable()) {

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<addon scheme="3.0" edition_type="ROOT">
+    <id>paypal_commerce_platform</id>
+    <version>1.0</version>
+    <default_language>en</default_language>
+    <priority>100</priority>
+    <status>active</status>
+    <compatibility>
+        <core_edition>MULTIVENDOR</core_edition>
+        <dependencies>vendor_plans</dependencies>
+        <conflicts>paypal_adaptive</conflicts>
+    </compatibility>
+    <settings edition_type="ROOT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="collect_payouts">
+                        <type>hidden</type>
+                        <default_value>N</default_value>
+                        <variants>
+                            <item id="N"/>
+                            <item id="Y"/>
+                        </variants>
+                    </item>
+                    <item id="rma_refunded_order_status">
+                        <type>hidden</type>
+                        <default_value/>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item for="install">
+            ALTER TABLE ?:companies
+            ADD COLUMN paypal_commerce_platform_account_id VARCHAR(128) NOT NULL DEFAULT ''
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:companies
+            DROP COLUMN paypal_commerce_platform_account_id
+        </item>
+    </queries>
+    <functions>
+        <item for="install">fn_paypal_commerce_platform_install</item>
+        <item for="uninstall">fn_paypal_commerce_platform_uninstall</item>
+    </functions>
+</addon>

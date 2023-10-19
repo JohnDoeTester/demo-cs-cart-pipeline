@@ -1,0 +1,44 @@
+@import "../../config.less";
+
+.cm-show-more {
+    &__wrapper {
+        max-height: 4.5em;
+        overflow-y: hidden;
+    }
+    &__block {
+        word-break: break-all;
+        word-break: break-word;
+    }
+    &__expanded {
+        max-height: none;
+
+        &+.cm-show-more__btn:before {
+            background: none;
+        }
+    }
+    &__btn {
+        display: none;
+
+        &-more {
+            display: block;
+        }
+        &-less {
+            display: none;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            height: 1em;
+            bottom: 2.5em;
+            width: 100%;
+            background: linear-gradient(transparent, #fff 70%);
+
+            @media (max-width: @TabletBreakpoint) {
+                bottom: 2em;
+            }
+        }
+    }
+    &__wrapper-more + &__btn:before {
+        background: none;
+    }
+}

@@ -1,0 +1,1 @@
+{style src="addons/mobile_app/styles.less"}

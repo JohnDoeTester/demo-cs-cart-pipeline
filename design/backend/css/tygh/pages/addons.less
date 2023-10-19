@@ -1,0 +1,104 @@
+// Addons
+.addons-list .cm-row-status-n .row-status,
+.addons-list .cm-row-status-n .row-status a,
+.addons-list .cm-row-status-n small,
+.addons-list .cm-row-status-n >span,
+.addons-list .cm-row-status-n th {
+    color: #bfbfbf;
+}
+.addons-list .cm-row-status-n .cs-icon,
+.addons-list .cm-row-status-n img {
+    opacity: 0.4;
+}
+
+.addon-info-msg {
+    form {
+        margin: 10px 0 0;
+    }
+}
+
+.install-addon {
+    width: 600px;
+    .install-addon-wrapper {
+        text-align: center;
+        i.install-addon-banner {
+            font-size: 141px;
+            line-height: 141px;
+            height: 141px;
+            width: 151px;
+            color: #bbb;
+            margin: 20px 0;
+        }
+        img.install-addon-banner {
+            padding: 20px 0 34px 0;
+        }
+        .install-addon-text {
+            padding-bottom: 20px;
+        }
+        .fileuploader {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.admin-content-wrap .sidebar .sidebar-row.marketplace {
+    background: #e2f3fe;
+}
+
+.marketplace-link {
+    margin-top: 20px;
+}
+.ui-dialog .marketplace {
+    margin: 20px -13px 20px -13px !important;
+    position: relative;
+    .marketplace-link {
+        margin: 6px;
+    }
+}
+.sidebar-note-item {
+    margin-bottom: 10px;
+    span {
+        display: block;
+        color: #888;
+        margin-left: 10px;
+    }
+}
+
+.tablesorter-header-inner::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    min-height: 14px;
+    position: absolute;
+    right: -14px;
+    bottom: 0;
+    opacity: 0.3;
+
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+
+    .tablesorter-headerAsc & {
+        content: '\f0d8';
+    }
+
+    .tablesorter-headerDesc & {
+        content: '\f0d7';
+    }
+}
+
+.tablesorter-header[data-ca-sortable-column="true"] {
+    cursor: pointer;
+
+    .tablesorter-header-inner {
+        position: relative;
+        display: inline-block;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+

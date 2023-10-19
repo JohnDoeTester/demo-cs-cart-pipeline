@@ -1,0 +1,72 @@
+// Phone number with country selection
+
+/* Form */
+.ty-input-append--phone-mask {
+    display: flex;
+    margin-top: 0;
+    width: 100%;
+}
+
+.ty-input-append--phone-mask .ty-input-phone {
+    padding-right: 8px;
+}
+
+.ty-btn-group--phone-mask {
+    flex-shrink: 0;
+}
+
+/* Ajax popups (Vendors, languages, currencies)
+   ========================================================================== */
+/*
+ * Template: templates/common/ajax_select_object.tpl
+ * Template: templates/common/select_object.tpl
+ */
+ .ty-select-block__a--phone-mask {
+    box-sizing: border-box;
+    border-color: darken(@base, 15%);
+}
+
+.ty-select-block__a--phone-mask .ty-select-block__arrow {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 16px;
+    transform: translateY(2px);
+}
+
+.ty-select-block__a--litecheckout .ty-select-block__a-flag,
+.ty-select-block__a--litecheckout .ty-select-block__a-item,
+.ty-select-block__a--litecheckout .ty-select-block__arrow {
+    vertical-align: middle;
+}
+
+.ty-input-append--phone-mask .ty-select-block__list {
+    --list-items: 7;
+    --base-line-height: round(@body_font_size * 1.3571428571);
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: ~"calc((18px + var(--base-line-height)) * (var(--list-items) + 0.5))";
+}
+
+/* ==========================================================================
+Form builder
+========================================================================== */
+.ty-form-builder .ty-input-append--phone-mask {
+    max-width: 500px;
+}
+@media (max-width: 979px) {
+    .ty-form-builder .ty-input-append--phone-mask {
+        max-width: 400px;
+    }
+}
+
+// Lite checkout
+.litecheckout .litecheckout__input--mask-phone {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.ty-select-block__a--litecheckout {
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

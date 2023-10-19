@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>store_locator</id>
+    <version>1.0</version>
+    <priority>1200</priority>
+    <position>10</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings edition_type="ROOT,STOREFRONT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="print_map">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="show_locations_at_geolocator">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item>DROP TABLE IF EXISTS `?:store_locations`;</item>
+        <item>DROP TABLE IF EXISTS `?:store_location_descriptions`;</item>
+        <item>
+            CREATE TABLE `?:store_locations` (
+                `store_location_id` mediumint(8) unsigned NOT NULL auto_increment,
+                `company_id` int(11) unsigned NOT NULL default '0',
+                `position` smallint(5) NOT NULL default '0',
+                `country` char(2) NOT NULL default '',
+                `state` varchar(32) NOT NULL default '',
+                `latitude` double NOT NULL default '0',
+                `longitude` double NOT NULL default '0',
+                `localization` varchar(255) NOT NULL default '',
+                `status` char(1) NOT NULL default 'A',
+                `main_destination_id` int(11) unsigned DEFAULT NULL,
+                `pickup_destinations_ids` text NOT NULL,
+                PRIMARY KEY  (`store_location_id`),
+                KEY `status` (`status`)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE `?:store_location_descriptions` (
+                `store_location_id` mediumint(8) unsigned NOT NULL default '0',
+                `lang_code` char(2) NOT NULL default '',
+                `name` varchar(80) NOT NULL default '',
+                `description` mediumtext,
+                `city` varchar(60) NOT NULL default '',
+                `pickup_address` VARCHAR(128) CHARACTER SET utf8 NOT NULL DEFAULT '',
+                `pickup_phone` VARCHAR(128) CHARACTER SET utf8 NOT NULL DEFAULT '',
+                `pickup_time` VARCHAR(128) CHARACTER SET utf8 NOT NULL DEFAULT '',
+                PRIMARY KEY  (`store_location_id`,`lang_code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:store_locations`;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:store_location_descriptions`;</item>
+        <item for="install" editions="MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_store_locator', 'Y', 'administration', 'store_locator', 'N');</item>
+        <item for="install" editions="MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('view_store_locator', 'Y', 'administration', 'store_locator', 'Y');</item>
+        <item for="uninstall" editions="MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege IN ('manage_store_locator', 'view_store_locator');</item>
+        <item type="file">database/data.sql</item>
+        <item type="file" editions="ULTIMATE">database/data_ultimate.sql</item>
+        <item type="file" table="store_location_descriptions">database/lang.sql</item>
+        <item>INSERT INTO ?:exim_layouts (name, cols, pattern_id, active) VALUES('general', 'Pickup ID,Language,Latitude,Longitude,Country,Name,City', 'pickup', 'Y')</item>
+        <item for="uninstall">DELETE FROM ?:exim_layouts WHERE pattern_id = 'pickup'</item>
+    </queries>
+    <functions>
+        <item for="install">fn_store_locator_install</item>
+        <item for="uninstall">fn_store_locator_uninstall</item>
+    </functions>
+</addon>

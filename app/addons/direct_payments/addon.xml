@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>direct_payments</id>
+    <version>1.0</version>
+    <priority>1</priority>
+    <position>45</position>
+    <status>disabled</status>
+    <default_language>en</default_language>
+    <compatibility>
+        <core_edition>MULTIVENDOR</core_edition>
+        <conflicts>gift_certificates,paypal_adaptive,stripe_connect,reward_points</conflicts>
+    </compatibility>
+    <queries>
+        <item for="install">
+            TRUNCATE TABLE ?:user_session_products
+        </item>
+        <item for="install">
+            ALTER TABLE ?:user_session_products DROP PRIMARY KEY
+        </item>
+        <item for="install">
+            ALTER TABLE ?:user_session_products ADD company_id int(11) unsigned NOT NULL
+        </item>
+        <item for="install">
+            ALTER TABLE ?:user_session_products ADD PRIMARY KEY(user_id,type,item_id,user_type,storefront_id,company_id)
+        </item>
+        <item for="install">
+            ALTER TABLE ?:vendor_payouts ADD payment_company_id int(11) unsigned NOT NULL DEFAULT 0
+        </item>
+        <item for="uninstall">
+            TRUNCATE TABLE ?:user_session_products
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:user_session_products DROP PRIMARY KEY
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:user_session_products DROP company_id
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:user_session_products ADD PRIMARY KEY(user_id,type,item_id,user_type,storefront_id)
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:vendor_payouts DROP payment_company_id
+        </item>
+    </queries>
+    <functions>
+        <item for="install">fn_direct_payments_install</item>
+        <item for="uninstall">fn_direct_payments_uninstall</item>
+    </functions>
+</addon>

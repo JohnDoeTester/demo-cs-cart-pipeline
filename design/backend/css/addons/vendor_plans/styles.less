@@ -1,0 +1,219 @@
+.vendor-plans {
+    margin-top: 40px;
+    text-align: center;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: stretch; 
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.vendor-plans-item {
+    width: 210px;
+    background: #fbfbfb;
+    vertical-align: top;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #f0f0f0;
+    padding: 0;
+    cursor: pointer;
+    transition: all 200ms;
+
+    &:hover {
+        border-color: #DEDEDE;
+    }
+    
+    &.active {
+        background: #fff;
+        border: 1px solid @mainColor;
+        box-shadow: 0 0 30px #B9B9B9;
+    }
+}
+
+.vendor-plans-item.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.vendor-plans-item.disabled.active {
+    opacity: 0.8;
+}
+
+.vendor-plans-status {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: normal;
+    color: #fff;
+    background-color: @mainColor;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    display: inline;
+    padding: 4px 18px;
+}
+
+.vendor-plans-status.not-available {
+    background: #58595A;
+}
+
+.vendor-plan-content {
+    padding: 7px 14px;
+
+    .unstyled {
+        position: relative;
+        top: -10px;
+    }
+}
+
+.vendor-plan-header {
+    font-weight: normal;
+}
+
+.vendor-plan-descr {
+    margin: 10px 0;
+}
+
+.vendor-plan-price {
+    font-size: 25px;
+    font-weight: normal;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 10px;
+    
+    .vendor-plan-price-period {
+        color: #999;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        text-transform: lowercase;
+        line-height: 1em;
+    }
+}
+
+.vendor-plan-params {
+    padding: 15px 0px;
+    
+    p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+}
+
+.dashboard-table-plan-usage {
+    margin-right: 0;
+    width: ~"calc(50% - 9px)";
+
+    > h4 {
+        margin-bottom: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard-table-plan-usage {
+        margin-left: 0;
+        width: 100%;
+        float: unset;
+        float: auto;
+    }
+}
+
+.dashboard-activity {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.vendor-plan {
+    &__storefronts-update {
+        &__messages {
+            margin-bottom: 40px;
+        }
+
+        &__message {
+            margin-bottom: 10px;
+        }
+    }
+}
+      
+.vendor-plans--storefront-list {
+    .control-group {
+        .control-label {
+            width: 400px;
+            float: left;
+            text-align: left;
+            margin-bottom: 5px;
+            margin-left: 20px;
+        }
+    }
+}
+
+.object-picker__vendor-plan {
+    &-content {
+        display: grid;
+        align-items: center;
+
+        @media (min-width: @TabletBreakpoint + 1) {
+            grid-template-columns: 30% 25% 15% 15% 15%;
+        }
+    }
+}
+
+.select2-results__option:not(.select2-results__option--highlighted) {
+    .object-picker__vendor-plan-monthly-fee,
+    .object-picker__vendor-plan-transaction-fee,
+    .object-picker__vendor-plan-vendor-count,
+    .object-picker__vendor-plan-status {
+        color: @textMutedColor;
+    }
+}
+
+.vendor-plan-create {
+    &__block .control-text {
+        padding-top: 5px;
+        display: inline-block;
+    }
+
+    &__periodicity {
+        .controls {
+            display: flex;
+        }
+
+        .input-text-short {
+            margin-right: 5px;
+        }
+    }
+    
+    &__header {
+        display: -ms-grid;
+        display: grid;
+        grid-auto-flow: column;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    &__subheader {
+        margin: 0;
+    }
+
+    &__footer {
+        display: -ms-grid;
+        display: grid;
+        grid-auto-flow: column;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: end;
+        grid-gap: 10px;
+        align-items: center;
+    }
+}
+

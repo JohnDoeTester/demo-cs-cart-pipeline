@@ -1,0 +1,40 @@
+@dashboardBorderColor: #e0e7ef;
+@dashboardPrimaryColor: #33c49b;
+@dashboardSecondaryColor: lighten(@textMutedColor, 15%);   // #939ba2
+
+:root {
+    --dashboard-responsive-column: column;
+    --dashboard-responsive-align-start: flex-start;
+    --dashboard-default-title-height: 44px;
+    --dashboard-default-card-height: 400px;
+    --dashboard-full-column-width: 800px;
+    --base-line-height: @baseLineHeight;
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --dashboard-responsive-column: row;
+        --dashboard-responsive-align-start: center;
+    }
+}
+
+@import "tygh/pages/index/components/simple_dashboard_preloader.less";
+@import "tygh/pages/index/components/todo_section/todo_section.less";
+@import "tygh/pages/index/components/todo_section/todo_item.less";
+@import "tygh/pages/index/components/custom_blocks_section/custom_blocks_section.less";
+@import "tygh/pages/index/components/custom_blocks_section/custom_blocks_card.less";
+@import "tygh/pages/index/components/custom_blocks_section/custom_blocks_card_supports.css";
+@import "tygh/pages/index/components/analytics_section/analytics_section.less";
+@import "tygh/pages/index/components/analytics_section/analytics_card/analytics_card.less";
+@import "tygh/pages/index/components/analytics_section/analytics_card/graph.less";
+@import "tygh/pages/index/components/analytics_section/analytics_card/bar_chart.less";
+@import "tygh/pages/index/components/analytics_section/analytics_card/resource_list.less";
+@import "tygh/pages/index/components/analytics_section/analytics_card/resource_list_tabs.less";
+
+.simple-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 35px;
+}

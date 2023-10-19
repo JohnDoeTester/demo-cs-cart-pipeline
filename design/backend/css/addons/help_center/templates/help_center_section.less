@@ -1,0 +1,166 @@
+// Help center header
+.help-center-section__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: var(--help-center-responsive-align-start);
+    flex-wrap: wrap;
+    flex-direction: var(--help-center-responsive-column);
+    gap: 8px;
+    margin-left: var(--help-center-responsive-padding);
+    margin-right: var(--help-center-responsive-padding);
+    padding: 16px 24px;
+}
+
+.help-center-section__header-title-wrapper {
+    display: flex;
+    flex-direction: var(--help-center-responsive-column);
+    align-items: var(--help-center-responsive-align-start);
+    flex-wrap: wrap;
+    gap: 16px;
+    min-height: 42px;   // 32px + 8px + 2px
+}
+
+.help-center-section__header-title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+// Help center reset button
+.help-center-section__header-reset {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 4px 4px 16px;
+    font-weight: bold;
+    line-height: 1;
+    color: var(--help-center-main-color);
+    word-break: break-all;
+    word-break: break-word;
+    background: var(--help-center-bg-hover-color);
+    border: 1px solid var(--help-center-border-color);
+    border-radius: var(--help-center-border-radius-large);
+}
+
+.help-center-section__header-reset.help-center-section__header-reset {
+    font-size: 32px;
+    font-family: @sansFontFamily;
+}
+
+.help-center-section__header-reset:hover,
+.help-center-section__header-reset:focus,
+.help-center-section__header-reset:active {
+    color: var(--help-center-main-color);
+    border-color: var(--help-center-main-color);
+}
+
+.help-center-section__header-reset-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: @textColor;
+    font-size: var(--help-center-icon-width);
+    line-height: 1;
+    width: var(--help-center-icon-large-width);
+    height: var(--help-center-icon-large-width);
+    background: lighten(@textColor, 73%);
+    border-radius: 99px;
+}
+
+// Help center section
+.help-center-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.help-center-section.hidden {
+    display: none;
+}
+
+// Help center body
+.help-center-section__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: var(--help-center-responsive-overflow-y);
+    width: 100%;
+    height: 100%;
+    padding-bottom: 32px;
+}
+
+// Help center articles
+.help-center-section__articles {
+    display: grid;
+    padding-left: var(--help-center-responsive-padding);
+    padding-right: var(--help-center-responsive-padding);
+}
+
+.help-center-section__articles:empty:before {
+    content: attr(data-ca-help-center-no-data);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px 8px 24px;
+    color: @textMutedColor;
+    text-align: center;
+    min-height: 128px;
+}
+
+// Help center articles column
+.help-center-section__articles--columns {
+    --help-center-section-columns: 1;
+    --help-center-section-responsive-columns: 1;
+
+    grid-template-columns: repeat(var(--help-center-section-responsive-columns), 1fr);
+}
+
+@media (min-width: 1024px) {
+    .help-center-section__articles--columns {
+        --help-center-section-responsive-columns: 2;
+    }
+}
+
+@media (min-width: 1200px) {
+    .help-center-section__articles--columns {
+        --help-center-section-columns: 3;
+        --help-center-section-responsive-columns: var(--help-center-section-columns);
+    }
+}
+
+.help-center-section__html {
+    margin-left: var(--help-center-responsive-padding);
+    margin-right: var(--help-center-responsive-padding);
+    padding-left: 24px;
+    padding-right: 16px;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+// Help center section bottom
+.help-center-section__bottom {
+    margin-left: 24px;
+    margin-right: 16px;
+    padding-left: var(--help-center-responsive-padding);
+    padding-right: var(--help-center-responsive-padding);
+}
+
+// Help center section footer
+.help-center-section__footer {
+    display: flex;
+    margin-top: auto;
+    margin-left: 24px;
+    margin-right: 16px;
+    padding-left: var(--help-center-responsive-padding);
+    padding-right: var(--help-center-responsive-padding);
+}
+
+// Help center product release info
+.help-center-section__product-release-info {
+    margin-left: auto;
+    color: @textMutedColor;
+}

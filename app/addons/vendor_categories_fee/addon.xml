@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>vendor_categories_fee</id>
+    <version>1.0</version>
+    <priority>2000</priority>
+    <position>45</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR</auto_install>
+    <compatibility>
+        <core_edition>MULTIVENDOR</core_edition>
+        <dependencies>vendor_plans</dependencies>
+    </compatibility>
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:vendor_categories_fee;</item>
+        <item>
+            CREATE TABLE `?:vendor_categories_fee` (
+            `plan_id` int(11) unsigned NOT NULL,
+            `category_id` int(11) unsigned NOT NULL,
+            `percent_fee` decimal(12,2) unsigned default NULL,
+            UNIQUE KEY(plan_id, category_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:vendor_categories_fee;</item>
+    </queries>
+</addon>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>vendor_terms</id>
+    <version>1.0</version>
+    <priority>1000</priority>
+    <position>45</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR</auto_install>
+    <queries>
+        <item>ALTER TABLE ?:company_descriptions ADD `terms` mediumtext</item>
+        <item for="uninstall">ALTER TABLE ?:company_descriptions DROP `terms`</item>
+        <item for="demo" type="file">database/demo.sql</item>
+    </queries>
+</addon>

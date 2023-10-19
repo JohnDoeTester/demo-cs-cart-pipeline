@@ -1,0 +1,262 @@
+.shipping-rate {
+    table {
+        margin: 0;
+    }
+
+    &__delivery-time, &__base-rate, &__tools {
+        display: flex;
+        align-items: center;
+    }
+
+    &__delivery-time, &__base-rate {
+        label {
+            margin-right: 5px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__tools {
+        justify-content: flex-end;
+    }
+
+    &__input-append {
+        display: flex;
+    }
+
+    &__description {
+        margin: 10px 0;
+        color: #727b84;
+    }
+
+    &__per-unit:not(.btn-group) {
+        margin-left: 20px;
+    }
+    
+    &__input-append {   
+        font-size: @baseFontSize;
+
+        &.input-append {
+            width: 210px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input[type="text"]&--large {
+            max-width: 210px;
+            flex-grow: 1;
+            width: 80%;
+        }
+
+        &-checkbox {
+            padding: 5px 20px;
+        }
+
+        .dropdown-toggle {
+            padding: 4px 8px;
+        }
+
+        .btn-group.open .dropdown-toggle {
+            background-color: white;
+        }
+        
+        .btn:focus {
+            background-color: white;
+        }
+    }
+
+    &__add-all {
+        margin-left: -2px;
+    }
+
+    table tr:hover {
+        cursor: pointer;
+    }
+
+    .button-hidden,
+    .button-hidden:disabled {
+        min-height: @inputHeight;
+        border-color: transparent;
+        background-color: transparent;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    .button-hidden span.caret {
+        display: none;
+    }
+
+    &__button-list &__add-conditions, 
+    &__button-list &__hide-conditions {
+        margin-left: 10px;
+        color: transparent;
+    }
+
+    &__show-conditions {
+        white-space: nowrap;
+    }
+
+    &__button-list &__show-conditions {
+        margin-left: 10px;
+        color: #333;
+    }
+
+    &:hover {
+        .shipping-rate__base-rate {
+            .shipping-rate__button-list .shipping-rate__empty-conditions-tool,
+            .shipping-rate__button-list .shipping-rate__hide-conditions,
+            .shipping-rate__button-list .shipping-rate__show-conditions {
+                color: @mainColor;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__table-condition {
+        thead {
+            background-color: #f7f7f7;
+
+            th:last-child {
+                width: 60px;
+            }
+        }
+    
+        tbody td {
+            vertical-align: top;
+
+            &:last-child {
+                text-align: right;
+                width: 60px;
+            }          
+        }
+
+        .cm-delete-row {
+            display: none;
+        }
+
+        & tr:hover {
+            .shipping-rate-range.error .shipping-rate__input-large,
+            .shipping-rate-range__content .control-group.error .shipping-rate__input-large {
+                border: 1px solid #b94a48;
+
+                &:focus {
+                    border: 1px solid #b94a48 !important;
+                }
+            }
+
+            .button-hidden:focus {
+                border: 1px solid rgba(82, 168, 236, 0.796875) !important;
+            }
+    
+            .button-hidden {
+                border-color: #ccc;
+                background-color: white;
+                margin-left: -2px;
+
+                &.dropdown-toggle {
+                    border-radius: 0 3px 3px 0;
+                }
+
+                .caret {
+                    display: inline-block;
+                }
+            }
+
+            .cm-delete-row:not(.hidden) {
+                display: inline-block;
+            }
+        }
+    }
+
+    &__container {
+        display: grid;
+        border-bottom: 1px solid #ededed;
+        padding-top: 20px;
+
+        .shipping-rate__main-content {
+            display: grid;
+            grid-template-columns: 35% 25% 32% 8%;
+
+            .shipping-rate__header {
+                @media (max-width: @DesktopBreakpoint) {
+                    grid-column-start: 1;
+                    grid-column-end: 5;           
+                }
+            }
+    
+            .shipping-rate__base-rate {
+                @media (max-width: @DesktopBreakpoint) {
+                    grid-column-start: 2;
+                    grid-column-end: 4;          
+                }
+            }
+        }
+    }
+
+    &__table-condition:last-child {
+        border-bottom: 1px solid #ededed;
+    }
+
+    &__input-large[type="text"] {
+        width: 100%;
+    }
+
+    &-range {
+        &.control-group,
+        .form-edit &.control-group,
+        .form-edit &__content .control-group {
+            padding: 0;
+            margin: 0;
+            border-bottom: none;
+        }
+
+        &__content {
+            display: grid;
+            grid-template-columns: 48% 4% 48%;
+            align-items: center;
+    
+            .control-group {
+                padding: 0;
+                margin: 0;
+            }
+    
+            &-delimiter {
+                text-align: center;
+            }
+    
+            .help-inline p {
+               margin: 0;
+            }
+        }
+    }
+}
+
+.object-picker__simple--shipping-rates {
+    display: flex;
+
+    .btn.cm-ajax {
+        white-space: nowrap;
+    }
+
+    .select2-selection {
+        border-radius: 4px 0 0 4px;
+    }
+}
+
+.dashboard-shipping .object-picker__simple .select2.select2-container {
+    flex-grow: 1;
+    width: auto;
+}
+
+.shipping-rate-area-d {
+    color: #bfbfbf;
+
+    input:disabled {
+        color: #bfbfbf;
+    }
+
+    .shipping-rate-area__tools-item {
+        display: none;
+    }
+}

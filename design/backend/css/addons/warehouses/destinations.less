@@ -1,0 +1,105 @@
+.destinations-wrapper + .help-block {
+    margin-top: @baseLineHeight / 2;
+}
+
+.object-picker__simple--destinations {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 8px auto;
+    grid-template-columns: 1fr auto;
+    grid-gap: 8px;
+}
+
+.object-picker__selection-extended--destination {
+    grid-gap: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    
+    @media (min-width: 768px) {
+        grid-template-areas: "object-picker__destinations-main object-picker__shipping-delay object-picker__warn-about-delay object-picker__delete";
+        -ms-grid-columns:      minmax(170px,1fr) 16px minmax(74px,100px) 16px minmax(40px,150px) 16px minmax(40px,auto);
+        grid-template-columns: minmax(170px,1fr)      minmax(74px,100px)      minmax(40px,150px)      minmax(40px,auto);
+    }
+}
+
+.object-picker__result--destination {
+    -ms-grid-columns:      100%;
+    grid-template-columns: 100%;
+    grid-gap: 0;
+    
+    @media (min-width: 768px) {
+        grid-template-areas: "object-picker__destinations-main";
+    }
+}
+
+.object-picker__selected-header {
+    display: none;
+    grid-area: object-picker__selected-header;
+    grid-template-areas: "object-picker__header-item--name object-picker__header-item--shipping-delay object-picker__header-item--warn-about-delay object-picker__header-item--delete";
+    -ms-grid-columns:      minmax(170px,1fr) 16px minmax(74px,100px) 16px minmax(40px,150px) 16px minmax(40px,auto);
+    grid-template-columns: minmax(170px,1fr)      minmax(74px,100px)      minmax(40px,150px)      minmax(40px,auto);
+    grid-gap: 16px;
+    border-bottom: 1px solid @tableBorder;
+    
+    @media (min-width: 768px) {
+        display: grid;
+    }
+}
+
+.object-picker__selected-external:not(:empty) ~ .object-picker__selected-header {
+    @media (min-width: 768px) {
+        display: grid;
+    }
+}
+
+.object-picker__header-item {
+    font-weight: bold;
+    padding: 8px 0;
+    align-self: end;
+
+    &--name {
+        grid-template: "object-picker__header-item--name";
+    }
+
+    &--shipping-delay {
+        grid-template: "object-picker__header-item--shipping-delay";
+    }
+
+    &--warn-about-delay {
+        grid-template: "object-picker__header-item--warn-about-delay";
+    }
+}
+
+.object-picker__selected-external-container {
+    display: grid;
+    grid-template-areas: "object-picker__selected-header"
+        "object-picker__selected-external"
+        "object-picker__selected-external-not-items";
+    grid-template-rows: min-content min-content min-content;
+    grid-template-columns: 100%;
+    grid-gap: 0px;
+}
+
+.object-picker__selected-external {
+    grid-area: object-picker__selected-external;
+}
+
+.object-picker__selected-external-not-items {
+    grid-area: object-picker__selected-external-not-items;
+}
+
+.rate-area-d {
+    color: #bfbfbf;
+
+    a {
+        color: #bfbfbf;
+    }
+    
+    input:disabled {
+        color: #bfbfbf;
+    }
+
+    .shipping-rate-area__tools-item {
+        display: none;
+    }
+}

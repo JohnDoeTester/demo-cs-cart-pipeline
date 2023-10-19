@@ -1,0 +1,19 @@
+/*
+    addons/product_reviews/views/product_reviews/components/rating/product_rating_overview.tpl
+*/
+
+.cs-product-reviews-rating-product-rating-overview {
+    display: grid;
+
+    @media (min-width: @TabletBreakpoint + 1px) {
+        grid-auto-flow: column;
+        align-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    > *:last-child {
+        @media (min-width: @TabletBreakpoint + 1px) {
+            justify-self: end;
+        }
+    }
+}

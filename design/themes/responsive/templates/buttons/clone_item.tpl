@@ -1,0 +1,1 @@
+<a class="button-icon ty-icon-clone" name="clone" id="{$item_id}" title="{__("clone_this_item")}" alt="{__("clone_this_item")}" onclick="{$but_onclick}" >{include_ext file="common/icon.tpl" class="ty-icon-docs"}</a>

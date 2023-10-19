@@ -1,0 +1,26 @@
+.table  {
+    .hidden-tools {
+        visibility: visible;
+    }
+
+    thead th {
+        font-size: round(@baseFontSize / 1.4);
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+    }
+
+    thead th,
+    thead th a {
+        transition: color 1s;
+    }
+
+    thead:not(:hover) th,
+    thead:not(:hover) th a {
+        color: @grayLight;
+    }
+}
+
+.table tr:not(:hover) .hidden-tools .btn {
+    border-color: transparent;
+}

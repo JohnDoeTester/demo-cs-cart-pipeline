@@ -1,0 +1,62 @@
+.approve-disapprove {
+    display: inline-block;
+    font-size: 0;
+}
+
+.approve-disapprove__form {
+    display: inline-block;
+    margin: 0;
+}
+
+.approve-disapprove__btn-group + .approve-disapprove__btn-group {
+    margin-left: 0;
+}
+
+.approve-disapprove .approve-disapprove__btn-group
+    .approve-disapprove__btn--list-disapprove.approve-disapprove__btn--list-disapprove,
+.approve-disapprove__btn--list-disapprove {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.approve-disapprove .approve-disapprove__btn-group
+    .approve-disapprove__btn--list-approve.approve-disapprove__btn--list-approve,
+.approve-disapprove__btn--list-approve {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+}
+
+.approve-disapprove__icon.approve-disapprove__icon[class*=" icon-"] {
+    opacity: 1;
+    filter: initial;
+}
+
+.approve-disapprove__dropdown {
+    width: 500px;
+    max-width: ~"calc(100% - 2 * 17px)";
+
+    @media (min-width: 768px) {
+        max-width: none;
+    }
+}
+
+.approve-disapprove__content {
+    padding: 8px 13px 3px 13px;
+}
+
+.approve-disapprove__footer {
+    border-top: 1px solid #eee;
+    padding: 13px 13px 8px 13px;
+}
+
+.approve-disapprove__reason {
+    min-height: 100px;
+    width: 100%;
+}
+
+.approve-disapprove__btn-group > .approve-disapprove__btn--header-disapprove:first-child,
+.approve-disapprove__btn--header-disapprove {
+    margin-right: 6px;
+    margin-left: 6px;
+}

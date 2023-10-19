@@ -1,0 +1,124 @@
+
+html[dir="rtl"] {
+    .ui-widget-content.ui-dialog {
+        left: inherit;
+    }
+    .ty-icon-right-circle:before {
+        content: "\e00e";
+    }
+    .ty-icon-left-circle:before {
+        content: "\e00f";
+    }
+    .ty-horizontal-filters-content-to-right {
+        right: auto;
+        left: 0;
+    }
+    .ty-horizontal-product-filters-dropdown a .ty-icon-cancel-circle {
+        padding-right: 5px;
+    }
+    .ty-pagination__text-arrow:before {
+        content: "→";
+    }
+    .ty-pagination__next .ty-pagination__text-arrow:before {
+        content: "←";
+    }
+    .ty-icon-right-dir:before {
+        content: "\e003";
+    }
+    .ty-icon-right-open:before {
+        content: "\e01a";
+    }
+    .ty-pagination__right-arrow .ty-pagination__text-arrow:before {
+        content: "←";
+    }
+
+    .ty-price-slider {
+
+        &__inputs {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: baseline;
+            justify-content: flex-end;
+            padding: 0;
+        }
+        
+        &__bidi-container {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &__filter-prefix,
+        &__filter-suffix {
+            display: inline-block;
+            margin: 0px 5px;
+            padding: 5px 0px;
+            vertical-align: middle;
+        }
+    }
+
+    .ty-order-info__profile-field-item {
+        &.b-phone,
+        &.s-phone {
+            direction: rtl;
+        }
+    }
+
+    .ty-control-group.ty-profile-field__item {
+        &.ty-billing-phone input,
+        &.ty-billing-address-line2 input,
+        &.ty-shipping-phone input,
+        &.ty-shipping-address-line2 input {
+            direction: rtl !important;
+            text-align: left !important;
+        }
+    }
+
+    [name="payment_info[customer_phone]"],
+    [name="user_data[phone]"] {
+        direction: rtl !important;
+        text-align: left !important;
+    }
+    
+    .ty-inputmask-bdi {
+        direction: rtl !important;
+        text-align: left !important;
+    }
+
+    @media (max-width: 480px) {
+        .ui-datepicker {
+            left: 0 !important;
+            right: 0 !important;
+        }
+    }
+
+    /** Fix old-owlcarousel non-adaptive for RTL **/
+    .owl-carousel.owl-theme .owl-controls .owl-buttons {
+        .owl-next:before,
+        .owl-prev:after {
+            transform: scaleX(-1);
+        }
+    }
+    .owl-theme .owl-controls-outside .owl-buttons {
+        .owl-next,
+        .owl-prev {
+            transform: scaleX(-1);
+        }
+    }
+    .owl-stage-outer {
+        direction: ltr !important;
+    }
+    /** /Fix old-owlcarousel non-adaptive for RTL **/
+
+    .ty-social-buttons__inline {
+        .pinterest__wrapper a {
+            background-position-x: ~"calc(100% - 4px)";
+            padding: 0;
+            padding-right: 4px;
+        }
+    }
+
+    .select2-container--open .select2-dropdown {
+        left: auto;
+        right: 0;
+    }
+}

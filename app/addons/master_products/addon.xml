@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>master_products</id>
+    <version>1.0</version>
+    <priority>1510</priority>
+    <position>0</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <compatibility>
+        <dependencies>product_variations</dependencies>
+        <core_edition>
+            MULTIVENDOR
+        </core_edition>
+    </compatibility>
+    <settings edition_type="ROOT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="allow_vendors_to_create_products">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="allow_buy_default_common_product">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item for="install">DROP TABLE IF EXISTS ?:master_products_storefront_offers_count;</item>
+        <item for="install">DROP TABLE IF EXISTS ?:master_products_storefront_min_price;</item>
+        <item for="install">
+            ALTER TABLE ?:products
+                ADD master_product_id int(11) unsigned NOT NULL DEFAULT '0',
+                ADD master_product_status char(1) NOT NULL DEFAULT 'A',
+                ADD master_product_offers_count int(11) unsigned NOT NULL DEFAULT '0';
+        </item>
+        <item for="install">CREATE INDEX idx_master_product_id ON ?:products (master_product_id);</item>
+        <item>
+            CREATE TABLE ?:master_products_storefront_offers_count (
+                storefront_id int(11) unsigned NOT NULL,
+                product_id int(11) unsigned NOT NULL,
+                count int(11) unsigned NOT NULL DEFAULT '0',
+                PRIMARY KEY (product_id, storefront_id),
+                KEY idx_storefront_id (storefront_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="install">
+            CREATE TABLE ?:master_products_storefront_min_price (
+                storefront_id int(11) unsigned NOT NULL,
+                product_id int(11) unsigned NOT NULL,
+                price decimal(12,2) unsigned NOT NULL DEFAULT '0',
+                PRIMARY KEY (product_id, storefront_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">DROP INDEX idx_master_product_id ON ?:products;</item>
+        <item for="uninstall">ALTER TABLE ?:products DROP master_product_id, DROP master_product_status, DROP master_product_offers_count;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:master_products_storefront_offers_count;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:master_products_storefront_min_price;</item>
+    </queries>
+    <functions>
+        <item for="install">fn_master_products_install</item>
+    </functions>
+</addon>

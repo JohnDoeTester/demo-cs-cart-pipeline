@@ -1,0 +1,31 @@
+// design/themes/responsive/templates/addons/product_bundles/components/options/variation_options.tpl
+
+.ty-product-bundles-variation-options__content {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    opacity: 0.7;
+}
+
+.ty-product-bundles-variation-options__item:not(:last-child) {
+    &:after {
+        content: '\2022';
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+    }
+}
+
+// Options RTL
+html[dir="rtl"] .ty-product-bundles-variation-options__item:not(:last-child) {
+    &:before {
+        content: '\2022';
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+    }
+    &:after {
+        content: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

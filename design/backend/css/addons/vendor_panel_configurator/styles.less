@@ -1,0 +1,33 @@
+.vendor-panel-configurator-tab {
+    .vendor-panel-configurator-tab__selector {
+        margin-left: 4px;
+    }
+
+    &.active {
+        .vendor-panel-configurator-tab__selector--optional {
+            background: white;
+            outline-color: white;
+        }
+
+        .vendor-panel-configurator-tab__selector--optional:checked::after {
+            color: @mainColor;
+        }
+    }
+}
+
+.control-group.vendor-panel-configurator-field {
+    margin-bottom: 0;
+}
+
+.nav__menu-item--root-hidden:after,
+.nav__menu-item--hidden-by-permissions:after,
+.nav__menu-subitem--hidden-by-permissions:after {
+    content: "\f070";
+    padding-left: 8px;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: @baseFontSize + 1px;
+    line-height: @baseFontSize + 1px;
+    opacity: 0.5;
+}

@@ -1,0 +1,62 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2d86a1898b0bd589bef1094fa6cd671f",
+    "packages": [
+        {
+            "name": "jsoprano/php-apple-signin-php56",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jsoprano/php-apple-signin-php56.git",
+                "reference": "1d0a185f9c5cb45cdd01c70927e76cc93717bca2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jsoprano/php-apple-signin-php56/zipball/1d0a185f9c5cb45cdd01c70927e76cc93717bca2",
+                "reference": "1d0a185f9c5cb45cdd01c70927e76cc93717bca2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AppleSignIn\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Juan Soprano",
+                    "email": "jsoprano@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to decode and parse Apple Sign In client tokens.",
+            "keywords": [
+                "JWK",
+                "apple",
+                "in",
+                "ios",
+                "jwt",
+                "php",
+                "sign"
+            ],
+            "time": "2020-08-25T16:36:10+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}

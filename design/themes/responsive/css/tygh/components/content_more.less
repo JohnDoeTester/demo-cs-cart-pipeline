@@ -1,0 +1,49 @@
+/*
+    templates/common/more.tpl
+*/
+
+:root {
+    --ty-content-more-visible-comment-lines: 5;
+}
+
+.ty-content-more {
+    position: relative;
+}
+
+.ty-content-more__text:not(.cs-content-more__text--full) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--ty-content-more-visible-comment-lines);
+    -webkit-box-orient: vertical;
+}
+
+.ty-content-more__btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+    color: @links;
+    background: @general_bg_color;
+    border: 0;
+    transition: all 150ms;
+}
+
+.ty-content-more__btn:hover {
+    color: darken(@links, 10%);
+}
+
+.ty-content-more__btn:before {
+    content: '';
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: var(--width-s);
+    height: 100%;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff);
+}

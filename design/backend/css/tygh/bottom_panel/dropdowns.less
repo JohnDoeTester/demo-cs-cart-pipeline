@@ -1,0 +1,118 @@
+.bp-dropdown {
+    position: relative;
+
+    &-button {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        opacity: 0.6;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%;
+        border: 0;
+        color: #fff;
+        background: none;
+        -webkit-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+
+        &:hover,
+        &:focus {
+            opacity: 1;
+            outline: 0;
+        }
+
+        &-icon--settings {
+            -webkit-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+    
+        &--animation:focus &-icon--settings {
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    &-menu {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        bottom: ~"calc(100% + 2px)";
+        right: -12px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        max-height: ~"calc(100vh - 72px)";  // 100vh - (Panel height + 2 * Panel padding + 2 * Dropdown offset)
+        overflow-y: auto;
+        border-radius: var(--bp-radius);
+        background-color: var(--bp-dropdown-menu-bg);
+        -webkit-transition: opacity 0.1s ease-in-out,
+            -webkit-transform 0.1s ease-in-out;
+        transition: opacity 0.1s ease-in-out,
+            -webkit-transform 0.1s ease-in-out;
+        -o-transition: transform 0.1s ease-in-out,
+            opacity 0.1s ease-in-out;
+        transition: transform 0.1s ease-in-out,
+            opacity 0.1s ease-in-out;
+        transition: transform 0.1s ease-in-out,
+            opacity 0.1s ease-in-out,
+            -webkit-transform 0.1s ease-in-out;
+        -webkit-transform: translateY(10px);
+        -ms-transform: translateY(10px);
+        transform: translateY(10px);
+        z-index: -1;
+
+        &--open {
+            opacity: 1;
+            visibility: visible;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+            z-index: 1;
+        }
+    }
+
+
+    &-menu__group:not(:last-child) {
+        margin-bottom: 3px;
+        padding-bottom: 3px;
+        border-bottom: var(--bp-dropdown-menu-group-divider);
+    }
+
+    &-menu__item {
+        display: block;
+        padding: 6px 20px;
+        color: #ffffff;
+        font-size: var(--bp-font-size);
+        font-family: var(--bp-font);
+        white-space: nowrap;
+        
+        &:hover,
+        &:focus {
+            color: #fff;
+            background-color: var(--bp-dropdown-menu-item-hover-bg);
+            text-decoration: none;
+        }
+    }
+
+    &-menu__item-text {
+        display: block;
+        padding: 6px 20px;
+        color: #ffffff;
+        opacity: 0.7;
+        font-size: var(--bp-font-size);
+        font-family: var(--bp-font);
+        white-space: nowrap;
+        &--head {
+            padding: 6px 10px;
+            font-weight: bold;
+            opacity: 1;
+        }
+    }
+
+}

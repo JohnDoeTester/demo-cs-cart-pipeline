@@ -1,0 +1,35 @@
+.wysiwyg-block-loader {
+    display: block;
+    width: 100%;
+    border: 0 !important;
+    font-size: 0;
+}
+
+.wysiwyg-block-loader::selection {
+    background-color: #aaa;
+}
+
+.wysiwyg-block-loader:after {
+    content: attr(title);
+    display: block;
+    padding: 10px 10px 10px 40px;
+    width: auto;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: #000;
+    border-radius: 2px;
+    background-color: #eee;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaAQMAAACThN6NAAAABlBMVEUAAAAzMzPI8eYgAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfjBwoMOCHTdao5AAAAGklEQVQI12M4c+bMAQYwgQAHQAhM0E4Mbi8AAMMbkfxoVA0AAAAASUVORK5CYII=');
+    background-repeat: no-repeat;
+    background-position: 7px 7px;
+    font-size: @baseFontSize;
+    font-style: normal;
+    font-weight: normal;
+}
+
+[aria-describedby="wysiwyg_bm_picker"] {
+    min-width: 990px;
+}
+
+.re-blockManager:hover:not(.redactor-act) .redactor-custom-icon {
+    color: white;
+}

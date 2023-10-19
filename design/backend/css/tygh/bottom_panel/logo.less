@@ -1,0 +1,47 @@
+.bp-logo {
+    display: none;
+    grid-area: logo;
+    padding: 10px;
+
+    @media (min-width: 768px) {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        opacity: 0.6;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        height: inherit;
+        box-sizing: border-box;
+        color: #fff;
+    }
+
+    &:hover,
+    &:focus,
+    &--active {
+        opacity: 1;
+        color: #fff;
+        outline: 0;
+    }
+    
+    &--color {
+        color: var(--bp-cscart-color);
+    }
+    
+    &-icon {
+        pointer-events: none;
+    }
+
+    &-img--no-color {
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        filter: grayscale(100%);
+
+        max-height: 100%;
+        width: auto;
+    }
+}

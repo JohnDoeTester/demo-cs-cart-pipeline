@@ -1,0 +1,44 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy-on-cs-cart
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: rsync deployment
+        uses: D3rHase/rsync-deploy-action@v0.2
+        with:
+          HOST: ${{ secrets.HOST }}
+          PORT: ${{ secrets.PORT }}
+          USER: ${{ secrets.USERNAME }}
+          PRIVATE_SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REPOSITORY_PATH: app/*
+          SERVER_PATH: /var/www/html/cscart/app
+
+     
+      - name: rsync deployment
+        uses: D3rHase/rsync-deploy-action@v0.2
+        with:
+          HOST: ${{ secrets.HOST }}
+          PORT: ${{ secrets.PORT }}
+          USER: ${{ secrets.USERNAME }}
+          PRIVATE_SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REPOSITORY_PATH: design/*
+          SERVER_PATH: /var/www/html/cscart/design
+
+      - name: rsync deployment
+        uses: D3rHase/rsync-deploy-action@v0.2
+        with:
+          HOST: ${{ secrets.HOST }}
+          PORT: ${{ secrets.PORT }}
+          USER: ${{ secrets.USERNAME }}
+          PRIVATE_SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REPOSITORY_PATH: images/*
+          SERVER_PATH: /var/www/html/cscart/images/

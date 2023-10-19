@@ -1,0 +1,1 @@
+{__("vendor_plans.plan_payment")}

@@ -1,0 +1,32 @@
+/*
+    addons/product_reviews/views/product_reviews/components/reviews/review_status.tpl
+*/
+
+.cs-product-reviews-reviews-review-status__btn .caret {
+    border-top-color: @grayLight;
+}
+
+.cs-product-reviews-reviews-review-status__btn.status-dropdown-a {
+    color: @successText;
+    background-color: @successBackground;
+    border: 0;
+
+    &:hover,
+    &:focus {
+        color: @successText;
+        background-color: darken(@successBackground, 5%);
+    }
+}
+
+.cm-popup-box .dropdown-toggle.cs-product-reviews-reviews-review-status__btn.status-dropdown-d,
+.cs-product-reviews-reviews-review-status__btn.status-dropdown-d {
+    color: @errorText;
+    background-color: @errorBackground;
+    border: 0;
+
+    &:hover,
+    &:focus {
+        color: @errorText;
+        background-color: darken(@errorBackground, 5%);
+    }
+}

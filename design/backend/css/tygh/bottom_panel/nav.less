@@ -1,0 +1,66 @@
+.bp-nav {
+    display: -ms-grid;
+    display: grid;
+    position: relative;
+    grid-area: nav;
+    grid-template-columns: repeat(auto-fit, minmax(90px,auto));
+    grid-auto-flow: column;
+
+    &__item {
+        display: -webkit-box;
+        display: flex;
+        opacity: 0.6;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%;
+        padding-right: 6px;
+        padding-left: 6px;
+        color: var(--bp-text-color-inverse);
+        font-size: 15px;
+        font-family: var(--bp-font);
+        white-space: nowrap;
+        cursor: pointer;
+
+        &:hover,
+        &:focus,
+        &--active {
+            opacity: 1;
+            color: var(--bp-text-color-inverse);
+            text-decoration: none;
+            outline: 0;
+        }
+
+        @media (min-width: 1024px) {
+            padding-right: 12px;
+            padding-left: 12px;
+            font-size: 18px;
+        }
+    }
+
+    &__item-text {
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+    
+    &__active {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 4px;
+        background: transparent;
+        -webkit-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+        width: ~"calc(100% / 3)";
+
+        &--activated {
+            background: #fff;
+        }
+    }
+}

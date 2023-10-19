@@ -1,0 +1,99 @@
+// design/backend/templates/views/index/components/analytics_section/analytics_card/resource_list.tpl
+
+.analytics-card-resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.analytics-card-resource-list__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.analytics-card-resource-list__title {
+    font-size: @fontSizeSmall;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.analytics-card-resource-list__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.analytics-card-resource-list__item--divider:not(:last-child) {
+    padding-bottom: 8px;
+    border-bottom: 1px solid @tableBorder;
+}
+
+.analytics-card-resource-list__image {
+    flex-shrink: 0;
+}
+
+.analytics-card-resource-list__item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.analytics-card-resource-list__primary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.analytics-card-resource-list__name {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-width: 0;
+}
+
+.analytics-card-resource-list__name-text {
+    display: block;
+    min-width: 48px;
+}
+
+.analytics-card-resource-list__label {
+    min-width: 32px;
+    text-align: center;
+}
+
+.analytics-card-resource-list__value {
+    display: block;
+    min-width: 48px;
+    text-align: right;
+}
+
+.analytics-card-resource-list__secondary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.analytics-card-resource-list__description {
+    display: block;
+    min-width: 48px;
+}
+
+.analytics-card-resource-list__description--link {
+    min-width: 48px;
+    color: @textMutedColor;
+}
+
+.analytics-card-resource-list__description--link:hover {
+    color: @textMutedColor;
+}
+
+.analytics-card-resource-list__small-text {
+    font-size: @fontSizeSmall;
+    color: @textMutedColor;
+    text-align: right;
+}
+
+.analytics-card-resource-list__no-items {
+    width: 100%;
+}

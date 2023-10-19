@@ -1,0 +1,88 @@
+.attach-images {
+    margin-bottom: 0px;
+    &.logos-section__item {
+        margin-bottom: 10px;
+    }
+    .desc {
+        color: #868686;
+        font-size: 11px;
+    }
+    .image-wrap {
+        position: relative;
+        width: 200px;
+
+        .image-delete {
+            position: absolute;
+            top: -7px;
+            left: 152px + 4;
+            z-index: 1;
+            display: none;
+            line-height: 0;
+        }
+        &:hover {
+            .image-delete {
+                display: block;
+            }
+        }
+    }
+    .upload-box {
+        margin-top: 10px;
+        margin-bottom: 25px;
+        .image {
+            .border-radius(@baseBorderRadius);
+            position: relative;
+            display: table-cell;
+            margin-right: 15px;
+            padding: 5px;
+            width: 152px;
+            height: 110px;
+            border: 1px solid #dddddd;
+            background-color: white;
+            vertical-align: middle;
+            vertical-align: middle;
+            text-align: center;
+            // tooltip bug
+            .tooltip {
+                white-space: nowrap;
+            }
+            a {
+                display: block;
+                text-align: center;
+            }
+            img {
+                display: inline;
+                max-width: 152px;
+                max-height: 110px;
+                width: auto;
+                height: auto;
+                line-height: 110px;
+            }
+            .no-image {
+                display: block;
+                width: 152px;
+                height: 108px;
+            }
+        &:hover{
+            border: 1px solid #b9b9b9;
+        }
+        }
+        .image-alt {
+            padding-top: 10px;
+            .input-append,
+            .input-prepend {
+                white-space: normal;
+            }
+            input {
+                width: 127px;
+            }
+        }
+        .logos-section__image.favicon {
+            img {
+                width: 16px;
+            }
+        }
+    }
+    .upload-box:last-child {
+        margin-bottom: 0px !important;
+    }
+}

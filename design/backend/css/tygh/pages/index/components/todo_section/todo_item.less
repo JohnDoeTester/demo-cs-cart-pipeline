@@ -1,0 +1,112 @@
+// design/backend/templates/views/index/components/todo_section/todo_item.tpl
+
+.todo-item {
+    display: flex;
+    padding-left: 28px;
+    padding-right: 28px;
+    min-height: ~"calc((8px + 1px + 4px) * 2 + var(--base-line-height) + 1px)";   // ( Item padding + Button (border, padding) ) * 2 + @baseLineHeight + Item border: ~53px
+    background: #fff;
+}
+
+.todo-item--link:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+.todo-item__inner {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: var(--dashboard-responsive-column);
+    align-items: var(--dashboard-responsive-align-start);
+    width: 100%;
+    gap: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.todo-item--e {
+    background-color: @errorBackground;
+    color: @errorText;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.todo-item--link.todo-item--e:hover,
+.todo-item--link.todo-item--e:focus,
+.todo-item--link.todo-item--e:active {
+    color: @errorText;
+}
+
+.todo-item--w {
+    background-color: @warningBackground;
+    color: @warningText;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.todo-item--link.todo-item--w:hover,
+.todo-item--link.todo-item--w:focus,
+.todo-item--link.todo-item--w:active {
+    color: @warningText;
+}
+
+.todo-item--s {
+    background-color: @successBackground;
+    color: @successText;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.todo-item--link.todo-item--s:hover,
+.todo-item--link.todo-item--s:focus,
+.todo-item--link.todo-item--s:active {
+    color: @successText;
+}
+
+.todo-item--i {
+    background-color: @infoBackground;
+    color: @infoText;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.todo-item--link.todo-item--i:hover,
+.todo-item--link.todo-item--i:focus,
+.todo-item--link.todo-item--i:active {
+    color: @infoText;
+}
+
+.todo-item__inner--no-responsive {
+    flex-direction: row;
+    align-items: center;
+}
+
+.todo-item__content p,
+.todo-item__content ol,
+.todo-item__content ul {
+    margin-bottom: 8px;
+}
+
+.todo-item__content p:last-child,
+.todo-item__content ol:last-child,
+.todo-item__content ul:last-child {
+    margin-bottom: 0;
+}
+
+.todo-item:not(:last-child) .todo-item__inner {
+    border-bottom: 1px solid @dashboardBorderColor;
+}
+
+.todo-item--e:not(:last-child) .todo-item__inner {
+    border-bottom-color: @errorBorder;
+}
+
+.todo-item--w:not(:last-child) .todo-item__inner {
+    border-bottom-color: @warningBorder;
+}
+
+.todo-item--s:not(:last-child) .todo-item__inner {
+    border-bottom-color: @successBorder;
+}
+
+.todo-item--i:not(:last-child) .todo-item__inner {
+    border-bottom-color: @infoBorder;
+}
+
+.todo-item__actions {
+    display: flex;
+    align-items: flex-start;
+    flex-shrink: 0;
+}

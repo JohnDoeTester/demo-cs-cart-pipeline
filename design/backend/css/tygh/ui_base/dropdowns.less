@@ -1,0 +1,141 @@
+// Drop-down
+.dropdown-menu {
+    text-align: left !important;
+    border: 1px solid #d5d5d5;
+    .border-radius(@baseBorderRadius);
+    .box-shadow(0 2px 6px rgba(0,0,0,0.2));
+    input[type="checkbox"] {
+        margin-top: 0;
+        margin-right: 7px;
+    }
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus {
+        background-image: none;
+        background-color: @topPanelMenuBackgroundHoverStart;
+    }
+    > a:hover,
+    > a:focus {
+        background-color: @topPanelMenuBackgroundHoverStart;
+    }
+    .divider {
+        border-bottom: none;
+        margin: 3px 0;
+        background-color: #ededed;
+    }
+}
+.dropleft {
+    .dropdown-menu {
+        right: 0px;
+        left: auto;
+    }
+}
+.dropdown--inline {
+    display: inline-block;
+}
+.droptop {
+    .dropdown-menu {
+        top: auto;
+        bottom: 100%;
+    }
+}
+.dropdown-opened {
+    display: block;
+}
+
+.dropdown-menu > li > a,
+.dropdown-menu > li > span {
+    padding-top: @dropdownItemPadding;
+    padding-bottom: @dropdownItemPadding;
+}
+
+.dropdown-menu > li > a.dropdown--text-wrap,
+.dropdown-menu > li > span.dropdown--text-wrap {
+    width: 100%;
+    min-width: 200px;
+    max-height: @baseLineHeight * 2 + (@dropdownItemPadding - 1px) * 2;
+}
+
+.dropdown-menu > li > a.dropdown--text-wrap.dropdown--text-wrap-long,
+.dropdown-menu > li > span.dropdown--text-wrap.dropdown--text-wrap-long {
+    -webkit-line-clamp: 5;
+    min-width: 320px;
+    max-height: @baseLineHeight * 5 + (@dropdownItemPadding - 1px) * 2;
+}
+
+.dropdown-menu > li > span:not([class*="--text-wrap"]) {
+    display: block;
+    white-space: nowrap;
+}
+
+.dropdown-menu > li > span {
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: @baseLineHeight;
+    color: @dropdownLinkColor;
+}
+
+.dropdown-menu > .disabled > span {
+  color: @grayLight;
+}
+
+.dropdown-toggle--text-wrap {
+    position: relative;
+    padding-right: 23px;
+    text-align: left;
+    margin-left: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    .caret {
+        position: absolute;
+        right: 6px;
+        margin-right: 5px;
+        top: 4px;
+    }
+}
+
+.dropdown-toggle--text-wrap.btn-text {
+    white-space: normal;
+}
+
+.dropdown-menu > li > a.text-success:not(:hover),
+.dropdown-menu > li > span.text-success {
+    color: @successText;
+}
+
+.dropdown-menu > li > a.text-success:hover {
+    background: @successText !important;
+}
+
+.dropdown-menu > li > a.text-warning:not(:hover),
+.dropdown-menu > li > span.text-warning {
+    color: @warningText;
+}
+
+.dropdown-menu > li > a.text-warning:hover {
+    background: @warningText !important;
+}
+
+.dropdown-menu > li > a.text-error:not(:hover),
+.dropdown-menu > li > span.text-error {
+    color: @errorText;
+}
+
+.dropdown-menu > li > a.text-error:hover {
+    background: @errorText !important;
+}
+
+.dropup,
+.navbar-fixed-bottom .dropdown {
+  // Reverse the caret
+  .caret {
+    border-top: 0;
+    border-bottom: 4px solid @textButtonColor;
+  }
+}
+
+.dropdown__item {
+    padding: @dropdownItemPadding 20px;
+}

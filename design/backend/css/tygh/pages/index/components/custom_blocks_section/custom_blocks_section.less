@@ -1,0 +1,75 @@
+// design/backend/templates/views/index/components/custom_blocks_section/custom_blocks_section.tpl
+
+.custom-blocks-section {
+    width: 100%;
+}
+
+.custom-blocks-section--fixed {
+    max-width: var(--dashboard-full-column-width);
+}
+
+.custom-blocks-section:empty {
+    display: none;
+}
+
+.custom-blocks-section__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.custom-blocks-section__title {
+    margin: 0;
+}
+
+.custom-blocks-section__column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-basis: 0;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.custom-blocks-section__card {
+    border: 1px solid @dashboardBorderColor;
+    border-radius: @baseBorderRadius;
+    padding: 16px;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+.custom-blocks-section__create {
+    display: flex;
+    padding: 8px 16px;
+    width: 100%;
+    border: 1px solid @dashboardBorderColor;
+    border-radius: @baseBorderRadius;
+    word-break: break-word;
+}
+
+.custom-blocks-section__create:hover,
+.custom-blocks-section__create:focus,
+.custom-blocks-section__create:active {
+    text-decoration: none;
+}
+
+.custom-blocks-section__create:hover {
+    color: @textButtonColor;
+    background-color: #f5f6f7;
+}
+
+.custom-blocks-section__create:focus {
+    background-color: #f0f1f2;
+}
+
+.custom-blocks-section__create--center {
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .custom-blocks-section__create--fixed {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}

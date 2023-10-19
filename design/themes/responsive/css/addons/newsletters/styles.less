@@ -1,0 +1,54 @@
+/* ==========================================================================
+Newsletters
+========================================================================== */
+/* Template: templates/addons/newsletters/hooks/checkout/extra_payment_info.pre.tpl */
+.ty-newsletters {
+    margin-bottom: 30px;
+}
+.ty-newsletters__item {
+    margin-bottom: 5px;
+}
+.checkout-steps .ty-newsletters {
+    padding: 0 20px;
+}
+.ty-checkout__billing-options .ty-newsletters {
+    padding: 0;
+}
+
+// styles for responsive theme
+.ty-footer-form-block--responsive {
+
+    > form {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .ty-footer-form-block__title {
+        padding: 0;
+    }
+
+    .ty-footer-form-block__form-container {
+        padding-left: 10px;
+
+        .ty-footer-form-block-policy__input {
+            width: 100%;
+            padding-bottom: 10px;
+        }
+
+        .ty-lable-subscribe-policy {
+            margin-bottom: 10px;
+        }
+    }
+
+    .ty-lable-subscribe-policy > a {
+        color: inherit;
+        text-decoration: underline;
+    }
+}
+/* /Newsletters */

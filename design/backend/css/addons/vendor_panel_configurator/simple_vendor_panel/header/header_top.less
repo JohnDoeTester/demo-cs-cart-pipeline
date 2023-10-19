@@ -1,0 +1,19 @@
+// Header group
+@media (min-width: @TabletBreakpoint + 1) {
+    .navbar-admin-top {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        bottom: var(--bp-bottom-panel-height);
+        width: @menuSidebarWidth;
+        gap: 20px;
+        overflow-y: auto;
+        background-color: @menuSidebarColor;
+        background-image: @menuSidebarBg;
+    }
+
+    html:not(.bp-panel-active) .navbar-admin-top {
+        padding-bottom: 56px;
+    }
+}

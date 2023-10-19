@@ -1,0 +1,113 @@
+:root {
+    // Help center colors
+    --help-center-main-color: #0961e3;
+    --help-center-nav-bg-color: #f5f5f5;
+    --help-center-border-color: #e8e8e8;
+    --help-center-bg-hover-color: rgba(0, 0, 0, 0.04);
+    --help-center-label-color: @grayLight;
+    --help-center-label-error-color: @errorText;
+    --help-center-label-warning-color: @orange;
+    --help-center-label-success-color: @successText;
+    --help-center-label-info-color: @infoText;
+
+    // Help center sizes
+    --help-center-image-height: 384px;
+    --help-center-icon-small-width: 12px;
+    --help-center-icon-width: 20px;
+    --help-center-icon-large-width: 24px;
+    --help-center-icon-xxxlarge-width: 144px;
+    --help-center-popup-btn-icon-width: 16px;
+    --help-center-border-radius-large: 16px;
+    --help-center-border-radius: 10px;
+    --help-center-border-radius-small: 6px;
+
+    // Help center responsive variables
+    --help-center-responsive-display: none;
+    --help-center-responsive-hidden: visible;
+    --help-center-responsive-column: column;
+    --help-center-responsive-padding: 0px;
+    --help-center-responsive-nav-full-width: 100%;
+    --help-center-responsive-overflow-y: visible;
+    --help-center-responsive-align-start: flex-start;
+    --help-center-responsive-border-width: 1px;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --help-center-responsive-display: flex;
+        --help-center-responsive-hidden: hidden;
+        --help-center-responsive-column: row;
+        --help-center-responsive-padding: 16px;
+        --help-center-responsive-nav-full-width: 280px;
+        --help-center-responsive-overflow-y: auto;
+        --help-center-responsive-align-start: center;
+        --help-center-responsive-border-width: 0px;
+    }
+}
+
+// Help center components
+
+// Help center buttons
+.help-center-btn {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--help-center-main-color);
+    border-radius: var(--help-center-border-radius);
+    font-size: 16px;
+    line-height: 1;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+.help-center-btn.help-center-btn {
+    padding: 10px 16px;
+    color: var(--help-center-main-color);
+}
+
+.help-center-btn:hover,
+.help-center-btn:focus,
+.help-center-btn:active {
+    color: #fff;
+    background: var(--help-center-main-color);
+}
+
+.help-center-btn.help-center-btn:hover,
+.help-center-btn.help-center-btn:focus,
+.help-center-btn.help-center-btn:active {
+    text-decoration: none;
+}
+
+.help-center-btn--primary {
+    background: var(--help-center-main-color);
+}
+
+.help-center-btn--primary.help-center-btn--primary {
+    color: #fff;
+}
+
+.help-center-btn--primary:hover,
+.help-center-btn--primary:focus,
+.help-center-btn--primary:active {
+    opacity: 0.9;
+}
+
+// Help center icons
+.help-center-icon-before:before,
+.help-center-icon:after {
+    content: "\f111";
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: var(--help-center-icon-width);
+    height: var(--help-center-icon-width);
+    font-family: FontAwesome;
+    font-size: var(--help-center-icon-width);
+    line-height: var(--help-center-icon-width);
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: baseline;
+    text-align: center;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>storefront_rest_api</id>
+    <version>1.0</version>
+    <priority>1500</priority>
+    <status>active</status>
+    <unmanaged>1</unmanaged>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings>
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="access_key">
+                        <type>input</type>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <functions>
+        <item for="install">fn_storefront_rest_api_install</item>
+    </functions>
+</addon>

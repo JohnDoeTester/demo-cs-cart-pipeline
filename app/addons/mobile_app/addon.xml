@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>mobile_app</id>
+    <version>1.0</version>
+    <priority>1500</priority>
+    <status>active</status>
+    <default_language>en</default_language>
+    <compatibility>
+        <dependencies>storefront_rest_api</dependencies>
+    </compatibility>
+    <settings layout="separate" edition_type="ROOT,STOREFRONT">
+        <sections>
+            <section id="service">
+                <items>
+                    <item id="config">
+                        <type>template</type>
+                        <default_value>config.tpl</default_value>
+                    </item>
+                    <item id="color_preset">
+                        <type>hidden</type>
+                        <default_value>D</default_value>
+                    </item>
+                    <item id="config_data">
+                        <type>hidden</type>
+                        <default_value>
+<![CDATA[{
+    "app_appearance": {
+        "colors": {
+            "categories": {
+                "categoriesBackgroundColor": {
+                    "value": "#FAFAFA",
+                    "type": "color",
+                    "name": "Background",
+                    "description": "The background color of the block with categories."
+                },
+                "categoriesHeaderColor": {
+                    "value": "#000",
+                    "type": "color",
+                    "name": "Block title color",
+                    "description": "Affects the titles of all blocks, not just the one with categories."
+                },
+                "categoryBlockBackgroundColor": {
+                    "value": "#FFF",
+                    "type": "color",
+                    "name": "Card background",
+                    "description": "The background color of category cards."
+                },
+                "categoryBlockTextColor": {
+                    "value": "#000",
+                    "type": "color",
+                    "name": "Card text",
+                    "description": "The color of text in a category card."
+                },
+                "categoryBorderRadius": {
+                    "value": 6,
+                    "type": "number",
+                    "name": "Card corners radius",
+                    "description": "Determines how rounded the corners of a category card will be."
+                }
+            },
+            "bottom_tabs": {
+                "bottomTabsBackgroundColor": {
+                    "value": "#fff",
+                    "type": "color",
+                    "name": "Background color",
+                    "description": "Background color."
+                },
+                "bottomTabsTextColor": {
+                    "value": "#888888",
+                    "type": "color",
+                    "name": "Text color",
+                    "description": "Text color."
+                },
+                "bottomTabsSelectedTextColor": {
+                    "value": "#000",
+                    "type": "color",
+                    "name": "Selected text color",
+                    "description": "Selected text color."
+                },
+                "bottomTabsIconColor": {
+                    "value": "#888888",
+                    "type": "color",
+                    "name": "Icon color",
+                    "description": "Icon color."
+                },
+                "bottomTabsSelectedIconColor": {
+                    "value": "#000",
+                    "type": "color",
+                    "name": "Selected icon color",
+                    "description": "Selected icon color."
+                },
+                "bottomTabsPrimaryBadgeColor": {
+                    "value": "#FD542A",
+                    "type": "color",
+                    "name": "Primary badge color",
+                    "description": "Color of the icon with the number of products."
+                }
+            },
+            "navbar": {
+                "statusBarColor": {
+                    "value": "#c1c1c1",
+                    "type": "color",
+                    "name": "Status bar color",
+                    "description": "The color of the system status bar; affects Android devices only."
+                },
+                "navBarBackgroundColor": {
+                    "value": "#FAFAFA",
+                    "type": "color",
+                    "name": "Background",
+                    "description": "The background color of the navigation bar."
+                },
+                "navBarButtonColor": {
+                    "value": "#989898",
+                    "type": "color",
+                    "name": "Icon color",
+                    "description": "The color of icons in the navigation bar."
+                },
+                "navBarTextColor": {
+                    "value": "#242424",
+                    "type": "color",
+                    "name": "Text color",
+                    "description": "The color of text in the navigation bar."
+                },
+                "screenBackgroundColor": {
+                    "value": "#fff",
+                    "type": "color",
+                    "name": "Screen background",
+                    "description": "The common background color of all screens in the app."
+                },
+                "navBarTitleFontSize": {
+                    "value": 16,
+                    "type": "number",
+                    "name": "Title text size",
+                    "description": "The size of the title text."
+                }
+            },
+            "product_screen": {
+                "buttonBackgroundColor": {
+                    "value": "#FF6008",
+                    "type": "color",
+                    "name": "Primary CTA button",
+                    "description": "The background color of the primary CTA button (such as 'Add to Cart')."
+                },
+                "buttonWithBackgroundTextColor": {
+                    "value": "#fff",
+                    "type": "color",
+                    "name": "CTA text color",
+                    "description": "The text color of both primary and secondary CTA buttons."
+                },
+                "buttonWithoutBackgroundTextColor": {
+                    "value": "#FF6008",
+                    "type": "color",
+                    "name": "Secondary action text",
+                    "description": "The color of sorting and filter links, etc."
+                },
+                "ratingStarsColor": {
+                    "value": "#EAA944",
+                    "type": "color",
+                    "name": "Rating stars color",
+                    "description": "The color of the rating icons (stars)."
+                },
+                "discussionMessageColor": {
+                    "value": "#808080",
+                    "type": "color",
+                    "name": "Text color",
+                    "description": "Affects product descriptions, discussions, and other texts at the product screen."
+                },
+                "darkColor": {
+                    "value": "#242424",
+                    "type": "color",
+                    "name": "Product name",
+                    "description": "Determines color of product name and product price"
+                },
+                "grayColor": {
+                    "value": "#FAFAFA",
+                    "type": "color",
+                    "name": "Tabs background",
+                    "description": ""
+                },
+                "mediumGrayColor": {
+                    "value": "#B8B8B8",
+                    "type": "color",
+                    "name": "Options border color",
+                    "description": ""
+                },
+                "categoryEmptyImage": {
+                    "value": "#989898",
+                    "type": "color",
+                    "name": "\"Add image\" button",
+                    "description": "The color of the \"plus\" button for adding a product image."
+                }
+            },
+            "profile": {
+                "menuItemsBorderColor": {
+                    "value": "#D6D6D6",
+                    "type": "color",
+                    "name": "Border color",
+                    "description": "Border color for menu items."
+                },
+                "menuIconsColor": {
+                    "value": "#D3D3D3",
+                    "type": "color",
+                    "name": "Menu icons color",
+                    "description": "Menu icons color."
+                },
+                "menuTextColor": {
+                    "value": "#424040",
+                    "type": "color",
+                    "name": "Menu text color",
+                    "description": "Menu text color."
+                }
+            },
+            "other": {
+                "successColor": {
+                    "value": "#7DCFB6",
+                    "type": "color",
+                    "name": "Success color",
+                    "description": "The background color of a pop-up notification about a successful action."
+                },
+                "infoColor": {
+                    "value": "#FCEADE",
+                    "type": "color",
+                    "name": "Info color",
+                    "description": "The background color of a pop-up notification with information."
+                },
+                "dangerColor": {
+                    "value": "#D9534F",
+                    "type": "color",
+                    "name": "Error color",
+                    "description": "The background color of a pop-up notification about an error."
+                },
+                "borderRadius": {
+                    "value": 8,
+                    "type": "number",
+                    "name": "Border radius",
+                    "description": "Determines how rounded the corners of product borders will be."
+                },
+                "productDiscountColor": {
+                    "value": "#EAA944",
+                    "type": "color",
+                    "name": "Discount badge",
+                    "description": "The background color of a badge with the amount of product discount."
+                },
+                "productBorderColor": {
+                    "value": "#FFF",
+                    "type": "color",
+                    "name": "Product border",
+                    "description": "The color of a thin border around products on product lists."
+                },
+                "pushNotificationsColor": {
+                    "value": "#26323e",
+                    "type": "color",
+                    "name": "Push notifications color",
+                    "description": "Color of push notifications."
+                },
+                "dotsSwiperColor": {
+                    "value": "#0085FE",
+                    "type": "color",
+                    "name": "Image slider bullets",
+                    "description": "The color of bullets in image galleries."
+                }
+            }
+        },
+        "sizes": {
+            "navBarButtonFontSize": "1em"
+        }
+    },
+    "app_settings": {
+        "images": {
+            "appIcon": "",
+            "splashScreen": ""
+        },
+        "utility": {
+            "shopName": "",
+            "fcmApiKey": ""
+        },
+        "build": {
+            "appName": "",
+            "appShortDescription": "",
+            "appFullDescription": "",
+            "supportEmail": "",
+            "privacyPolicyUrl": "",
+            "termsOfServiceUrl": ""
+        },
+        "apple_pay":{
+            "applePay":"off",
+            "applePayMerchantIdentifier":"",
+            "applePayMerchantName":""
+        },
+        "google_pay":{
+            "googlePay":"off",
+            "googlePayApiKey":""
+        }
+    },
+    "promotion": {
+        "app_store_app_id": "",
+        "google_play_app_id": ""
+    }
+}]]>
+                    </default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <functions>
+        <item for="install">fn_mobile_app_install_layout</item>
+    </functions>
+    <queries>
+        <item for="install">
+            DROP TABLE IF EXISTS ?:mobile_app_notification_subscriptions;
+        </item>
+        <item for="install">
+            CREATE TABLE ?:mobile_app_notification_subscriptions (
+                subscription_id int(11) unsigned NOT NULL AUTO_INCREMENT,
+                user_id mediumint(8) unsigned NOT NULL DEFAULT 0,
+                device_id varchar(256) NOT NULL DEFAULT '',
+                platform varchar(32) NOT NULL DEFAULT '',
+                token varchar(256) NOT NULL DEFAULT '',
+                locale varchar(10) NOT NULL DEFAULT '',
+                storefront_id int(11) NOT NULL DEFAULT 0,
+                PRIMARY KEY (subscription_id),
+                UNIQUE KEY token (token),
+                UNIQUE KEY device (platform, device_id),
+                KEY user_id (user_id)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:mobile_app_notification_subscriptions;
+        </item>
+    </queries>
+</addon>

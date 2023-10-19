@@ -1,0 +1,303 @@
+/* ==========================================================================
+Vendor communication
+========================================================================== */
+
+// Chat
+.ty-vendor-communication-post {
+    position: relative;
+    margin: 10px 0 15px 0;
+    padding: 10px 5px 10px 10px;
+    border: 1px solid @base;
+    border-radius: 4px;
+    background: #fff;
+    
+    &__wrapper {
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid @base;
+        background-color: lighten(@base, 9%);
+
+        @media (min-width: 768px) {
+            padding: 20px;
+        }
+    }
+    &__img {
+        float: left;
+        width: 60px;
+        margin-top: 10px;
+
+        .ty-icon-user {
+            display: block;
+            text-align: center;
+            border-radius: 30px;
+            border: 1px solid @base;
+            font-size: 32px;
+            line-height: 1.9;
+            color: rgba(0, 0, 0, 0.3);
+            background: #fff;
+        }
+    }
+    &__logo {
+        border-radius: 50%;
+        border: 1px solid @base;
+    }
+    &__info {
+        overflow: hidden;
+        padding-left: 25px;
+    }
+    &__author {
+        font-weight: bold;
+    }
+    &__date {
+        text-align: center;
+        color: #adadad;
+        font-size: 12px;
+    }
+    &__message {
+        line-height: 1.75;
+        word-wrap: break-word;
+    }
+
+    .ty-caret {
+        top: auto;
+        bottom: -16px;
+        transform: scale(-1);
+    }
+
+    @media (min-width: 768px) {
+        padding: 15px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .ty-vendor-communication-post__img {
+        width: 30px;
+
+        .ty-icon-user {
+            font-size: 15px;
+        }
+    }
+    .ty-vendor-communication-post__info {
+        padding-left: 5px;
+    }
+}
+
+// Your message
+.ty-vendor-communication-post__you {
+
+    .ty-vendor-communication-post {
+        background-color: lighten(@base, 3%);
+        border: 1px solid darken(@base, 15%);
+
+        &__author {
+            text-align: right;
+        }
+    }
+    .ty-caret {
+        left: auto;
+        right: 20px;
+
+        &-outer {
+            border-right-color: darken(@base, 15%);
+            transform: scaleX(-1);
+        }
+        &-inner {
+            border-right-color: lighten(@base, 3%);
+            transform: scaleX(-1);
+            top: 3px;
+            left: 2px;
+        }
+
+    }
+}
+
+// New message
+.ty-vendor-communication-new-message {
+    background: #e6ebf0;
+    position: sticky;
+    bottom: 0;
+    z-index: 3;
+    padding-bottom: 5px;
+
+    &__title {
+        display: none;
+    }
+    &__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 5px;
+
+        @media (min-width: 768px) {
+            padding-top: 10px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 20px;
+    }
+}
+
+.ty-vendor-communication-new-message__input {
+    width: 100%;
+    min-height: ~"calc(4em * 1.36 + 10px)";    // Rows * Line height + Padding + Border
+    max-height: 40vh;
+    font-size: 16px;
+
+    @media (min-width: 1200px) {
+        font-size: inherit;
+    }
+}
+
+// Tickets
+.ty-vendor-communication-search {
+    position: relative;
+    width: 100%;
+
+    &__item {
+        vertical-align: top;
+    }
+    td&__label, th&__label {
+        border-right: none;
+        width: 10px;
+    }
+    &__thread-id a {
+        display: inline-block;
+    }
+    &__company {
+        min-width: 200px;
+    }
+    &__message {
+        word-wrap: break-word;
+        a {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
+
+// New message label
+.ty-vendor-communication-search {
+
+    .ty-new__label {
+        display: inline-block;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background: @primary_button;
+    }
+    .ty-new__text {
+        font-weight: bold;
+    }
+}
+
+// Animation
+.ty-animation-rotate {
+
+    i, .ty-icon {
+        display: inline-block;
+        transition-property: transform;
+    }
+    &:focus i,
+    &:focus .ty-icon {
+        transform: rotate(180deg);
+        transition-duration: 0.5s;
+    }
+}
+
+// Contact vendor button
+.ty-vendor-communication__post-write {
+    white-space: nowrap;
+
+    i, .ty-icon {
+        padding-right: 5px;
+    }
+}
+
+@media (max-width: 767px) {
+    // Contact vendor button
+    .ty-product-block .ty-vendor-communication__post-write {
+        padding-left: 0px;
+        margin-left: 0px;
+        margin-top: 6px;
+        display: block;
+    }
+}
+
+.ty-product-bigpicture .ty-product-block__advanced-option .ty-vendor-communication__post-write {
+    margin-left: 0;
+    width: 100%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+// New message dialog
+.ty-vendor-communication-product-info {
+    &-container {
+        max-width: 550px;
+        .clearfix();
+    }
+    &-image {
+        display: inline-block;
+        vertical-align: top;
+        padding: 10px 20px 10px 0;
+    }
+    &-header {
+        padding: 10px;
+        display: inline-block;
+        max-width: 386px;
+    }
+}
+
+@media (max-width: 767px) {
+    // New message dialog
+    .ty-vendor-communication-product-info {
+
+        &-container,
+        .vendor-communication-popup-error-box {
+            max-width: 100%;
+        }
+        &-header {
+            padding: 0;
+            display: block;
+            max-width: 100%;
+        }
+        &-image {
+            display: block;
+            text-align: center;
+        }
+    }
+}
+
+// Login dialog
+.ty-vendor-communication-login h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+// Scroll to top button
+.ty-vendor-communication-post__scroll-to-top-bg {
+    background: #fff;
+    height: 32px;
+    position: sticky;
+    z-index: 2;
+}
+
+.ty-vendor-communication-post__scroll-to-top {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 31px;
+    margin-top: -32px;
+    z-index: 1;
+    background: #fff;
+    border-bottom: 1px solid @base;
+}

@@ -1,0 +1,59 @@
+.bp-panel {
+
+    &&--personal_demo,
+    &&--demo {
+        height: 96px;
+        grid-template-areas: "demo demo""nav close";
+        -ms-grid-rows: 48px 48px;
+        grid-template-rows: 48px 48px;
+    }
+
+    @media (min-width: 768px) {
+        &&--personal_demo,
+        &&--demo {
+            height: 56px;
+            grid-template-areas: "logo nav . modes . demo actions close";
+            -ms-grid-rows: auto;
+            grid-template-rows: auto;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &&--personal_demo,
+        &&--demo {
+            grid-template-areas: "logo nav . modes . demo actions close";
+            -ms-grid-columns: 100px auto auto 1fr auto auto auto 40px;
+            grid-template-columns: 100px auto auto 1fr auto auto auto 40px;
+        }
+    }
+}
+
+.bp {
+
+    &-demo {
+        display: none;
+        height: 100%;
+        grid-area: demo;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-grid-columns: auto;
+        grid-template-columns: auto;
+    }
+
+    &-panel&-panel--personal_demo &-demo,
+    &-panel&-panel--demo &-demo {
+        display: -ms-grid;
+        display: grid;
+    }
+    
+    &-panel&-panel--personal_demo &-demo {
+        -ms-grid-columns: auto 12px auto;
+        grid-template-columns: auto auto;
+        grid-gap: 12px;
+    }
+
+    &-panel&-panel--admin &-modes {
+        display: none;
+    }
+}

@@ -1,0 +1,360 @@
+.notifications-center__root {
+    min-width: 650px;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 6px;
+}
+
+.notifications-center__root {
+
+    &&&&&:before,
+    &&&&&:after {
+        left: auto;
+        right: 34px;
+    }
+}
+
+.cc-notifications {
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    border-radius: 0px 0px 6px 6px;
+}
+
+.cc-notify {
+    position: relative;
+    width: 24px;
+    display: inline-block;
+}
+
+.cc-notify-counter-content {
+    position: absolute;
+    color: #fff;
+    background-color:#b94a48;
+    font-size: 11px;
+    padding: 0px 5px;
+    line-height: 15px;
+    border-radius: 10px;
+    z-index: 1;
+    top: -8px;
+    left: 10px;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+.cc-dropdown__title {
+    font-size: @baseFontSize + 1px;
+}
+
+.cc-dropdown__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #f7f7f7;
+    padding: 7px 15px;
+
+    border-bottom: 1px solid #ebebeb;
+}
+
+.cc-dropdown__title-buttons {
+    margin-left: auto;
+}
+
+.cc-read-all-button {
+    display: flex;
+    padding: 0;
+}
+
+.cc-read-all-button.cc-read-all-button {
+    margin: 0;
+}
+
+.cc-tabs-box {
+    padding: 15px;
+    margin: 0;
+
+    display: flex;
+
+    border-bottom: 1px solid #ebebeb;
+}
+
+.cc-tabs-button {
+    display: inline-flex;
+    padding: 0px 3.5px;
+    cursor: pointer;
+    color: @mainColor;
+    flex-grow: 1;
+}
+
+.cc-tabs-button:first-child {
+    padding-left: 0;
+}
+
+.cc-tabs-button:lasr-child {
+    padding-right: 0;
+}
+
+.cc-tabs-button--inner {
+    padding: 5px 30px;
+    border-radius: 5px;
+    background-color: #f4f3f3;
+    text-align: center;
+
+    width: 100%;
+}
+
+.cc-tabs-button--inner-text {
+    position: relative;
+}
+
+.cc-tabs-button-after {
+    position: absolute;
+    left: ~"calc(100% + 4px)";
+    top: -5px;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.cc-tabs-button--inner--active {
+    background-color: @mainColor;
+    color: white;
+}
+
+.cc-tabs-button--inner--has-children {
+    padding-left: 25px;
+    padding-right: 35px
+}
+
+.cc-notification {
+    padding: 15px;
+    background-color: #f4fbff;
+    border-bottom: 1px solid #ebebeb;
+
+    transition: 1s background-color;
+
+    display: block;
+    color: #333;
+}
+
+.cc-notification:last-child {
+    border-bottom: none;
+}
+
+.cc-notification:hover {
+    text-decoration: none;
+}
+
+.cc-delete {
+    visibility: hidden;
+    font-size: 22px;
+    color: #868686;
+
+    font-size: 18px;
+    padding: 4px;
+    width: auto;
+    position: relative;
+
+    cursor: pointer;
+
+    opacity: 0.6;
+    transition: .3s ease-in-out opacity;
+}
+
+.cc-delete:hover {
+    opacity: 1;
+}
+
+.cc-delete:not(.icon-remove-sign) {
+    width: 28px;
+}
+
+.cc-delete:before {
+    position: absolute;
+    top: 1px;
+    left: 3px;
+}
+
+.cc-delete.pull-right {
+    margin-top: -5px;
+}
+
+.cc-notification:hover .cc-delete {
+    visibility: visible;
+}
+
+.cc-notification:hover .cc-hide {
+    display: none;
+}
+
+.cc-notification--read {
+    background-color: #fff;
+}
+
+.cc-notification--pinned {
+    background-color: #eaf8ff;
+}
+
+.cc-cursor {
+    cursor: pointer;
+}
+
+.cc-enable-collapse {
+    color: @mainColor !important;
+
+    margin-top: 0 !important;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.cc-datetime {
+    color: #868686;
+}
+
+.cc-all-read {
+    padding: 10px;
+
+    display: flex;
+    min-height: 92px;
+}
+
+.cc-all-read--inner {
+    padding: 10px;
+    border-radius: 6px;
+    border: solid 1px #f2f2f2;
+    background-color: #fcfcfc;
+
+    display: flex;
+    width: 100%;
+
+    color: #999999;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.cc-collapse--disable, .cc-collapse--enable {
+    display: block;
+}
+
+.cc-collapse--enable {
+    max-height: 50px;
+    overflow: hidden;
+    
+
+    position: relative;
+}
+
+.cc-collapse--enable:after {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    content: '';
+}
+
+.cc-notification:not(.cc-notification--read) {
+    .cc-collapse--enable:after {
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, #f4fbff 83%, #f4fbff 100%);
+    }
+}
+
+.cc-collapse--enable:after {
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 83%, rgba(255,255,255,1) 100%);
+}
+
+@media (max-width: @TabletBreakpoint) {
+    .notifications-center__root {
+        min-width: auto;
+    }
+
+    .notifications-center__root--mobile,
+    .cc-dropdown {
+        height: 100%;
+    }
+
+    .cc-notifications {
+        height: ~"calc(100% - 63px)";
+        max-height: initial;
+    }
+
+    .cc-notification {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .cc-dropdown__title-wrapper {
+        background: transparent;
+    }
+
+    .cc-dropdown__title {
+        display: none;
+    }
+
+    .cc-notify-counter-container {
+        position: relative;
+    }
+
+    .cc-notify-counter-content {
+        top: -3px;
+        left: 0;
+    }
+
+    .cc-notify-marker-container {
+        position: relative;
+    }
+
+    .cc-notify-marker-content {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #b94a48;
+        border-radius: 10px;
+        top: -10px;
+        right: -17px;
+    }
+
+    .cc-datetime {
+        float: initial;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .cc-delete.pull-right {
+        margin-top: 0;
+    }
+
+    .cc-delete {
+        visibility: visible;
+        position: absolute;
+        top: 10px;
+        right: 17px;
+        font-size: 25px;
+        opacity: 0.5;
+    }
+
+    .cc-enable-collapse {
+        padding: 10px 0;
+    }
+
+    .cc-notification:hover .cc-hide {
+        display: block;
+    }
+
+    .cc-tabs-box {
+        overflow-x: auto;
+    }
+
+    .cc-notification > span {
+        padding-right: 28px;
+    } 
+}

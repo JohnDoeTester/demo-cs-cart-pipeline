@@ -1,0 +1,122 @@
+// tabs
+.tabs {
+    margin-top: 15px;
+    .cm-subtab-item a {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .subtab .dropdown-menu {
+        margin: -1px 0 0;
+    }
+    .nav-tabs {
+        padding-bottom: 8px;
+        border-bottom: 1px solid #e0e7ef;
+    }
+    .nav-tabs > li,
+    .nav-pills > li {
+        margin: 3px 6px 3px 0;
+    }
+    .nav-pills > li > a,
+    .nav-tabs > li > a {
+        background-color: @tabsBackgroundColor;
+        border: none;
+        line-height: @baseLineHeight - 6px;
+        margin-bottom: 2px;
+        margin-top: 2px;
+        .border-radius(5px);
+    }
+    .nav-pills > .active > a,
+    .nav-pills > .active > a:hover,
+    .nav-pills > .active > a:focus,
+    .nav-tabs > .active > a,
+    .nav-tabs > .active > a:hover,
+    .nav-tabs > .active > a:focus {
+        background-color: @tabsActiveBackgroundColor;
+        border: none;
+        color: #fff;
+    }
+    .nav-tabs > .cm-no-highlight > a {
+        background-color: #eee;
+        &:hover {
+            background-color: #e5e5e5;
+        }
+    }
+    .nav-pills > li > a:hover,
+    .nav-pills > li > a:focus,
+    .nav-tabs > li > a:hover,
+    .nav-tabs > li > a:focus {
+        background-color: #eee;
+    }
+    .nav-tabs .dropdown-toggle .caret {
+        margin-top: 5px;
+    }
+}
+.tabs-with-conf {
+    li.active a {
+        padding-right: 25px;
+    }
+    // disable padding for dropdown
+    .dropdown.active > a {
+        padding-right: 12px;
+    }
+    .nav-tabs > .active > a.icon-cog {
+        cursor: pointer !important;
+    }
+    .icon-cog {
+        position: absolute;
+        top: 8px;
+        right: 7px;
+        opacity: 0.7;
+        display: inline-block;
+        padding: 0px !important;
+        border: 0px !important;
+        .border-radius(0);
+    }
+    .active > .icon-cog {
+        cursor: default !important;
+        opacity: 0.8;
+    }
+    .dropdown-menu li {
+        position: relative;
+    }
+
+    .dropdown-menu li .icon-cog {
+        display: inline-block;
+        top: 6px;
+        opacity: 1;
+        .icon-white;
+    }
+}
+.nav-tabs li a {
+    text-decoration: none !important;
+}
+.nav-tabs li.extra-tab {
+    position: relative;
+    z-index: 0;
+    a:first-child {
+        padding-right: 30px;
+    }
+    a.icon-edit {
+        position: absolute;
+        top: 11px;
+        right: 10px;
+        z-index: 10;
+        padding: 0;
+        width: 14px;
+        height: 14px;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.nav-tabs li a.icon-cog {
+    display: none;
+}
+.nav-tabs li.active a.icon-cog {
+    display: block;
+}
+.extra-tab--force-initial-padding {
+    a {
+        padding: 8px 12px !important;
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<addon scheme="4.0">
+    <id>stripe</id>
+    <version>1.0</version>
+    <default_language>en</default_language>
+    <priority>100</priority>
+    <status>active</status>
+
+    <autoload>
+        <psr4 prefix="Tygh\Addons\Stripe\">src</psr4>
+    </autoload>
+
+    <bootstrap>\Tygh\Addons\Stripe\Bootstrap</bootstrap>
+    <installer>\Tygh\Addons\Stripe\Installer</installer>
+</addon>

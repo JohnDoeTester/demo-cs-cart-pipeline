@@ -1,0 +1,1 @@
+{style src="addons/pingpp/styles.less"}

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<block_scheme scheme="1.0">
+    <settings><default_language>en</default_language></settings>
+    <location dispatch="paypal_adaptive.queue" is_default="0" layout_id="1" object_ids="" position="170" lang_code="en" name="PayPal Adaptive" title="" meta_description="" meta_keywords="">
+        <containers>
+            <container container_id="118" location_id="30" position="HEADER" width="16" user_class="" status="A"/>
+            <container container_id="119" location_id="30" position="CONTENT" width="16" user_class="content-grid" status="A"><grid width="11" user_class="" status="A" offset="0" omega="0" alpha="1" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0"><blocks><block><type><![CDATA[main]]></type><properties><![CDATA[]]></properties><lang_code><![CDATA[en]]></lang_code><name><![CDATA[Main Content]]></name><object_type><![CDATA[]]></object_type><content><![CDATA[]]></content><object_ids><![CDATA[]]></object_ids><wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper><user_class><![CDATA[]]></user_class><order><![CDATA[0]]></order><status><![CDATA[A]]></status><translations/><contents/></block></blocks></grid><grid width="5" user_class="" status="A" offset="0" omega="1" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0"><blocks><block><type><![CDATA[paypal_adaptive]]></type><properties><template><![CDATA[addons/paypal_adaptive/blocks/summary.tpl]]></template></properties><lang_code><![CDATA[en]]></lang_code><name><![CDATA[Order summary]]></name><object_type><![CDATA[]]></object_type><content><![CDATA[]]></content><object_ids><![CDATA[]]></object_ids><wrapper><![CDATA[blocks/wrappers/sidebox_important.tpl]]></wrapper><user_class><![CDATA[ty-order-summary]]></user_class><order><![CDATA[0]]></order><status><![CDATA[A]]></status><translations/><contents/></block><block><type><![CDATA[paypal_adaptive]]></type><properties><template><![CDATA[addons/paypal_adaptive/blocks/order_info.tpl]]></template></properties><lang_code><![CDATA[en]]></lang_code><name><![CDATA[Order Information]]></name><object_type><![CDATA[]]></object_type><content><![CDATA[]]></content><object_ids><![CDATA[]]></object_ids><wrapper><![CDATA[blocks/wrappers/sidebox_important.tpl]]></wrapper><user_class><![CDATA[order-information]]></user_class><order><![CDATA[1]]></order><status><![CDATA[A]]></status><translations/><contents/></block></blocks></grid></container>
+            <container container_id="120" location_id="30" position="FOOTER" width="16" user_class="" status="A"/>
+            <container container_id="117" location_id="30" position="TOP_PANEL" width="16" user_class="" status="A"/>
+        </containers>
+        <translations/>
+    </location>
+</block_scheme>

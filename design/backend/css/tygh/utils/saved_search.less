@@ -1,0 +1,29 @@
+// Saved search
+// List item height: 26px
+
+// Main styles
+.nav-list > li > .saved-search__item-name {
+    padding-right: 26px;
+}
+
+html:not(.touchevents) .saved-search__item:not(:hover) .nav-list__btn:not(.saved-search__pin--pinned) {
+    display: none;
+}
+
+// Delete button
+.saved-search__delete {
+    right: 0px;
+}
+
+// Default view button
+.nav-list > li > .saved-search__item-name--default-view {
+    padding-right: ~"calc(26px * 2)";
+}
+
+.saved-search__pin {
+    right: 26px;
+}
+
+.saved-search__pin--pinned {
+    color: @grayLight;
+}

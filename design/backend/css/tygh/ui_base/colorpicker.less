@@ -1,0 +1,129 @@
+// Colorpicker
+.colorpicker {
+    display: inline-block;
+
+    &--wrapper {
+        position: relative;
+        .sp-container {
+            width: 416px;
+        }
+        @media (max-width: 767px) {
+            .sp-container {
+                width: 225px;
+            }
+        }
+    }
+
+    .sp-replacer:hover, .sp-replacer.sp-active {
+        border: 1px solid #ccc;
+    }
+    .sp-replacer {
+        .btn();
+        display: flex;
+        padding: 5px 5px 5px 7px;
+    }
+    .sp-preview {
+        border: solid 1px gray;
+        width: 30px;
+    }
+    .sp-palette-container {
+        @media (max-width: 767px) {
+            float: none;
+            border-right: none;
+        }
+    }
+    .sp-container {
+        background-color: #ffffff;
+        .border-radius(6px);
+        .box-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+        border: 1px solid #ccc;
+
+        @media (max-width: 767px) {
+            top: @inputHeight !important;
+            left: 0 !important;
+        }
+    }
+
+    // Prepend color picker with textfield
+    .input-prepend & .sp-replacer {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .input-prepend & + input[type="text"],
+    .input-prepend & + input[type="password"],
+    .input-prepend & + input[type="datetime"],
+    .input-prepend & + input[type="datetime-local"],
+    .input-prepend & + input[type="date"],
+    .input-prepend & + input[type="month"],
+    .input-prepend & + input[type="time"],
+    .input-prepend & + input[type="week"],
+    .input-prepend & + input[type="number"],
+    .input-prepend & + input[type="email"],
+    .input-prepend & + input[type="url"],
+    .input-prepend & + input[type="search"],
+    .input-prepend & + input[type="tel"],
+    .input-prepend & + input[type="color"],
+    .input-prepend & + .uneditable-input {
+        margin-left: -1px;
+        vertical-align: top;
+        width: ~"calc(100% - 54px)";
+    }
+
+    .input-prepend & + input[type="text"].input-fill,
+    .input-prepend & + input[type="password"].input-fill,
+    .input-prepend & + input[type="datetime"].input-fill,
+    .input-prepend & + input[type="datetime-local"].input-fill,
+    .input-prepend & + input[type="date"].input-fill,
+    .input-prepend & + input[type="month"].input-fill,
+    .input-prepend & + input[type="time"].input-fill,
+    .input-prepend & + input[type="week"].input-fill,
+    .input-prepend & + input[type="number"].input-fill,
+    .input-prepend & + input[type="email"].input-fill,
+    .input-prepend & + input[type="url"].input-fill,
+    .input-prepend & + input[type="search"].input-fill,
+    .input-prepend & + input[type="tel"].input-fill,
+    .input-prepend & + input[type="color"].input-fill,
+    .input-prepend & + .uneditable-input.input-fill {
+        width: 100%;
+    }
+
+    .input-prepend &.hidden + input[type="text"],
+    .input-prepend &.hidden + input[type="password"],
+    .input-prepend &.hidden + input[type="datetime"],
+    .input-prepend &.hidden + input[type="datetime-local"],
+    .input-prepend &.hidden + input[type="date"],
+    .input-prepend &.hidden + input[type="month"],
+    .input-prepend &.hidden + input[type="time"],
+    .input-prepend &.hidden + input[type="week"],
+    .input-prepend &.hidden + input[type="number"],
+    .input-prepend &.hidden + input[type="email"],
+    .input-prepend &.hidden + input[type="url"],
+    .input-prepend &.hidden + input[type="search"],
+    .input-prepend &.hidden + input[type="tel"],
+    .input-prepend &.hidden + input[type="color"],
+    .input-prepend &.hidden + .uneditable-input {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    // Table row hover
+    .table &--hidden .sp-replacer {
+        border-color: transparent;
+        transition: border linear .2s, box-shadow linear .2s;
+    }
+
+    .table tr:hover &--hidden .sp-replacer {
+        border: 1px solid @btnBorder;
+        opacity: 1;
+    }
+
+    .table tr &--hidden .sp-dd {
+        opacity: 0;
+        transition: opacity linear .2s;
+    }
+
+    .table tr:hover &--hidden .sp-dd {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,295 @@
+// Help center block
+.help-center-block:not(:last-child):after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid var(--help-center-border-color);
+}
+
+.help-center-section__articles--columns .help-center-block:not(:last-child):after {
+    border-bottom-width: var(--help-center-responsive-border-width);
+}
+
+.help-center-section__articles--columns .help-center-block__inner:hover {
+    border-radius: var(--help-center-border-radius);    
+}
+
+// One column section
+.help-center-section__articles--columns-1 .help-center-block__image-wrapper {
+    margin-top: 8px;
+}
+
+.help-center-section__articles--columns-1 .help-center-block__image-wrapper + .help-center-block__preheader,
+.help-center-section__articles--columns-1 .help-center-block__image-wrapper + .help-center-block__title-wrapper {
+    margin-top: 16px;
+    order: -1;
+}
+
+.help-center-section__articles--columns-1 .help-center-block__image-wrapper + .help-center-block__preheader + .help-center-block__title-wrapper {
+    order: -1;
+}
+
+.help-center-section__articles--columns-1 .help-center-block__image-wrapper + .help-center-block__preheader + .help-center-block__title-wrapper .help-center-block__title,
+.help-center-section__articles--columns-1 .help-center-block__image-wrapper + .help-center-block__title-wrapper .help-center-block__title {
+    font-size: 24px;
+}
+
+.help-center-section__articles--columns-1 .help-center-block__read-more {
+    margin-bottom: 16px;
+}
+
+// Block inner
+.help-center-block__inner {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 4px;
+    position: relative;
+    padding: 8px 16px 8px 24px;
+    height: 100%;
+}
+
+.help-center-block__inner--link,
+.help-center-block__inner--link:hover {
+    color: @textColor;
+}
+
+.help-center-block__inner--link:hover {
+    background: var(--help-center-bg-hover-color);
+}
+
+.help-center-block__inner--open-icon {
+    padding-right: ~"calc(24px + var(--help-center-icon-large-width))";
+}
+
+.help-center-block__inner--open-icon:after {
+    content: "\f105";
+    width: var(--help-center-icon-large-width);
+    height: var(--help-center-icon-large-width);
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    font-size: var(--help-center-icon-large-width);
+    line-height: var(--help-center-icon-large-width);
+    color: var(--help-center-main-color);
+    visibility: var(--help-center-responsive-hidden);
+    transform: translateY(-50%);
+}
+
+.help-center-block__inner--open-icon:hover:after {
+    visibility: visible;
+}
+
+.help-center-block__inner--link.help-center-block__inner--link {
+    color: @textColor;
+}
+
+.help-center-block__inner--link.help-center-block__inner--link:hover,
+.help-center-block__inner--link.help-center-block__inner--link:focus,
+.help-center-block__inner--link.help-center-block__inner--link:active {
+    text-decoration: none;
+}
+
+.help-center-block__inner:empty:before {
+    content: 'Documentation for the "Product" is not available';
+}
+
+// Help center video
+.help-center-block__video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--help-center-border-color);
+    border-radius: var(--help-center-border-radius);
+    background: #fff;
+}
+
+.help-center-block__video-wrapper:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 23px;
+    right: 23px;
+    width: 22px;
+    height: 22px;
+    background: @textColor;
+}
+.help-center-block__video-wrapper:after {
+    content: "\f144";
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 42px;
+    line-height: 37px;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    color: #fff;
+    border-radius: 999px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.help-center-block__video {
+    width: auto;
+    max-height: var(--help-center-image-height);
+}
+
+// Broken video thumbnail
+.help-center-block__video[src=""] {
+    aspect-ratio: 480 / 360;
+    width: 100%;
+}
+
+// Help center image
+.help-center-block__image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    overflow: hidden;
+    border: 1px solid var(--help-center-border-color);
+    border-radius: var(--help-center-border-radius);
+    background: #fff;
+}
+
+.help-center-block__image {
+    width: auto;
+    max-height: var(--help-center-image-height);
+}
+
+.help-center-block__preheader {
+    color: @textMutedColor;
+    text-transform: uppercase;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+// Help center title
+.help-center-block__title-wrapper {
+    display: flex;
+    align-items: var(--help-center-responsive-align-start);
+    justify-content: space-between;
+    gap: 4px;
+    position: relative;
+}
+
+.help-center-block__title {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+.help-center-block__title--new:before {
+    content: "\f111";
+    width: var(--help-center-icon-small-width);
+    height: var(--help-center-icon-small-width);
+    position: absolute;
+    right: ~"calc(100% + 6px)";
+    top: 50%;
+    font-size: var(--help-center-icon-small-width);
+    line-height: var(--help-center-icon-small-width);
+    color: var(--help-center-main-color);
+    visibility: visible;
+    transform: translateY(-50%);
+}
+
+.help-center-block__title--secondary {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.help-center-block__title p {
+    margin: 0 0 8px 0;
+}
+
+// Help center status
+.help-center-block__status {
+    font-size: 11px;
+    line-height: 1;
+    padding: 4px 8px;
+    max-width: 50%;
+    font-weight: bold;
+    color: #fff;
+    background: var(--help-center-main-color);
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    word-break: break-all;
+    word-break: break-word;
+    background-color: var(--help-center-label-color);
+    border-radius: var(--help-center-border-radius-small);
+}
+
+.help-center-block__status--error {
+    background: var(--help-center-label-error-color);
+}
+
+.help-center-block__status--warning {
+    background: var(--help-center-label-warning-color);
+}
+
+.help-center-block__status--success {
+    background: var(--help-center-label-success-color);
+}
+
+.help-center-block__status--info {
+    background: var(--help-center-label-info-color);
+}
+
+// Help center description
+.help-center-block__description {
+    word-break: break-all;
+    word-break: break-word;
+}
+
+.help-center-block__description p {
+    margin: 0 0 4px 0;
+}
+
+// Help center html block
+.help-center-block__html {
+    word-break: break-all;
+    word-break: break-word;
+}
+
+// Help center read more
+.help-center-block__read-more {
+    color: var(--help-center-main-color);
+    word-break: break-all;
+    word-break: break-word;
+}
+
+// Help center action buttons
+.help-center-block__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+// Help center sections injection
+.help-center-section--empty-state .help-center-block__inner {
+    align-items: center;
+    text-align: center;
+}
+
+.help-center-section--empty-state .help-center-block__image-wrapper {
+    border-color: transparent;
+}
+
+.help-center-section--empty-state .help-center-block__image {
+    font-size: var(--help-center-icon-xxxlarge-width);
+    line-height: var(--help-center-icon-xxxlarge-width);
+    width: var(--help-center-icon-xxxlarge-width);
+    height: var(--help-center-icon-xxxlarge-width);
+    pointer-events: none;
+}
+
+.help-center-section--empty-state .help-center-block__actions {
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}

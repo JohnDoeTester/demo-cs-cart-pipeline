@@ -1,0 +1,469 @@
+.litecheckout {
+    .cm-sdek-select-store {
+        position: static;
+        display: none;
+    }
+
+    .pickup--map-list,
+    .pickup--list,
+    .ty-checkout-select-store,
+    .ty-checkout-select-store__list,
+    .ty-checkout-select-store__map-full-div {
+        padding-left: 0;
+    }
+
+    .pickup {
+        &--show-all-btn-wrapper {
+            width: 100%;
+            padding: 6.5px;
+
+            text-align: center;
+        }
+
+        &__open-pickupups-btn {
+            display: flex;
+            margin-top: 15px;
+            flex-basis: 100%;
+            padding: 10px 0;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__offices {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            align-content: flex-start;
+
+            overflow-y: auto;
+            height: 500px;
+            max-height: 500px;
+
+            padding: 4px;
+
+            &.litecheckout__fields-row--wrapped .ty-one-store {
+                flex-basis: 100%;
+                width: 100%;
+            }
+
+            &-wrapper {
+                display: flex;
+                flex-direction: column;
+                
+                flex-basis: 30%;
+
+                overflow-y: hidden;
+
+                height: 502px;
+                max-height: 502px;
+
+                border: 1px solid @base;
+
+                margin: 0;
+                border-radius: 6px;
+
+                &--near-map {
+                    flex-basis: 100% !important;
+                    width: auto;
+                }
+            }
+
+            &--list {
+                padding: 0px;
+
+                @media (max-width: 767px) {
+                    max-height: ~"calc(100vh - 140px)" !important;
+                    min-height: ~"calc(100vh - 140px)" !important;
+                    overflow: auto;
+
+                    &-no-height.pickup__offices {
+                        max-height: unset !important;
+                        min-height: unset !important;
+
+                        padding: 0;
+                        padding-top: 15px;
+
+                        .ty-one-store {
+                            border-top: 1px solid #dce3ea;
+                            border-right: 1px solid #dce3ea;
+                        }
+                    }
+                }
+
+                .ty-one-store {
+                    padding: 0 !important;
+                    min-height: auto !important;
+
+                    .ty-sdek-store__label.ty-one-store__label {
+                        border: 0 !important;
+                        border-radius: 0 !important;
+                    }
+
+                    border-bottom: 1px solid @base;
+                    padding-top: 10px !important;
+                    padding-bottom: 10px !important;
+                }
+
+                .ty-sdek-office__selected {
+                    border-radius: 0 !important;
+                    border-left-color: @secondary_button !important;
+                    background-color: #fff !important;
+
+                    .ty-one-store__name {
+                        color: @secondary_button;
+                    }
+
+
+                    .ty-sdek-store__label.ty-one-store__label {
+                        box-shadow: none !important;
+                    }
+                }
+
+                // If there is a scroll in the list of pickup points, then the selected pickup point is moved to the first place.
+                // js/tygh/checkout/pickup_selector.js
+                &:not(.pickup__offices--list--no-sorting) .ty-sdek-office__selected {
+                    order: -1;
+                }
+            }
+        }
+
+        &__search {
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.02);
+
+            &-field {
+                max-width: 100%;
+                margin: 0;
+            }
+        }
+
+        &--list {
+            .pickup__offices-wrapper {
+                flex-basis: 100%;
+                overflow: initial;
+                height: auto;
+            }
+
+            .pickup__offices {
+                padding: 0;
+                height: auto;
+            }
+
+            .pickup__offices.litecheckout__fields-row--wrapped .ty-one-store {
+                flex-basis: 100%;
+            }
+        }
+    }
+
+    .pickup--map-list {
+        .pickup {
+            &__offices {
+                &-wrapper {
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    border-right: 0;
+                }
+            }
+        }
+    }
+
+    .pickup {
+        &--map-list, &--list {
+            display: flex;
+            flex-direction: row-reverse;
+            width: 100%;
+        }
+
+        &__map-wrapper {
+            display: flex;
+            flex-basis: 70%;
+            height: 500px;
+
+            margin: 0;
+
+            border-radius: 0 6px 6px 0;
+            overflow: hidden;
+
+            @media (max-width: 767px) {
+                border-radius: 0;
+            }
+        }
+
+        &__map-container {
+            flex-basis: 100%;
+        }
+
+        &--map-list, &--list {
+            .ty-checkout-select-store,
+            .ty-checkout-select-store__list {
+                &__item-view {
+                    padding: 0 6px;
+                    padding-bottom: 20px;
+
+                    .ty-btn.ty-btn__tertiary.text-button {
+                        padding: 10px 25px;
+                    }
+                }
+        
+            }
+
+            .ty-checkout-select-store__list {
+                .ty-one-store__label {
+                    min-height: 105px;
+
+                    display: flex;
+                    align-items: center;
+
+                    .ty-one-store__name {
+                        padding-top: 0px;
+                    }
+
+                    label {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .ty-one-store {
+                display: flex;
+
+                width: 33.3%;
+                flex-basis: 33.3%;
+
+                padding: 6.5px;
+                margin: 0px;
+
+                min-height: 145px;
+
+                background-color: rgba(0, 0, 0, 0.02);
+
+                border-left: 3px solid transparent;
+
+                &.hidden {
+                    display: none;
+                }
+
+                &__name {
+                    font-size: 16px;
+                    font-weight: normal;
+                    padding: 0;
+                }
+
+                &__description .ty-one-office__address {
+                    font-size: 12px;
+                    color: #6c6c6c;
+                }
+
+                &__description .ty-one-office__worktime {
+                    font-size: 12px;
+                    color: #6c6c6c;
+                }
+
+                &__label {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    margin: 0;
+                    padding: 0 20px;
+                    cursor: pointer;
+
+                    justify-content: center;
+
+                    border-radius: 5px;
+                    border: solid 1px #acbdcd;
+
+                    * {
+                        cursor: pointer;
+                    }
+                }
+
+                &__radio {
+                    display: none;
+                }
+
+                &:hover {
+                    background: rgba(0, 0, 0, 0.05);
+                }
+
+                * {
+                    box-sizing: border-box;
+                }
+
+                box-sizing: border-box;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 1180px) {
+    .litecheckout {
+        .pickup--map-list, .pickup--list {
+            .ty-checkout-select-store,
+            .ty-checkout-select-store__list {
+                width: ~"calc(100% - 2px)";
+            }
+
+            .ty-one-store {
+                flex-basis: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .litecheckout {
+        .pickup--map-list, .pickup--list {
+            .ty-one-store {
+                flex-basis: 100%;
+            }
+        }
+
+        .pickup {
+            &--map-list, &--list {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            &__offices-wrapper {
+                flex-basis: 100%;
+                height: auto;
+                max-height: unset;
+
+                border: 0;
+            }
+
+            &__offices {
+                padding: 4px;
+                height: auto;
+                max-height: unset;
+
+                overflow-y: auto;
+            }
+
+            &__search {
+                border: 0;
+            }
+
+            &__map-wrapper {
+                flex-direction: column;
+                flex-basis: 100%;
+                height: auto;
+                border: 0;
+            }
+
+            &__map-container {
+                flex-basis: 70vh;
+                height: 70vh;
+                border: 1px solid #acbdcd;
+
+                &--mobile-hint {
+                    display: flex;
+                    visibility: visible;
+
+                    min-height: 25px;
+
+                    justify-content: center;
+                    align-items: center;
+
+                    color: white;
+                    background-color: #acbdcd;
+                    border-top: 2px solid white;
+
+                    padding: 5px;
+                    text-align: center;
+
+                    font-size: 0.9em;
+                }
+
+            }
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    .litecheckout { 
+        .accordeon-label,
+        .accordeon-checkbox {
+            visibility: hidden;
+            display: none;
+        }
+
+        .pickup__map-container--mobile-hint {
+            display: none;
+            visibility: hidden;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .litecheckout {
+
+        .accordeon-labels {
+            display: flex;
+            width: 100%;
+
+            padding: 0 10px;
+        }
+
+        .accordeon-label {
+            display: inline-flex;
+
+            border: 1px solid rgba(0, 0, 0, 0.14);
+            background-color: rgba(151, 151, 151, 0.178);
+            color: rgba(0, 0, 0, 0.65);
+
+            text-align: center;
+            
+            cursor: pointer;
+
+            flex-basis: 100%;
+            height: 25px;
+
+            justify-content: center;
+            align-items: center;
+
+            &--checked {
+                background-color: #4fbe31;
+                font-weight: bold;
+                color: white;
+            }
+
+            &:first-child {
+                border-right: 0;
+            }
+        }
+
+        .accordeon-label:checked {
+            color: white;
+        }
+        
+        .accordeon-checkbox {
+            display: none;
+        }
+        
+        .accordeon-content {
+            display: none;
+        }
+        
+        .accordeon-checkbox:checked ~ .accordeon-content {
+            display: block;
+        }
+    }
+}
+
+.ui-dialog .ui-dialog-content.ty-checkout-select-store__map-full-div-in-popup {
+    min-width: 740px;
+
+    @media (max-width: 768px) {
+        min-width: unset;
+        width: 100%;
+    }
+}
+
+// Google maps widget
+.pickup__map-container .gm-style-pbt {
+    margin-left: 60px;
+}

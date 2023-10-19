@@ -1,0 +1,1 @@
+{script src="js/addons/master_products/add_to_cart.js"}

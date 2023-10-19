@@ -1,0 +1,109 @@
+// payments
+.payments, .shippings {
+    .control-label {
+        display: inline-block;
+        float: none;
+        width: auto;
+        background-position: right 5px;
+    }
+    .controls {
+        margin-left: 0px;
+        input[type="text"] {
+            width: 100%;
+            max-width: 270px;
+        }
+        select {
+            width: 100%;
+            max-width: 269px;
+        }
+        input[type="text"].input-small {
+            width: 47.5%;
+            max-width: 129px;
+        }
+    }
+    .credit-card {
+        position: relative;
+        .input-big {
+            height: 40px;
+            font-size: 18px;
+            padding: 8px;
+        }
+        .control-group {
+            max-width: 270px;
+            position: relative;
+        }
+        .cc-icons {
+            position: absolute;
+            top: 32px;
+            right: 65px;
+        }
+        .cc-icon {
+            visibility: hidden;
+            position: absolute;
+        }
+        .cc-icon.cm-cc-default, .cc-icon.active {
+            visibility: visible;
+        }
+        .cc-icon span {
+            display: inline-block;
+            margin-left: 10px;
+            width: 51px;
+            height: @inputHeight;
+            background: url(../media/images/payments.png) no-repeat;
+        }
+        .cc-icon .default {
+            background-position: -300px 0px;
+        }
+        .cc-icon .mastercard, .cc-icon .mastercard {
+            background-position: 0px -100px;
+        }
+        .cc-icon .paypal {
+            background-position: -100px -100px;
+        }
+        .cc-icon .visa, .cc-icon .visa {
+            background-position: -200px 0px;
+        }
+        .cc-icon .visa-electron {
+            background-position: -200px -100px;
+        }
+        .cc-icon .maestro {
+            background-position: 0 -200px;
+        }
+        .cc-icon .american-express {
+            background-position: -100px -200px;
+        }
+        .cc-icon .discover {
+            background-position: -200px -200px;
+        }
+    }
+    .cvv2 {
+        margin-top: 8px;
+        display: inline-block;
+        position: relative;
+        &:hover .popover {
+            display: block;
+        };
+        .popover {
+            top: 19px;
+            left: -95px;
+            max-width: 400px;
+            width: 320px;
+        }
+    }
+    .cvv2-note {
+        .cards-images {
+            float: left;
+            padding-right: 10px;
+        }
+        .cards-description {
+            float: left;
+            width: 206px
+        }
+        .card-info {
+            margin-bottom: 15px;
+        }
+    }
+}
+.tracking-number-edit-link.open {
+    display: none;
+}

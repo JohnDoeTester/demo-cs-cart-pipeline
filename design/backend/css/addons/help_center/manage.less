@@ -1,0 +1,71 @@
+// help_center.manage
+#page_content_help_center .content-wrap {
+    padding: 0;
+}
+
+#page_content_help_center .help-center__navs {
+    border-top-left-radius: @baseBorderRadius;
+    border-bottom-left-radius: @baseBorderRadius;
+}
+
+// Help center
+.help-center {
+    height: 100%;
+    font-size: 14px;
+}
+
+.help-center__wrapper {
+    display: flex;
+    position: relative;
+    flex-direction: var(--help-center-responsive-column);
+    max-height: 100%;
+    height: 100%;
+}
+
+.help-center__form {
+    height: 100%;
+    margin: 0;
+}
+
+// Help center navigations
+.help-center__navs {
+    display: flex;
+    width: var(--help-center-responsive-nav-full-width);
+    background: var(--help-center-nav-bg-color);
+    flex-shrink: 0;
+}
+
+.help-center__navs-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex-grow: 1;
+    width: 100%;
+    margin: 0;
+    padding-top: ~"calc(64px + var(--help-center-responsive-padding))";
+    padding-bottom: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
+    min-height: 100%;
+    max-height: 100%;
+    overflow: auto;
+}
+
+// Help center content
+.help-center__content {
+    width: 100%;
+}
+
+.help-center__sections {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.help-center__sections:empty:before {
+    content: attr(data-ca-help-center-loading-text);
+    color: @textMutedColor;
+}

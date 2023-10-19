@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>warehouses</id>
+    <version>1.0</version>
+    <priority>1300</priority>
+    <position>0</position>
+    <status>active</status>
+    <compatibility>
+        <dependencies>store_locator</dependencies>
+    </compatibility>
+    <queries>
+        <item>DROP TABLE IF EXISTS `?:warehouses_products_amount`;</item>
+        <item>DROP TABLE IF EXISTS ?:store_location_shipping_delays;</item>
+        <item>DROP TABLE IF EXISTS ?:store_location_destination_links;</item>
+        <item>DROP TABLE IF EXISTS ?:warehouses_destination_products_amount;</item>
+        <item>DROP TABLE IF EXISTS ?:warehouses_sum_products_amount;</item>
+        <item>
+            CREATE TABLE `?:warehouses_products_amount` (
+                `warehouse_id` mediumint(8) unsigned NOT NULL,
+                `product_id` mediumint(8) unsigned NOT NULL,
+                `amount` mediumint(8) NOT NULL,
+                PRIMARY KEY (`product_id`, `warehouse_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE ?:store_location_shipping_delays (
+                store_location_id mediumint(8) unsigned NOT NULL default 0,
+                destination_id mediumint(8) unsigned not null default 0,
+                shipping_delay varchar(256) not null default '',
+                lang_code char(2) not null default '',
+                PRIMARY KEY (store_location_id, destination_id, lang_code)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE ?:store_location_destination_links (
+                link_id int(11) unsigned NOT NULL auto_increment,
+                store_location_id mediumint(8) unsigned NOT NULL default 0,
+                destination_id mediumint(8) unsigned not null default 0,
+                warn_about_delay tinyint(3) unsigned not null default 0,
+                position smallint(5) NOT NULL default '0',
+                PRIMARY KEY (link_id),
+                UNIQUE KEY idx_store_location_destination (store_location_id, destination_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE ?:warehouses_destination_products_amount (
+                destination_id mediumint(8) unsigned NOT NULL,
+                storefront_id mediumint(8) unsigned NOT NULL,
+                product_id mediumint(8) unsigned NOT NULL,
+                amount mediumint(8) NOT NULL,
+                PRIMARY KEY (product_id, destination_id, storefront_id),
+                KEY idx_storefront_id (storefront_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE ?:warehouses_sum_products_amount (
+                storefront_id int(11) NOT NULL,
+                product_id mediumint(8) unsigned NOT NULL,
+                amount mediumint(8) NOT NULL,
+                PRIMARY KEY (product_id, storefront_id),
+                KEY idx_storefront_id (storefront_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="install">ALTER TABLE ?:store_locations ADD store_type char(1) DEFAULT 'P';</item>
+        <item for="install">ALTER TABLE ?:store_locations ADD shipping_destinations_ids text NOT NULL;</item>
+        <item for="install">ALTER TABLE ?:products ADD is_stock_split_by_warehouses char(1) DEFAULT 'N';</item>
+        <item for="install">ALTER TABLE ?:product_subscriptions ADD destination_id int(11) unsigned NOT NULL DEFAULT '0';</item>
+        <item for="uninstall">ALTER TABLE ?:store_locations DROP store_type;</item>
+        <item for="uninstall">ALTER TABLE ?:store_locations DROP shipping_destinations_ids;</item>
+        <item for="uninstall">ALTER TABLE ?:products DROP is_stock_split_by_warehouses;</item>
+        <item for="uninstall">ALTER TABLE ?:product_subscriptions DROP destination_id;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:warehouses_products_amount`;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:store_location_delivery_descriptions;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:store_location_destination_links;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:warehouses_destination_products_amount;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:warehouses_sum_products_amount;</item>
+    </queries>
+    <functions>
+        <item for="install">fn_warehouses_install</item>
+    </functions>
+</addon>

@@ -1,0 +1,54 @@
+.bp-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--bp-text-color-inverse);
+    font-size: var(--bp-font-size);
+
+    &__text {
+        padding: 7px 12px;
+        border-radius: 999px;
+        color: var(--bp-text-color-inverse);
+        background-color: var(--bp-main-color);
+        transition: all 0.2s;
+
+        &--animation {
+            -webkit-animation: bp-btn__text--animation 60s ease infinite;
+            animation: bp-btn__text--animation 60s ease infinite;
+        }
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:hover &__text {
+        color: var(--bp-text-color-inverse);
+        background-color: var(--bp-main-color-hover);
+        -webkit-animation: none;
+        animation: none;
+    }
+
+}
+@keyframes bp-btn__text--animation {
+    0% {
+        background-color: var(--bp-main-color);
+    }
+
+    98% {
+        background-color: var(--bp-main-color);
+    }
+
+    99% {
+        background-color: var(--bp-main-color-animation);
+    }
+
+    100% {
+        background-color: var(--bp-main-color);
+    }
+}

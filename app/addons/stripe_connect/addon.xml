@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<addon scheme="3.0" edition_type="ROOT">
+    <id>stripe_connect</id>
+    <version>1.0</version>
+    <default_language>en</default_language>
+    <priority>100</priority>
+    <status>active</status>
+    <compatibility>
+        <core_edition>
+            MULTIVENDOR
+        </core_edition>
+        <dependencies>vendor_plans</dependencies>
+    </compatibility>
+    <settings edition_type="ROOT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="collect_payouts">
+                        <type>radiogroup</type>
+                        <default_value>N</default_value>
+                        <variants>
+                            <item id="N"/>
+                            <item id="Y"/>
+                        </variants>
+                    </item>
+                    <item id="rma_refunded_order_status">
+                        <type>hidden</type>
+                        <default_value/>
+                    </item>
+                    <item id="rma_refunded_order_status_tpl">
+                        <type>template</type>
+                        <default_value>rma_refunded_order_status.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item for="install">
+            ALTER TABLE ?:companies
+            ADD COLUMN stripe_connect_account_id VARCHAR(128) NOT NULL DEFAULT ''
+        </item>
+        <item for="install">
+            ALTER TABLE ?:companies
+            ADD COLUMN stripe_connect_account_type CHAR(1) NOT NULL DEFAULT ''
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:companies
+            DROP COLUMN stripe_connect_account_id
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:companies
+            DROP COLUMN stripe_connect_account_type
+        </item>
+    </queries>
+    <functions>
+        <item for="install">fn_stripe_connect_add_payment_processor</item>
+        <item for="uninstall">fn_stripe_connect_remove_payment_processor</item>
+    </functions>
+</addon>

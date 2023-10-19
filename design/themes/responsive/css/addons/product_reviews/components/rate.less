@@ -1,0 +1,58 @@
+/*
+    templates/addons/product_reviews/views/product_reviews/components/rate.tpl
+*/
+
+.ty-product-review-rate__stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    color: var(--ty-product-reviews-accent-color);
+}
+
+.ty-product-review-rate__stars-label {
+    width: 1em;
+    height: 1em;
+    font-family: glyphs;
+    color: var(--ty-product-reviews-accent-color);
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ty-product-review-rate__stars-label:before {
+    content: var(--ty-product-reviews-stars-empty);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.ty-product-review-rate__stars-label--large {
+    font-size: 1.5em;
+}
+
+.ty-product-review-rate__stars-label--xlarge {
+    font-size: 1.8em;
+}
+
+// Selected stars
+.ty-product-review-rate__stars-radio:checked ~ .ty-product-review-rate__stars-label:before,
+.ty-product-review-rate__stars-radio:focus ~ .ty-product-review-rate__stars-label:before {
+    content: var(--ty-product-reviews-stars-full);
+}
+
+// Highlight a focused star
+.ty-product-review-rate__stars-radio:focus + .ty-product-review-rate__stars-label {
+    transform: scale(1.2);
+}
+
+// Highlight hover star
+.ty-product-review-rate__stars-label:hover:before {
+    content: var(--ty-product-reviews-stars-full);
+}
+
+// Highlight other stars when hovering a star
+.ty-product-review-rate__stars-label:hover ~ .ty-product-review-rate__stars-label:before {
+    content: var(--ty-product-reviews-stars-full);
+}

@@ -1,0 +1,85 @@
+.form-horizontal textarea.premoderation-reason {
+    margin-bottom: 20px;
+}
+
+@editColor: #73b899;
+@editBackground: rgb(115, 184, 153, 0.1);
+
+.premoderation-fields--change {
+    .premoderation-fields__container {
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 900px) {
+            border-bottom: 1px solid #ededed;
+        }
+
+        @media (max-width: @TabletBreakpoint + 1px) {
+            margin-bottom: 20px;
+            flex-direction: column;
+            border: 2px solid @editColor;
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+    }
+
+
+
+    .premoderation-fields__group {
+        display: flex;
+        align-items: baseline;
+        margin-left: 20px;
+        flex-basis: 50%;
+
+        & > div {
+            width: 100%;
+        }
+
+        @media (max-width: @TabletBreakpoint + 1px) {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+
+    .premoderation-fields__icon {
+        color: @editColor; 
+    }
+
+    .premoderation-fields__value-container {
+        height: 100%;
+
+        border-left: 3px solid @editColor;
+        margin-left: 5px;
+        padding-left: 10px;
+
+        @media (max-width: @TabletBreakpoint + 1px) {
+            border: none;
+            padding-left: 0;
+        }
+    }
+
+    .control-label.premoderation-fields__value-label {
+        float: none;
+        text-align: left;
+    }
+
+    .controls.premoderation-fields__value-controls {
+        margin-left: 0;
+    }
+}
+
+.cm-premoderation {
+    position: relative;
+}
+
+.cm-premoderation:before {
+    font-family: 'FontAwesome';
+    font-size: 10px;
+    content: "\f111";
+
+    color:@editColor;
+
+    position: absolute;
+    right: 0;
+    top: -6px;
+}

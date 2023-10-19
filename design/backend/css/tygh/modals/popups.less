@@ -1,0 +1,248 @@
+@import "../../config.less";
+
+html.dialog-is-open {
+    body {
+        @media (max-width: @TabletBreakpoint) {
+            overflow: hidden;
+        }
+    }
+}
+
+// Popup dialog styles
+.object-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 13px 13px 40px;
+    .controls .shift-input {
+        display: block;
+    }
+    .notification-content {
+        top: 11px;
+        right: 15px;
+        left: 15px;
+        min-width: 420px;
+        position: absolute;
+        z-index: 1510;
+    }
+    .buttons-container-picker {
+        .border-radius(0);
+        .box-shadow(none);
+        .modal-footer();
+        background-color: transparent;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-bottom: 0;
+        padding: 20px 14px;
+        text-align: right; // right align buttons
+        border-top: 1px solid #eee; // Properly space out buttons
+        .btn+.btn {
+            margin-bottom: 0;
+            margin-left: 5px; // account for input[type="submit"] which gets the bottom margin like all other inputs
+        } // but override that for button groups
+        .btn-group .btn+.btn {
+            margin-left: -1px;
+        }
+        .form-edit .input-large {
+            width: 50px !important;
+        }
+        .input-append,
+        .input-prepend {
+            margin-bottom: 0;
+        }
+    }
+    .form-edit .input-large {
+        width: 684px !important;
+    }
+    .dropdown-toggle {
+        margin-top: 0px;
+    }
+}
+
+.ui-dialog {
+    padding: 0;
+    max-width: 90%;
+    position: fixed !important;
+    .ui-dialog-content {
+        overflow: hidden;
+        padding: 0;
+        .control-group:hover {
+            background: transparent;
+        }
+    }
+    .ui-dialog-title {
+        width: 100%;
+        white-space: nowrap;
+    }
+    .btn-text {
+        padding-top: 5px;
+    }
+    .upload-file-local input[type="file"] {
+        z-index: 2000;
+    }
+    .setting-wide .input-large {
+        width: 520px !important;
+    }
+
+    // Elfinder popup fix
+    &.ui-front {
+        z-index: 1050;
+    }
+}
+
+.ui-dialog .dropdown-menu {
+    left: 0px;
+    right: auto;
+}
+
+.ui-widget {
+    input.btn {
+        font-family: @sansFontFamily;
+    }
+}
+
+.ui-widget-content {
+    a {
+        color: @mainColor;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    a.btn {
+        color: #404040;
+        text-decoration: none;
+    }
+    a.btn-primary {
+        color: #fff;
+    }
+}
+
+.ui-widget-overlay {
+    position: fixed;
+    z-index: 1001;
+    opacity: 0.6;
+    filter: Alpha(Opacity=60);
+}
+
+.dialog-auto-sized {
+    .object-container {
+        padding-bottom: 60px;
+    }
+}
+
+@media (max-width: @TabletBreakpoint) {
+    // New bigger close button
+    .ui-button.ui-dialog-titlebar-close {
+        transform: scale(2);
+        top: 33px;
+        right: 15px;
+
+        .ui-icon-closethick {
+            background-image: none !important;
+        }
+
+        &::before {
+            content: '×';
+            display: block;
+            position: absolute;
+            top: 2.3px;
+            right: 3.5px;
+            text-indent: initial;
+        }
+    }
+
+    // Strictly set popup width on mobiles
+    .ui-dialog {
+        width: 100vw !important;
+        
+    }
+
+    [role="dialog"].ui-dialog.ui-widget {
+        height: 100% !important;
+    }
+
+    .hidden.ui-dialog-content.ui-widget-content {
+        min-height: unset !important;
+        max-height: unset !important;
+
+        position: absolute;
+        bottom: 0;
+        top: 51px;
+        left: 0;
+        right: 0;
+    }
+
+    .ui-dialog-content.ui-widget-content {
+        @media (max-width: @TabletBreakpoint) {
+            height: auto !important;
+        }
+    }
+
+    [aria-describedby="content_select_fields_to_edit"].ui-dialog {
+        width: 100vw !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 100vh !important;
+    }
+
+    // Popup bottom block with buttons
+    .object-container {
+        .buttons-container-picker,
+        .buttons-container-picker.modal-footer {
+            padding: 5px;
+
+            // Toggle 'save/close' buttons centered on mobiles
+            text-align: center;
+
+            .pull-left,
+            .pull-right {
+                display: block;
+                width: 100%;
+
+                float: auto;
+                float: unset;
+
+                text-align: center;
+
+                margin: 0;
+            }
+        }
+    }
+
+    // Reset padding in advanced product search
+    .adv-search .modal-footer {
+        span {
+            padding: 0px;
+        }
+
+        > .pull-left {
+            padding-bottom: 10px;
+        }
+    }
+}
+
+@media (max-width: @DesktopBreakpoint) {
+    .buttons-container.buttons-container-picker {
+        background-color: #fff;
+        z-index: 1000;
+    }
+
+    .object-container {
+        padding-bottom: 0px;
+
+        &:after {
+            content: "";
+            display: block;
+            padding-bottom: 130px;
+        }
+    }
+
+    // do not show tooltips while popup is open
+    .dialog-is-open .tooltip {
+        display: none !important;
+        visibility: none !important;
+        top: -9999px !important;
+        left: -9999px !important;
+    }
+}

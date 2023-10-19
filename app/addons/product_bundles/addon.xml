@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<addon scheme="4.0">
+    <id>product_bundles</id>
+    <version>1.0</version>
+    <priority>1520</priority>
+    <status>active</status>
+    <compatibility>
+        <conflicts>buy_together</conflicts>
+    </compatibility>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings edition_type="ROOT,STOREFRONT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="show_bundles">
+                        <type>selectbox</type>
+                        <default_value>before_product_description</default_value>
+                        <variants>
+                            <item id="before_product_description">
+                            </item>
+                            <item id="in_a_product_tab">
+                            </item>
+                        </variants>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+
+    <autoload>
+        <psr4 prefix="Tygh\Addons\ProductBundles\">src</psr4>
+    </autoload>
+    <bootstrap>\Tygh\Addons\ProductBundles\Bootstrap</bootstrap>
+    <installer>\Tygh\Addons\ProductBundles\Installer</installer>
+
+    <queries>
+        <item>DROP TABLE IF EXISTS `?:product_bundles`</item>
+        <item>DROP TABLE IF EXISTS `?:product_bundle_descriptions`</item>
+        <item>DROP TABLE IF EXISTS `?:product_bundle_product_links`</item>
+        <item>DROP TABLE IF EXISTS `?:product_bundle_images`</item>
+        <item>
+            CREATE TABLE `?:product_bundles` (
+            `bundle_id` int(10) unsigned NOT NULL auto_increment,
+            `company_id` int(11) unsigned NOT NULL,
+            `products` text,
+            `date_from` int(11) unsigned NOT NULL default '0',
+            `date_to` int(11) unsigned NOT NULL default '0',
+            `display_in_promotions` char(1) NOT NULL default 'Y',
+            `status` char(1) NOT NULL default 'D',
+            `linked_promotion_id` mediumint(8) unsigned NOT NULL,
+            PRIMARY KEY (`bundle_id`),
+            KEY (`company_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8
+        </item>
+        <item>
+            CREATE TABLE `?:product_bundle_descriptions` (
+            `bundle_id` int(10) unsigned NOT NULL,
+            `name` varchar(50) NOT NULL default '',
+            `storefront_name` varchar(50) NOT NULL default '',
+            `description` mediumtext,
+            `lang_code` char(2) NOT NULL default '',
+            PRIMARY KEY  (`bundle_id`,`lang_code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8
+        </item>
+        <item>
+            CREATE TABLE `?:product_bundle_product_links` (
+            `bundle_id` int(10) unsigned NOT NULL,
+            `product_id` mediumint(8) unsigned NOT NULL default '0',
+            `amount` mediumint(8) NOT NULL default '0',
+            `show_on_product_page` char(1) NOT NULL default 'Y',
+            `all_variants` char(1) NOT NULL default 'N',
+            PRIMARY KEY (`product_id`,`bundle_id`, `all_variants`),
+            KEY (`bundle_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8
+        </item>
+        <item>
+            CREATE TABLE `?:product_bundle_images` (
+            `bundle_image_id` mediumint(8) unsigned NOT NULL auto_increment,
+            `bundle_id` int(10) unsigned NOT NULL,
+            `lang_code` char(2) NOT NULL default '',
+            PRIMARY KEY  (`bundle_image_id`),
+            KEY (`bundle_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8
+        </item>
+        <item editions="MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('view_product_bundles', 'Y', 'marketing', 'product_bundles', 'Y');</item>
+        <item editions="MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_product_bundles', 'Y', 'marketing', 'product_bundles', 'N');</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:product_bundles`</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:product_bundle_descriptions`</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:product_bundle_product_links`</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:product_bundle_images`</item>
+        <item for="uninstall" editions="MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'view_product_bundles'</item>
+        <item for="uninstall" editions="MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'manage_product_bundles'</item>
+    </queries>
+</addon>

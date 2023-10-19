@@ -1,0 +1,15 @@
+// design/backend/css/tygh/utils/notifications.less
+
+.alert-wrap {
+    max-width: none;
+
+    @media (min-width: @TabletBreakpoint) {
+        left: @menuSidebarWidth + 20px;
+        right: 20px;
+        top: 48px + 20px;   // Header height + Gap
+    }
+
+    @media (min-width: @DesktopBreakpoint + 1) {
+        left: 50%;
+    }
+}

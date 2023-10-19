@@ -1,0 +1,1 @@
+{if $hide_vendor_store}&nbsp;{/if}

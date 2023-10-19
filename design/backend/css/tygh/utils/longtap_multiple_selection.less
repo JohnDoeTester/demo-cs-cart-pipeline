@@ -1,0 +1,59 @@
+.long-tap-start {
+    -webkit-animation: long-tap-animation .1s linear both;
+            animation: long-tap-animation .1s linear both;
+}
+
+.long-tap-start * {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+
+@keyframes long-tap-animation {
+    0% {
+        background-color: #fff !important;
+    }
+    100% {
+        background-color: rgb(137, 191, 252) !important;
+    }
+}
+
+.longtap-selection {
+    .table tr.cm-longtap-target {
+        
+        border-top: 1px solid rgba(102, 102, 102, 0.11);
+    }
+
+    .selected {
+        background-color: #d9ebfc !important;
+        box-shadow: inset 0 0 0px 1px rgb(78, 153, 236);
+
+        td {
+            border-color: transparent;
+            background-color: transparent !important;
+        }
+    
+        &:hover {
+            background-color: #d9ebfc !important;
+    
+            > td {
+                background-color: transparent !important;
+            }
+        }
+    }
+}
+
+@media (max-width: @TabletBreakpoint) {
+    .longtap-selection {
+        .selected {
+            &:hover {
+                > td {
+                    background-color: transparent !important;
+                }
+            }
+        }
+    }
+}

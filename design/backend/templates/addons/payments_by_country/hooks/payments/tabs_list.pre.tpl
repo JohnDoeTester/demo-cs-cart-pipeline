@@ -1,0 +1,1 @@
+<li id="tab_payments_by_country_countries_{$id}" class="cm-js"><a>{__("countries")}</a></li>

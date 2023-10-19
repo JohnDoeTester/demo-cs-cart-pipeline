@@ -1,0 +1,130 @@
+// nested list
+.nested-list {
+    position: relative;
+    width: 100%;
+    bottom: 110px;
+    overflow: auto;
+    top: 10px !important;
+
+    ul {
+        margin: 0px;
+    }
+    li {
+        list-style-type: none;
+        a {
+            display: block;
+            padding: 3px 15px 3px 0px;
+            white-space: nowrap;
+            &:hover {
+                text-decoration: none;
+            }
+            [class^="icon-"], [class*=" icon-"], [class^="exicon-"], [class*=" exicon-"] {
+                opacity: 0.3;
+            }
+        }
+        &>ul {
+            padding-left: 15px;
+        }
+    }
+    li.active > a {
+        position: relative;
+        padding: 3px 15px 3px 0px;
+        color: white;
+        .item {
+            position: relative;
+            z-index: 20;
+            display: block;
+            margin-top: 2px;
+        }
+        .overlay {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: @mainColor;
+        }
+    }
+}
+.nested-list.nested-list-folders a {
+    color: #555555;
+    font-weight: bold;
+}
+
+.nested-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.nested-list::-webkit-scrollbar-thumb {
+    background: #e9e9e9;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+.te-template-image img {
+    max-width: 960px;
+}
+
+.nested-tree {
+    margin: 0px -14px;
+    padding-left: 16px;
+    min-width: 210px;
+    overflow-x: hidden;
+    ul {
+        display: table;
+        width: 100%;
+        margin: 0px;
+        li {
+            margin: 0px;
+            list-style-type: none;
+
+            strong.row-status {
+                color: #555555;
+                cursor: default;
+            }
+
+            a {
+                padding-left: 16px;
+                &:hover {
+                    text-decoration: none;
+                }
+                display: inline-block;
+                padding: 3px 15px 3px 0px;
+                color: #555555;
+                font-weight: bold;
+                white-space: normal;
+            }
+
+            .link {
+                white-space: nowrap;
+
+                span {
+                    vertical-align: top;
+                    margin-top: 6px;
+                }
+            }
+        }
+        .active {
+            .link {
+                padding-left: 16px;
+            }
+            margin-left: -16px;
+            background: @mainColor;
+            padding-left: 16px;
+            a {
+                background: @mainColor;
+                color: white;
+            }
+        }
+    }
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #e9e9e9;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+}

@@ -1,0 +1,74 @@
+.widget-copy {
+    margin-bottom: 1.5rem;
+    border: 2px solid #f5f5f5;
+    border-radius: 3px;
+
+    &--compact {
+        margin-bottom: 0;
+    }
+
+    &__body {
+        padding: 0.8rem 1rem;
+    }
+    &__btn {
+        display: block;
+        z-index: 10;
+        position: relative;
+        top: 0.2rem;
+        right: 0.2rem;
+        float: right;
+        padding: .25rem .5rem;
+        border: 0;
+        border-radius: .25rem;
+        color: @grayLight;
+        font-weight: bold;
+        font-size: 0.75rem;
+        cursor: pointer;
+        background-color: transparent;
+
+        &:hover {
+            color: @btnPrimaryText;
+            background-color: @btnPrimaryBackground;
+        }
+    }
+    .ui-widget &__btn {
+        font-size: 0.75rem;
+    }
+    &__pre {
+        margin: 0;
+        padding: 1.5rem 1rem;
+        border: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    &__code-text {
+        font-size: 0.875rem;
+    }
+}
+
+.wisywig-block-loader {
+    display: inline-block;
+    width: 100%;
+    border: 0 !important;
+}
+
+.wisywig-block-loader::selection {
+    background-color: #aaa;
+}
+
+.wisywig-block-loader:after {
+    content: attr(data-ca-block-name);
+    display: block;
+    padding: 5px 10px;
+    width: auto;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+}
+
+[aria-describedby="wysiwyg_bm_picker"] {
+    min-width: 990px;
+}
+
+.re-blockManager:hover:not(.redactor-act) .redactor-custom-icon {
+    color: white;
+}

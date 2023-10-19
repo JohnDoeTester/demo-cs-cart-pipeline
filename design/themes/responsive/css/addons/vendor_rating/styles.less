@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'vendor-rating-icon';
+  src:  url('../media/fonts/vendor_rating.eot');
+  src:  url('../media/fonts/vendor_rating.eot#iefix') format('embedded-opentype'),
+    url('../media/fonts/vendor_rating.ttf') format('truetype'),
+    url('../media/fonts/vendor_rating.woff') format('woff'),
+    url('../media/fonts/vendor_rating.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.ty-vendor-rating-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'vendor-rating-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 20px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ty-vendor-rating-icon:before {
+  content: "\e900";
+}
+
+.ty-vendor-rating-icon--bronze {
+  color:	#824A02;
+}
+
+.ty-vendor-rating-icon--silver {
+  color:	#A7A7AD;
+}
+
+.ty-vendor-rating-icon--gold {
+  color: #D7B137;
+}
+
+.ty-grid-list__vendor_rating {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ty-grid-list__total-products {
+  display: inline-block;
+}
+
+.ty-grid-list__group {
+  margin-top: 3px;
+  text-align: center;
+}
+
+.ty-control-group__item.ty-company-name {
+  margin-right: 0px;
+}
+
+.ty-vendor-rating {
+  vertical-align: sub;
+}

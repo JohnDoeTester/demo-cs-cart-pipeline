@@ -1,0 +1,54 @@
+/*
+    templates/addons/product_reviews/views/product_reviews/components/post_customer.tpl
+*/
+
+.ty-product-review-post-customer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: var(--space-xs);
+}
+
+.ty-product-review-post-customer__name,
+.ty-wysiwyg-content .ty-product-review-post-customer__name {
+    width: 100%;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1em;
+    word-wrap: break-word;
+}
+
+.ty-product-review-post-customer__verified {
+    white-space: nowrap;
+}
+
+.ty-product-review-post-customer__verified:before {
+    content: var(--ty-product-reviews-verified);
+    font-family: glyphs;
+    color: @secondary_color;
+}
+
+.ty-product-review-post-customer__address {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    gap: var(--space-m);
+    overflow: hidden;
+}
+
+.ty-product-review-post-customer__location {
+    display: flex;
+    width: 35ch;
+    gap: var(--space-xs);
+}
+
+.ty-product-review-post-customer__location-text {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ty-product-review-post-customer__date {
+    color: @secondary_text;
+    white-space: nowrap;
+}

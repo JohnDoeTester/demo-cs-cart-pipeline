@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>tilda_pages</id>
+    <version>1.0</version>
+    <priority>4300</priority>
+    <position>0</position>
+    <status>active</status>
+    <default_language>en</default_language>
+
+    <settings edition_type="ROOT,ULT:VENDOR">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="tilda_public_api_key">
+                        <type>input</type>
+                        <default_value/>
+                    </item>
+                    <item id="tilda_private_api_key">
+                        <type>input</type>
+                        <default_value/>
+                    </item>
+                    <item id="tilda_project_id">
+                        <type>hidden</type>
+                        <default_value/>
+                    </item>
+                    <item id="tilda_additionsl_settings">
+                        <type>template</type>
+                        <default_value>settings.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:tilda_pages;</item>
+        <item>DROP TABLE IF EXISTS ?:tilda_locations;</item>
+        <item>
+            CREATE TABLE `?:tilda_pages` (
+                `page_id` bigint(12) unsigned NOT NULL default '0',
+                `inner_page_id` mediumint(8) unsigned NOT NULL default '0',
+                `project_id` mediumint(8) unsigned NOT NULL default '0',
+                `published` bigint(12) unsigned NOT NULL default '0',
+                `page_title` varchar(255) default '',
+                `description` mediumtext not null default '',
+                `images` mediumtext not null default '',
+                `js` mediumtext not null default '',
+                `css` mediumtext not null default '',
+                `errors` mediumtext not null default '',
+                `status` char(1) not null default 'P',
+                `is_only_content` char(1) not null default 'Y',
+                PRIMARY KEY  (`inner_page_id`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE `?:tilda_locations` (
+            `page_id` bigint(12) unsigned NOT NULL default '0',
+            `inner_location_id` mediumint(8) unsigned NOT NULL default '0',
+            `project_id` mediumint(8) unsigned NOT NULL default '0',
+            `published` bigint(12) unsigned NOT NULL default '0',
+            `page_title` varchar(255) default '',
+            `description` mediumtext not null default '',
+            `images` mediumtext not null default '',
+            `js` mediumtext not null default '',
+            `css` mediumtext not null default '',
+            `errors` mediumtext not null default '',
+            `status` char(1) not null default 'P',
+            `is_only_content` char(1) not null default 'Y',
+            PRIMARY KEY  (`inner_location_id`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:tilda_pages;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:tilda_locations;</item>
+    </queries>
+</addon>

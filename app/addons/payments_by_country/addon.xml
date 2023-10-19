@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>payments_by_country</id>
+    <version>1.0</version>
+    <priority>2800</priority>
+    <position>100</position>
+    <status>active</status>
+    <dependencies/>
+    <default_language>en</default_language>
+    <compatibility>
+        <core_edition>MULTIVENDOR</core_edition>
+        <conflicts>payment_dependencies</conflicts>
+    </compatibility>
+    <queries>
+        <item>
+            DROP TABLE IF EXISTS ?:payments_countries;
+        </item>
+        <item for="install">
+            CREATE TABLE ?:payments_countries (
+            `payment_id` int(11) unsigned NOT NULL DEFAULT 0,
+            `country_code` CHAR(2) not null default '',
+            PRIMARY KEY (`payment_id`, `country_code`),
+            INDEX idx_payment_id (`payment_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+        </item>
+        <item for="install">
+            ALTER TABLE ?:payments
+                ADD `country_selection_mode` CHAR(1) NOT NULL default 'N';
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:payments_countries;
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:payments
+                DROP `country_selection_mode`;
+        </item>
+    </queries>
+</addon>

@@ -1,0 +1,236 @@
+@import "addons/store_locator/components/store.styles.less";
+@import "addons/store_locator/components/checkout.less";
+
+.store-locator {
+
+    &__select {
+        width: 100%;
+        height: 41px;
+        border: 1px solid #acbdcd;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #2e3a47;
+
+        &:hover {
+            border-color: #465f73;
+        }
+        &:focus {
+            border-color: #4fbe31;
+            outline: 0;
+            box-shadow: 0 0 0 4px rgba(79,190,49,0.2), 0 0 0 1px #4fbe31;
+        }
+
+        @media (min-width: 768px) {
+            font-size: 14px;
+        }
+    }
+
+    &__select-label {
+        padding: 6px 16px 6px 0;
+        font-weight: bold;
+    }
+
+    &__location {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        margin: 8px;
+
+        &--city,
+        &--vendor {
+
+            @media (min-width: 768px) {
+                max-width: 33.33%;
+            }
+        }
+
+        &--city .object-picker--cities, &--vendor .object-picker--companies{
+            width: 100%;
+        }
+
+        &--wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 767px) {
+            &--wrapper {
+                flex-direction: column;
+
+                .store-locator__step-title {
+                    align-items: initial;
+                    justify-content: center;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    &__fields-row {
+        display: flex;
+
+        &--wrapped {
+            flex-wrap: wrap;
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    &__field {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+    }
+
+    &__label,
+    &__input {
+        display: block;
+        padding: 0;
+
+        width: 100%;
+        font-weight: normal;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    & &__input {
+        padding: 10px 4px;
+        border: 1px solid #acbdcd;
+
+        border-radius: 3px;
+
+        box-sizing: border-box;
+
+        height: auto;
+        border-radius: 5px;
+        background-color: #fff;
+
+        font-size: 16px;
+        color: #2e3a47;
+
+        &:not(:placeholder-shown),
+        &:focus {
+            padding-top: 16px;
+            padding-bottom: 4px;
+        }
+
+        &:hover {
+            border-color: #465f73;
+        }
+        &:focus {
+            border: solid 1px #4fbe31;
+            box-shadow: 0 0 0 4px rgba(79,190,49,0.2), 0 0 0 1px #4fbe31;
+            outline: 0;
+        }
+
+        &:placeholder-shown:not(:focus) + .store-locator__label {
+            top: 10px;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        &[type=hidden] + .store-locator__label {
+            display: none;
+        }
+    }
+
+    &__label {
+        transition: .3s all;
+
+        font-size: 12px;
+        color: #a1a6aa;
+
+        position: absolute;
+        top: 2px;
+        left: 6px;
+    }
+
+    &__step-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    &__all-stores {
+
+        &-btn {
+            color: @secondary_button;
+            background: none;
+            border: 0;
+            width: 100%;
+            text-align: right;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__scroll-top-btn {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+        height: 40px;
+        margin-top: -40px;
+        color: @secondary_button;
+        text-align: center;
+        width: 100%;
+        background: #fff;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+}
+
+.pickup--list .store-locator__fields-row {
+    display: flex;
+    box-shadow: inset 0px -1px 0 #dce3ea;
+}
+
+/* /Pickup */
+
+.ty-store-locator__geolocation {
+
+    &__location {
+        border-bottom: 1px dotted;
+
+        &__states,
+        &__cities {
+            padding-left: 10px;
+        }
+
+        &__state,
+        &__country {
+            padding-bottom: 20px;
+        }
+    }
+
+    &__locations {
+        min-width: 400px;
+    }
+}
+
+// Yandex baloon
+@media (max-width: 767px) {
+    .store-locator-ya-baloon {
+        overflow-x: hidden;
+    }
+}

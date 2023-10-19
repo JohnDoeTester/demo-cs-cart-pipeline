@@ -1,0 +1,42 @@
+/*
+    addons/product_reviews/views/product_reviews/components/rating/stars_details.tpl
+*/
+
+.cs-product-reviews-rating-stars-details__row {
+    display: grid;
+    grid-template-columns: minmax(max-content, 9ch) 1fr minmax(max-content, 5ch);
+    grid-gap: 1em;
+    align-items: center;
+}
+
+.cs-product-reviews-rating-stars-details__line {
+    appearance: none;
+    border: 0;
+    background-color: @grayLighter;
+    width: 100%;
+    min-width: 100px;
+    height: 6px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: @baseBorderRadius;
+}
+
+.cs-product-reviews-rating-stars-details__line::-webkit-progress-bar {
+    background-color: @grayLighter;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: @baseBorderRadius;
+}
+
+.cs-product-reviews-rating-stars-details__line::-webkit-progress-value {
+    background: @mainColor;
+    border-radius: @baseBorderRadius;
+}
+
+.cs-product-reviews-rating-stars-details__line::-moz-progress-bar {
+    background: @mainColor;
+    border-radius: @baseBorderRadius;
+}
+
+.cs-product-reviews-rating-stars-details__percentage {
+    text-align: right;
+}
+

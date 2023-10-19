@@ -1,0 +1,121 @@
+.ty-vendor-plans {
+    margin-top: 40px;
+    text-align: center;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: stretch; 
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ty-vendor-plans__title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.ty-vendor-plans__title-header {
+    font-size: 28px;
+}
+
+.ty-vendor-plans-info {
+    min-height: 280px;
+}
+
+.ty-vendor-plans__item {
+    display: inline-block;
+    min-width: 220px;
+    max-width: 330px;
+    background: #fbfbfb;
+    vertical-align: top;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #f0f0f0;
+    padding: 1px;
+    transition: all 200ms;
+
+    &:hover {
+        border-color: #DEDEDE;
+    }
+    
+    &.active {
+        background: #fff;
+        border: 0;
+        box-shadow: 0px 0px 30px #BFBFBF;
+    }
+
+    &.active .ty-vendor-plan-content,
+    &.vendor-plan-current {
+        margin-top: 0;
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    .ty-vendor-plan-current-plan {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: normal;
+        color: #fff;
+        background-color: #ff9900;
+        border-radius: 3px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        display: inline;
+        padding: 4px 18px;
+    }
+
+    .ty-vendor-plan-content {
+        padding: 7px 14px;
+        margin-top: 10px;
+        word-break: break-word;
+    }
+
+    .ty-vendor-plan-descr {
+        min-height: 1em;
+    }
+
+    .ty-vendor-plan-header {
+        margin-top: 10px;
+        font-weight: normal;
+        font-size: 24px;
+    }
+
+    .ty-vendor-plan-price {
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .ty-vendor-plan-price-period {
+        color: #999;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        text-transform: lowercase;
+        line-height: 1em;
+    }
+
+    .ty-vendor-plan-link {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .ty-vendor-plan-params {
+        padding: 15px 0px;
+        
+        p {
+            margin: 0px;
+            padding: 2px 0px;
+            font-size: 14px;
+        }
+    }
+
+}

@@ -1,0 +1,1 @@
+UPDATE ?:discussion SET company_id = 1 where thread_id NOT IN('26', '7', '8', '9', '11');

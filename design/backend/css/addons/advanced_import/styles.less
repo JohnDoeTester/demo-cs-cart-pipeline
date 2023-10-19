@@ -1,0 +1,274 @@
+@import "../../config.less";
+
+.import-field {
+
+    &__name {
+        min-width: 220px;
+
+        span {
+            display: inline-block;
+        }
+
+        td& {
+            font-weight: bold;
+            opacity: 0.7;
+            padding-top: 13px;
+
+            @media (max-width: @TabletBreakpoint) {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__related_object {
+        min-width: 300px;
+        max-width: 300px;
+
+        &-select {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .select2 {
+            &-selection {
+                &--single {
+                    border-color: transparent;
+                    position: relative;
+                }
+                &__clear,
+                &__arrow {
+                    opacity: 0;
+                }
+                &__clear {
+                    position: absolute;
+                    right: 20px;
+                    background-color: #fff;
+                    padding: 0 10px;
+                }
+                &__arrow {
+                    background-color: #fff;
+                    top: 2px;
+                    height: 28px;
+                    right: 0;
+                }
+            }
+            &-container--open .select2-selection {
+                &--single {
+                    border-color: #ccc;
+                }
+                &__clear,
+                &__arrow {
+                    opacity: 1;
+                }
+            }
+        }
+        th& {
+            padding-left: 17px;
+        }
+    }
+
+    &__preview {
+        min-width: 380px;
+        position: relative;
+
+        &-wrapper {
+            display: inline-block;
+        }
+        &-info {
+
+            .popover {
+                max-width: 400px;
+                width: 400px;
+                top: 30px;
+                left: 190px;
+            }
+            &:hover {
+                .popover {
+                    display: block;
+                }
+            }
+        }
+        &-button {
+            position: absolute;
+            top: 14px;
+            right: 8px;
+        }
+        td& {
+            padding-top: 13px;
+            padding-right: 20px;
+            line-height: 1.5;
+        }
+    }
+
+    &__modifier {
+        width: 100%;
+        
+        &-input {
+            width: 96%;
+
+            &::placeholder {
+                color: transparent;
+            }
+        }
+    }
+
+    &:hover .cm-show-more__btn:before {
+        background: linear-gradient(transparent, @tableBackgroundHover 70%);
+    }
+
+    &:hover .cm-show-more__expanded + .cm-show-more__btn:before {
+        background: none;
+    }
+
+    &:hover &__modifier-input::placeholder {
+        color: #999;
+    }
+
+    &:hover &__related_object .select2-selection {
+
+        &--single {
+            border-color: #ccc;
+        }
+        &__clear,
+        &__arrow {
+            opacity: 1;
+        }
+    }
+
+    .cm-adv-import-placeholder {
+        padding-left: 8px;
+        line-height: 28px;
+        max-width: 300px;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #333;
+        border: 1px solid transparent;
+
+        &--view_only {
+            cursor: not-allowed;
+        }
+
+        &:not(.cm-adv-import-placeholder--view_only):hover {
+            background-color: #fff;
+            line-height: 28px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: @inputHeight;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                border: 5px solid;
+                border-color: #888 transparent transparent transparent;
+                border-width: 5px 4px 0px 4px;
+                right: 5px;
+                margin-top: -3px;
+                top: 50%;
+            }
+        }
+    }
+
+    .cm-adv-import-placeholder--empty {
+        color: #999;
+    }
+}
+
+// Enable responsive only at responsive admin
+body[class^="screen--"] .import-field {
+    @media (max-width: 1240px) {
+        &__name, &__related_object, &__preview {
+            min-width: 190px;
+            max-width: 190px;
+        }
+    }
+
+    @media (max-width: @TabletBreakpoint) {
+        &__name, &__related_object, &__preview {
+            max-width: none;
+            min-width: unset;
+            max-width: unset;
+
+            width: 100%;
+        }
+    }
+}
+
+.import-preset {
+
+    &__checker {
+        width: 6%;
+    }
+    &__preset {
+        width: 20%;
+        word-break: break-all;
+        word-break: break-word;
+    }
+    &__run {
+        width: 10%;
+    }
+    &__last-launch {
+        width: 10%;
+    }
+    &__last-status {
+        width: 10%;
+    }
+    &__has-modifiers {
+        width: 10%;
+    }
+    &__tools {
+        width: 6%;
+    }
+    &__file {
+        width: 25%;
+        word-break: break-all;
+        word-break: break-word;
+    }
+
+    .ui-dialog {
+        max-width: 1200px;
+    }
+}
+
+.advanced-import__modifier-description {
+    padding-bottom: 20px;
+}
+
+.import-preset__fileuploader-form {
+    min-width: 500px;
+
+    @media (max-width: 499px) {
+        min-width: auto;
+        min-width: unset;
+    }
+}
+
+.preview-fields-mapping {
+    &__wrapper {
+        @media (max-width: @TabletBreakpoint) {
+            overflow: hidden;
+        }
+
+        > .span16.table-responsive-wrapper {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+.import-preset-edit .input-prepend {
+    display: table;
+
+    .add-on {
+        display: table-cell;
+        width: 1%;
+        vertical-align: middle;
+        line-height: initial;
+    }
+}
+
+.form-edit .control-group.import-field__modifier-input-group {
+    margin-bottom: 0;
+}

@@ -1,0 +1,108 @@
+/*
+    templates/addons/product_reviews/views/product_reviews/components/reviews_stars.tpl
+*/
+
+.ty-product-review-reviews-stars {
+    display: flex;
+    font-family: glyphs;
+    color: var(--ty-product-reviews-accent-color);
+    font-size: 1.2em;
+    letter-spacing: 0.3em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ty-product-review-reviews-stars--large {
+    font-size: 1.5em;
+}
+
+.ty-product-review-reviews-stars--xlarge {
+    font-size: 1.8em;
+}
+
+.ty-product-review-reviews-stars__link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.ty-product-review-reviews-stars__button {
+    display: inline-flex;
+    align-items: center;
+}
+
+// Full stars of rating
+
+// Full stars
+.ty-product-review-reviews-stars[data-ca-product-review-reviews-stars-full="5"]:before {
+    content: var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full);
+}
+
+.ty-product-review-reviews-stars[data-ca-product-review-reviews-stars-full="4"]:before {
+    content: var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-empty);
+}
+
+.ty-product-review-reviews-stars[data-ca-product-review-reviews-stars-full="3"]:before {
+    content: var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-empty)
+        var(--ty-product-reviews-stars-empty);
+}
+
+.ty-product-review-reviews-stars[data-ca-product-review-reviews-stars-full="2"]:before {
+    content: var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-empty)
+        var(--ty-product-reviews-stars-empty)
+        var(--ty-product-reviews-stars-empty);
+}
+
+.ty-product-review-reviews-stars[data-ca-product-review-reviews-stars-full="1"]:before {
+    content: var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-empty)
+        var(--ty-product-reviews-stars-empty)
+        var(--ty-product-reviews-stars-empty)
+        var(--ty-product-reviews-stars-empty);
+}
+// /Full stars
+
+// Half stars
+.ty-product-review-reviews-stars[data-ca-product-review-reviews-stars-full="4"][data-ca-product-review-reviews-stars-is-half="1"]:before {
+    content: var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-half);
+}
+
+.ty-product-review-reviews-stars[data-ca-product-review-reviews-stars-full="3"][data-ca-product-review-reviews-stars-is-half="1"]:before {
+    content: var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-half)
+        var(--ty-product-reviews-stars-empty);
+}
+
+.ty-product-review-reviews-stars[data-ca-product-review-reviews-stars-full="2"][data-ca-product-review-reviews-stars-is-half="1"]:before {
+    content: var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-half)
+        var(--ty-product-reviews-stars-empty)
+        var(--ty-product-reviews-stars-empty);
+}
+
+.ty-product-review-reviews-stars[data-ca-product-review-reviews-stars-full="1"][data-ca-product-review-reviews-stars-is-half="1"]:before {
+    content: var(--ty-product-reviews-stars-full)
+        var(--ty-product-reviews-stars-half)
+        var(--ty-product-reviews-stars-empty)
+        var(--ty-product-reviews-stars-empty)
+        var(--ty-product-reviews-stars-empty);
+}
+// /Half stars

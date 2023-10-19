@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>pingpp</id>
+    <version>1.0</version>
+    <priority>4294967294</priority>
+    <position>0</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <compatibility>
+        <php_version>
+            <min>5.4.0</min>
+        </php_version>
+    </compatibility>
+    <functions>
+        <item for="install">fn_pingpp_install_payment_processors</item>
+        <item for="uninstall">fn_pingpp_remove_payment_processors</item>
+    </functions>
+</addon>

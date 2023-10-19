@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<addon scheme="4.0">
+    <id>product_variations</id>
+    <version>1.0</version>
+    <priority>1500</priority>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <compatibility>
+        <core_version>
+            <min>4.6.1</min>
+        </core_version>
+    </compatibility>
+
+    <autoload>
+        <psr4 prefix="Tygh\Addons\ProductVariations\">src</psr4>
+        <psr4 prefix="Tygh\Api\Entities\">src/Api/Entities</psr4>
+        <psr4 prefix="Tygh\Addons\ProductVariations\Tests\Unit\">tests</psr4>
+    </autoload>
+    <bootstrap>\Tygh\Addons\ProductVariations\Bootstrap</bootstrap>
+    <installer>\Tygh\Addons\ProductVariations\Installer</installer>
+
+    <settings edition_type="ROOT,STOREFRONT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="variations_allow_own_images" edition_type="ROOT">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="variations_allow_own_features" edition_type="ROOT">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                    <item id="variations_allow_auto_change_default_variation" edition_type="ROOT">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="variations_show_all_possible_feature_variants" edition_type="ROOT,STOREFRONT">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="quantity_discount_on_different_variations" edition_type="ROOT">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+
+    <queries>
+        <item for="install">DROP TABLE IF EXISTS ?:product_variation_groups;</item>
+        <item for="install">DROP TABLE IF EXISTS ?:product_variation_group_products;</item>
+        <item for="install">DROP TABLE IF EXISTS ?:product_variation_group_features;</item>
+        <item for="install">DROP TABLE IF EXISTS ?:product_variation_data_identity_map;</item>
+
+        <item for="install">ALTER TABLE ?:products ADD parent_product_id int(11) unsigned NOT NULL DEFAULT '0';</item>
+        <item for="install">CREATE INDEX idx_parent_product_id ON ?:products (parent_product_id);</item>
+
+        <item for="install">
+            CREATE TABLE ?:product_variation_groups (
+                id mediumint(8) unsigned NOT NULL auto_increment,
+                code varchar(128) default NULL,
+                created_at int(11) unsigned NOT NULL default '0',
+                updated_at int(11) unsigned NOT NULL default '0',
+                PRIMARY KEY (id),
+                UNIQUE INDEX idx_group_code (code)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="install">
+            CREATE TABLE ?:product_variation_group_products (
+                product_id mediumint(8) unsigned NOT NULL,
+                parent_product_id mediumint(8) unsigned NOT NULL,
+                group_id mediumint(8) unsigned NOT NULL,
+                PRIMARY KEY (product_id, group_id),
+                KEY idx_group_id (group_id),
+                KEY idx_parent_product_id (parent_product_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="install">
+            CREATE TABLE ?:product_variation_group_features (
+                feature_id mediumint(8) unsigned NOT NULL,
+                purpose varchar(32) NOT NULL,
+                group_id mediumint(8) unsigned NOT NULL,
+                PRIMARY KEY (feature_id, group_id),
+                KEY idx_group_id (group_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="install">
+            CREATE TABLE ?:product_variation_data_identity_map (
+                table_id varchar(32) NOT NULL DEFAULT '',
+                id varchar(64) NOT NULL DEFAULT '',
+                parent_id varchar(64) NOT NULL DEFAULT '',
+                product_id mediumint(8) unsigned NOT NULL,
+                PRIMARY KEY (table_id, id, parent_id),
+                KEY idx_product_id (product_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">UPDATE ?:products SET product_type = 'P' WHERE product_type = 'V' AND parent_product_id != 0;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:product_variation_groups;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:product_variation_group_products;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:product_variation_group_features;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:product_variation_data_identity_map;</item>
+        <item for="uninstall">DROP INDEX idx_parent_product_id ON ?:products;</item>
+        <item for="uninstall">ALTER TABLE ?:products DROP parent_product_id;</item>
+
+        <item for="demo" type="file">database/demo.sql</item>
+        <item for="demo" type="file" editions="ULTIMATE">database/demo_ult.sql</item>
+        <item for="demo" type="file" editions="MULTIVENDOR">database/demo_mve.sql</item>
+        <item for="demo" type="file" table="product_descriptions" lang="en">database/demo_products_en.sql</item>
+        <item for="demo" type="file" table="product_descriptions" lang="ru">database/demo_products_ru.sql</item>
+        <item for="demo" type="file" table="product_features_descriptions" lang="en">database/demo_features_descriptions_en.sql</item>
+        <item for="demo" type="file" table="product_features_descriptions" lang="ru">database/demo_features_descriptions_ru.sql</item>
+        <item for="demo" type="file" table="product_feature_variant_descriptions" lang="en">database/demo_variants_en.sql</item>
+        <item for="demo" type="file" table="product_feature_variant_descriptions" lang="ru">database/demo_variants_ru.sql</item>
+        <item for="demo" type="file" table="product_filter_descriptions" lang="en">database/demo_filter_descriptions_en.sql</item>
+        <item for="demo" type="file" table="product_filter_descriptions" lang="ru">database/demo_filter_descriptions_ru.sql</item>
+        <item for="demo" type="file" table="product_features_values" lang="en">database/demo_features_values.sql</item>
+    </queries>
+</addon>

@@ -1,0 +1,92 @@
+@import "lib/twitterbootstrap/variables.less";
+
+:root {
+    --content-width: ~"100vw - 20px * 2";
+    --content-offset: 0px;
+    
+    @media (min-width: @wide-width + 1px) {
+        --content-width: @wide-width - 20px * 2;
+    }
+}
+
+// TYPOGRAPHY
+@sansFontFamily: -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Ubuntu, Helvetica Neue, sans-serif;
+
+// SIZES
+@wide-width: 1240px;
+@mainSidebarWidth: 250px;
+@mainSidebarThinWidth: 50px;
+@inputHeight: @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+@headerOffset: 89px;
+@baseLineHeight: 22px;
+@dropdownItemPadding: 2px;
+
+// COLORS
+@mainColor: #0388cc;
+@linkColor: @mainColor;
+@textMutedColor: #6c757d;
+@inputBorder: #d3dbe2;
+
+//@bodyBackgroundImage: url(../media/images/main_bg.png) #ccc;
+@mainSidebarBackgroundColor: #333940;
+
+@topPanelBackground: #f9f9f9;
+@topPanelTextColorLight: #daedf7;
+@topPanelDropdownBackgroundColor: #4c6b8a;
+@topPanelDropdownTextColor: #272b31;
+
+@brandFontColor: #fff;
+@brandFontWeight: 500;
+
+@topPanelMenuBackgroundStart: @mainColor;
+@topPanelMenuBackgroundEnd: @mainColor;
+@topPanelMenuBackgroundHoverStart: @mainColor;
+@topPanelMenuBackgroundHoverEnd: @topPanelMenuBackgroundHoverStart;
+@topPanelMenuBackgroundActiveStart: @mainColor;
+@topPanelMenuBackgroundActiveEnd: @topPanelMenuBackgroundStart;
+@topPanelMenuBackgroundDisabled: @gray;
+@topPanelMenuCaret: white;
+@topPanelMenuDividerLeft: transparent;
+@topPanelMenuDividerRight: transparent;
+
+@topPanelBoxShadow: 0 1px 4px rgba(0,0,0,0.1);
+
+@successColor: #28bd95;
+
+@mutedBackground: #f7f7f9;
+@mutedBorder: #e1e1e8;
+
+// BUTTONS COLORS
+@btnPrimaryText: #daedf7;
+@btnPrimaryBackground: @mainColor;
+@btnPrimaryBackgroundBorder: @btnPrimaryBackground;
+@btnPrimaryBackgroundHighlight: spin(@btnPrimaryBackground, 20%);
+@successButton: @successColor;
+@textButtonColor: @btnPrimaryBackground;
+@textButtonCaretColor: #1010107b;
+@btnBorder: @inputBorder;
+
+@tabsBackgroundColor: #f4f3f3;
+@tabsActiveBackgroundColor: @mainColor;
+
+@extraIconsSprite: url(../media/images/exicons.png);
+@extraIconsSpriteWhite: url(../media/images/exicons_white.png);
+
+@BlockManagerGrid:  url(../media/images/block_manager/grid_bg.png);
+@BlockManagerGrid12Col:  url(../media/images/block_manager/12_col.gif);
+@BlockManagerGrid16Col:  url(../media/images/block_manager/16_col.gif);
+@BlockManagerIconsSprite: url(../media/images/block_manager/block_icons_spr.png);
+@BlockManagerOpenHand: url(../media/images/block_manager/openhand.cur);
+@BlockManagerClosedHand: url(../media/images/block_manager/closedhand.cur);
+
+// Z-INDEX
+@zIndexPopup: 1500;
+
+// MEDIA QUERIES BREAKPOINTS
+@LargeDesktopBreakpoint: 1339px;
+@DesktopBreakpoint: 1023px;
+@TabletBreakpoint: 767px;
+@PhoneBreakpoint: 479px;
+
+// HIDDEN CONTROL GROUP BORDERS
+@isControlGroupHidden: true;

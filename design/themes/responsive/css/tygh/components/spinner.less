@@ -1,0 +1,65 @@
+@spinnerSize: 24px;
+@spinnerBorderWidth: 3px;
+@spinnerBlockSize: 52px;
+
+.ajax-loader-container {
+  position: relative;
+}
+
+.ajax-loader {
+  &::before {
+    box-sizing: content-box;
+    position: absolute;
+    content: '';
+    opacity: 0.6;
+    border-radius: 50%;
+    width: @spinnerSize;
+    height: @spinnerSize;
+    border: @spinnerBorderWidth solid #4a4a4a;
+    border-top: @spinnerBorderWidth solid transparent;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load 1.2s infinite linear;
+    animation: load 1.2s infinite linear;
+  }
+}
+
+.ajax-loader--vertical-top {
+  &::before{
+    top: ~"calc(@{spinnerSize} / 2)";
+  }
+}
+
+.ajax-loader--vertical-center {
+  &::before{
+    top: ~"calc(50% - (@{spinnerSize} + @{spinnerBorderWidth} * 2) / 2)";
+  }
+}
+
+.ajax-loader--horizontal-center {
+  &::before{
+    left: ~"calc(50% - (@{spinnerSize} + @{spinnerBorderWidth} * 2) / 2)";
+  }
+}
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

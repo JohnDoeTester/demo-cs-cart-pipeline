@@ -1,0 +1,77 @@
+// design/backend/css/tygh/pages/orders.less
+
+@media (min-width: @TabletBreakpoint + 2px) and (max-width: 1280px - 1px) {
+    .order-info-form .row-fluid [class*="span"] {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.orders-right-pane {
+    background: lighten(@grayLighter, 3%);
+    border: 0;
+}
+
+@media (min-width: 1340px + 1px) {
+    .sidebar--order-details .sidebar-row.sidebar-row {
+        padding-left: 0;
+        padding-right: 5px;
+    }
+}
+
+// Small screen width optimization
+@media (min-width: 1340px + 1px) and (max-width: 1600px - 1px) {
+    // Sidebar width optimization
+    .sidebar--order-details {
+        font-size: @baseFontSize - 1px;
+    }
+
+    // Order details width optimization
+    .order-info-form {
+        font-size: @baseFontSize - 1px;
+    }
+
+    // Products list width optimization
+    .table--order-details-products th,
+    .table--order-details-products td {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .table--order-details-products tr th:first-child,
+    .table--order-details-products tr td:first-child {
+        padding-left: 0;
+    }
+
+    .table--order-details-products tr th:last-child,
+    .table--order-details-products tr td:last-child {
+        padding-right: 0;
+    }
+
+    .order-product-info {
+        width: 80%;
+        font-size: @baseFontSize - 2px;
+    }
+
+    // Right pane width optimization
+    .orders-right-pane {
+        padding-left: 12px;
+        padding-right: 8px;
+    }
+
+    .order-manager:only-child .object-picker--profiles {
+        width: 80%;
+    }
+
+    .orders-right-pane .control-label {
+        width: 90px;
+        font-size: @baseFontSize - 3px;
+        line-height: 1.4;
+    }
+
+    .orders-right-pane .controls {
+        margin-left: 95px;
+        line-height: 1.4;
+    }
+
+}

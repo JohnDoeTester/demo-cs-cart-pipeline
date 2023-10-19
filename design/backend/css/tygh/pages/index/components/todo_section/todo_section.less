@@ -1,0 +1,44 @@
+// design/backend/templates/views/index/components/todo_section/todo_section.tpl
+
+.todo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: var(--dashboard-full-column-width);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.todo-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.todo-section__column {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    word-break: break-word;
+    border: 1px solid @dashboardBorderColor;
+    border-radius: @baseBorderRadius;
+    background: #ccc;
+    overflow: hidden;
+}
+
+.todo-section__column--e {
+    border-color: @errorBorder;
+}
+
+.todo-section__column--w {
+    border-color: @warningBorder;
+}
+
+.todo-section__column--s {
+    border-color: @successBorder;
+}
+
+.todo-section__column--i {
+    border-color: @infoBorder;
+}

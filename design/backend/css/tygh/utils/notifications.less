@@ -1,0 +1,116 @@
+// Notifications
+.notification-content-extended {
+    .modal;
+    top: 140px;
+    width: 700px;
+    z-index: 1021;
+    h1 {
+        .modal-header;
+        padding-top: 0px;
+        padding-right: 40px;
+        margin-top: 3px;
+        font-size: 24.5px;
+        span {
+            position: absolute;
+            top: 9px;
+            right: 9px;
+            width: 19px;
+            height: 19px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        span:after {
+            content: '\00d7';
+        }
+    }
+}
+
+.notification-body-extended {
+    .modal-body;
+    max-height: 450px !important;
+}
+.notification-footer-extended {
+    .modal-footer;
+}
+.alert-wrap {
+    position: fixed;
+    z-index: 950;
+    max-width: @wide-width / 2;
+    transition: top linear 0.1s;
+    top: 97px;
+    right: 6px;
+    left: 50%;
+    
+    @media (min-width: @TabletBreakpoint + 1px) {
+        top: 139px;
+    }
+}
+.alert {
+    opacity: 0.95;
+
+    * {
+        text-shadow: none;
+    }
+    strong {
+        padding-right: 5px;
+    }
+}
+
+// Alternate styles
+// -------------------------
+.alert-muted {
+  background-color: @mutedBackground;
+  border-color: @mutedBorder;
+  color: @textColor;
+}
+.alert-muted h4 {
+  color: @textColor
+}
+.close {
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.ajax-loading-box {
+    display: none;
+    position: fixed;
+    background: black;
+    top: 50%;
+    right: 50%;
+    left: 50%;
+    z-index: 100001;
+    overflow: visible;
+    opacity: 0.8;
+    border-radius: 5px;
+    width: 52px;
+    min-height: 52px;
+    margin: -26px 0 0 -26px;
+  
+    strong {
+      display: none;
+    }
+
+    .ajax-loader;
+    .ajax-loader--vertical-top;
+    .ajax-loader--horizontal-center;
+}
+.ajax-loading-box-with-text {
+    min-width: 120px;
+    min-height: 76px;
+    background-position: 44px 10px;
+}
+.ajax-loading-box-with-text span {
+    color: #FFF;
+    margin-top: 50px;
+    display: block;
+    margin-left: 0px;
+    text-align: center;
+}
+
+.cm-notification-container {
+    pointer-events: none;
+
+    .cm-notification-content {
+        pointer-events: auto;
+    }
+}

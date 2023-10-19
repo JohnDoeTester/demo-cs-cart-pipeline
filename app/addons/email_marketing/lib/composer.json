@@ -1,0 +1,19 @@
+{
+    "version": "0.0.1",
+    "require": {
+        "jhut89/mailchimp3php": "^3.2"
+    },
+    "replace": {
+        "psr/log": "*"
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "echo [WARNING] Delete all .git dirs",
+            "rm -rf vendor/jhut89/mailchimp3php/tests"
+        ],
+        "post-install-cmd": [
+            "echo [WARNING] Delete all .git dirs",
+            "rm -rf vendor/jhut89/mailchimp3php/tests"
+        ]
+    }
+}

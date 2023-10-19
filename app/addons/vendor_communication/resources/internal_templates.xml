@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<internal_templates scheme="1.0">
+    <templates>
+        <item>
+            <code><![CDATA[vendor_communication_message_received]]></code>
+            <area><![CDATA[A]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{% if is_vendor_to_admin %}{{ __("vendor_communication.subject_email", {"[message_from]": message_author}) }}{% else %}{{ __("vendor_communication.new_message.title", {"[customer]": message_author, "[company_name]": company_name}) }}{% endif %}]]></default_subject>
+            <template/>
+            <default_template><![CDATA[{{ __("vendor_communication.new_message.message") }}]]></default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_communication]]></addon>
+        </item>
+    </templates>
+    <snippets/>
+</internal_templates>

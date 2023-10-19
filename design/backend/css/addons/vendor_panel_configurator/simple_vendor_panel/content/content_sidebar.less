@@ -1,0 +1,23 @@
+@media (min-width: @TabletBreakpoint + 1) {
+    .sidebar {
+        && {
+            padding: 0;
+            height: auto;
+        }
+    }
+
+    .sidebar.sidebar-left .sidebar-wrapper {
+        border-right: 1px solid @hrBorder;
+    }
+
+    .sidebar:not(.sidebar-left) .sidebar-wrapper {
+        border-left: 1px solid @hrBorder;
+    }
+
+    .sidebar-row {
+        &&& {
+            background: transparent;
+            box-shadow: none;
+        }
+    }
+}

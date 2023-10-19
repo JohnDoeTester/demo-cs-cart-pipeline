@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>recaptcha</id>
+    <version>1.0</version>
+    <priority>1500</priority>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings edition_type="ROOT,STOREFRONT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="notice" edition_type="ROOT">
+                        <type>info</type>
+                        <handler>fn_recaptcha_settings_notice_handler</handler>
+                    </item>
+                    <item id="recaptcha_v2_settings">
+                        <type>header</type>
+                    </item>
+                    <item id="recaptcha_site_key" edition_type="ROOT">
+                        <type>input</type>
+                    </item>
+                    <item id="recaptcha_secret" edition_type="ROOT">
+                        <type>input</type>
+                    </item>
+                    <item id="recaptcha_theme">
+                        <type>selectbox</type>
+                        <default_value>light</default_value>
+                        <variants>
+                            <item id="light">
+                            </item>
+                            <item id="dark">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="recaptcha_size">
+                        <type>selectbox</type>
+                        <default_value>normal</default_value>
+                        <variants>
+                            <item id="normal">
+                            </item>
+                            <item id="compact">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="recaptcha_type">
+                        <type>selectbox</type>
+                        <default_value>image</default_value>
+                        <variants>
+                            <item id="image">
+                            </item>
+                            <item id="audio">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="recaptcha_v3_settings" edition_type="ROOT">
+                        <type>header</type>
+                    </item>
+                    <item id="recaptcha_v3_site_key" edition_type="ROOT">
+                        <type>input</type>
+                    </item>
+                    <item id="recaptcha_v3_secret" edition_type="ROOT">
+                        <type>input</type>
+                    </item>
+                    <item id="recaptcha_v3_success_score" edition_type="ROOT">
+                        <type>selectbox</type>
+                        <default_value>0.5</default_value>
+                        <variants>
+                            <item id="0.9">
+                            </item>
+                            <item id="0.8">
+                            </item>
+                            <item id="0.7">
+                            </item>
+                            <item id="0.6">
+                            </item>
+                            <item id="0.5">
+                            </item>
+                            <item id="0.4">
+                            </item>
+                            <item id="0.3">
+                            </item>
+                            <item id="0.2">
+                            </item>
+                            <item id="0.1">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="use_for_settings">
+                        <type>header</type>
+                    </item>
+                    <item id="recaptcha_use_for_value">
+                        <type>hidden</type>
+                    </item>
+                    <item id="recaptcha_use_for">
+                        <type>template</type>
+                        <default_value>use_for_settings.tpl</default_value>
+                    </item>
+                    <item id="settings_proxy">
+                        <type>info</type>
+                        <handler>fn_recaptcha_image_verification_settings_proxy</handler>
+                    </item>
+                </items>
+            </section>
+            <section id="forbidden_countries" edition_type="ROOT">
+                <items>
+                    <item id="forbidden_countries_notice" edition_type="ROOT">
+                        <type>info</type>
+                        <handler>fn_recaptcha_forbidden_countries_notice_handler</handler>
+                    </item>
+                    <item id="forbidden_countries" edition_type="ROOT">
+                        <type>selectable_box</type>
+                        <default_value><![CDATA[#M#CN=Y&CG=Y&IR=Y]]></default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+</addon>

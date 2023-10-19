@@ -1,0 +1,61 @@
+/*
+    templates/common/more.tpl
+*/
+
+:root {
+    --cs-content-more-visible-comment-lines: 2;
+}
+
+.cs-content-more {
+    position: relative;
+}
+
+.cs-content-more__text:not(.cs-content-more__text--full) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--cs-content-more-visible-comment-lines);
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+}
+
+.cs-content-more__btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @mainColor;
+    background: #fff;
+    border: 0;
+}
+
+.cs-content-more__btn:hover {
+    color: @linkColorHover;
+    text-decoration: underline;
+}
+
+.cs-content-more__btn:before {
+    content: '';
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 20px;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff);
+}
+
+.table tbody tr:hover > td .cs-content-more__btn,
+.table tbody tr:hover > th .cs-content-more__btn {
+    background: @tableBackgroundHover;
+}
+
+.table tbody tr:hover > td .cs-content-more__btn:before,
+.table tbody tr:hover > th .cs-content-more__btn:before {
+    background-image: linear-gradient(90deg, rgb(244, 251, 255, 0), @tableBackgroundHover);
+}
+

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<addon scheme="4.0">
+    <id>order_fulfillment</id>
+    <version>1.0</version>
+    <priority>1500</priority>
+    <status>active</status>
+    <default_language>en</default_language>
+    <compatibility>
+        <dependencies>vendor_plans</dependencies>
+        <core_edition>MULTIVENDOR</core_edition>
+        <conflicts>direct_payments,suppliers</conflicts>
+    </compatibility>
+
+    <autoload>
+        <psr4 prefix="Tygh\Addons\OrderFulfillment\">src</psr4>
+    </autoload>
+    <bootstrap>\Tygh\Addons\OrderFulfillment\Bootstrap</bootstrap>
+    <installer>\Tygh\Addons\OrderFulfillment\Installer</installer>
+
+    <queries>
+        <item for="install">ALTER TABLE ?:vendor_plans ADD is_fulfillment_by_marketplace char(1) NOT NULL DEFAULT 'N'</item>
+        <item for="install">ALTER TABLE ?:companies ADD saved_shippings_state text</item>
+        <item for="uninstall">ALTER TABLE ?:vendor_plans DROP COLUMN is_fulfillment_by_marketplace</item>
+        <item for="uninstall">ALTER TABLE ?:companies DROP COLUMN saved_shippings_state</item>
+    </queries>
+</addon>

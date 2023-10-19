@@ -1,0 +1,84 @@
+.login-btn {
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    -webkit-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, .25);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+    transition: background-color .218s, border-color .218s, box-shadow .218s;
+    -webkit-user-select: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    color: #262626;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding: 0;
+    width: 240px;
+}
+
+.login-btn:hover {
+    -webkit-box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3);
+    box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3)
+}
+
+.login-btn-blue {
+    background-color: #4285f4;
+    border: none;
+    color: #fff;
+}
+
+.login-btn-blue:hover {
+    background-color: #4285f4
+}
+
+.login-btn-blue:active {
+    background-color: #3367d6
+}
+
+.login-btn--icon {
+    float: left;
+    padding: 15px;
+    line-height: 10px;
+}
+
+.login-btn-blue .login-btn--icon {
+    background-color: #fff;
+    -webkit-border-radius: 1px;
+    border-radius: 1px
+}
+
+.login-btn--svg {
+    display: block
+}
+
+.login-btn--contents {
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: .21px;
+    margin-left: 6px;
+    margin-right: 6px;
+    vertical-align: top;
+    line-height: 48px;
+    color: #fff;
+}
+
+.login-btn--content-wrapper {
+    height: 100%;
+    width: 100%
+}
+
+.login-btn-blue .login-btn--content-wrapper {
+    border: 1px solid transparent
+}
+
+.login-notice {
+    text-align: center;
+    margin-bottom: 20px;
+}

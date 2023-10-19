@@ -1,0 +1,75 @@
+// Conditions tree
+.conditions-tree {
+    .conditions-tree-group > li {
+        margin-left: 17px;
+        padding: 0px 0px 5px 15px;
+        background: url('../media/images/tree_node.png') no-repeat;
+        .conditions-tree-group {
+            padding: 10px;
+            border: 4px solid #f4f4f4;
+        }
+        ul li {
+            margin-left: 0px;
+            background: none;
+            list-style-type: none;
+        }
+    }
+    .conditions-tree-group {
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+        .conditions-tree-node {
+            .border-radius(@baseBorderRadius);
+            padding: 5px 10px;
+            background-color: #f4f4f4;
+            label {
+                float: left;
+                padding-top: 4px;
+                width: 200px;
+                text-align: left;
+            }
+            p {
+                margin: 4px 0px 0px 0px;
+            }
+            .cm-delete-row {
+                visibility: hidden;
+                margin-left: 8px;
+            }
+            &:hover .cm-delete-row {
+                visibility: visible;
+                margin-top: 8px;
+            }
+        }
+        .no-items {
+            padding: 15px;
+            background: transparent;
+            text-align: center;
+        }
+        .conditions-tree-remove {
+            .hand();
+            margin: 7px 0px 7px 10px;
+        }
+        .no-node-root, .no-node {
+            margin-bottom: 15px;
+            margin-left: 0px !important;
+            padding-left: 0px !important;
+            background: white !important;
+            .btn-toolbar {margin-top: 0px;}
+            .btn-group {
+                display: inline-block;
+            }
+            .dropdown-menu li {
+                margin-top: 0px;
+                margin-left: 0px;
+                padding: 0px 0px 5px 0px;
+                background: transparent !important;
+            }
+        }
+    }
+    .buttons-container {
+        margin-bottom: 15px;
+    }
+    .cm-last-item {
+        background: url('../media/images/tree_node_last.png') no-repeat !important;
+    }
+}

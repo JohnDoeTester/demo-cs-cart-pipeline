@@ -1,0 +1,78 @@
+// Invoice Editor
+
+#sidebar_variables {
+    .nav-opener {
+        font-size: 10px;
+        color: #ababab;
+    }
+    .nav {
+        padding: 5px 0px 10px 10px;
+    }
+}
+.ie-redactor {
+    .redactor-box {
+        max-width: 900px;
+    }
+}
+
+// Unable to fit email preview by email-size (on PC and big tablets)
+@media (min-width: @TabletBreakpoint + 1px) {
+    div[aria-describedby="preview_dialog"] {
+        height: auto !important;
+        width: auto !important;
+        #preview_dialog {
+            height: auto !important;
+            .object-container {
+                height: auto !important;
+            }
+            table {
+                border-collapse: separate;
+            }
+        }
+    }
+}
+
+.document-editor {
+
+    &__email-templates {
+        &__header {
+            margin-bottom: 5px;
+        }
+
+        &__list {
+            margin-bottom: 10px;
+            overflow-x: hidden;
+        }
+    }
+
+    &__list {
+        top: 110px;
+        position: -webkit-sticky;
+        position: sticky;
+        height: ~"calc(100vh - 165px)";
+        overflow-y: auto;
+        margin-top: 20px;
+
+        .sidebar-row:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+.variables-list {
+    &__item {
+        &__edit {
+            padding: 0 !important;
+            margin: 0 0 0 4px !important;
+            display: inline-block !important;
+
+            &&:hover {
+                background: none;
+            }
+        }
+    }
+}
+
+.admin-content-wrap .sidebar .sidebar-row .nav-list.variables-list .variables-list__item__edit [class*=" icon-"] {
+    margin-right: 0 !important;
+}

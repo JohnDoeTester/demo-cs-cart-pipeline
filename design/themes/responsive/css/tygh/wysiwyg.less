@@ -1,0 +1,31 @@
+// [data-ca-live-editor-obj]    - before loading blocks
+// .cm-live-edit                - after loading blocks
+// .ty-live-editor-dialog       - blocks in text editing popups
+
+[data-ca-live-editor-obj] .wysiwyg-block-loader,
+.cm-live-edit .wysiwyg-block-loader,
+.ty-live-editor-dialog .wysiwyg-block-loader {
+    display: block;
+    width: 100%;
+    border: 0;
+    font-size: 0;
+}
+
+[data-ca-live-editor-obj] .wysiwyg-block-loader:after,
+.cm-live-edit .wysiwyg-block-loader:after,
+.ty-live-editor-dialog .wysiwyg-block-loader:after {
+    content: attr(title);
+    display: block;
+    padding: 10px 10px 10px 40px;
+    width: auto;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: #000;
+    border-radius: 2px;
+    background-color: #eee;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaAQMAAACThN6NAAAABlBMVEUAAAAzMzPI8eYgAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfjBwoMOCHTdao5AAAAGklEQVQI12M4c+bMAQYwgQAHQAhM0E4Mbi8AAMMbkfxoVA0AAAAASUVORK5CYII=');
+    background-repeat: no-repeat;
+    background-position: 7px 7px;
+    font-size: @body_font_size;
+    font-style: normal;
+    font-weight: normal;
+}

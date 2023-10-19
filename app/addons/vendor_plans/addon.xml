@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>vendor_plans</id>
+    <version>1.1</version>
+    <priority>1000</priority>
+    <position>45</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <compatibility>
+        <core_edition>MULTIVENDOR</core_edition>
+        <core_version>
+            <min>4.3.6</min>
+        </core_version>
+        <conflicts>vendor_commission</conflicts>
+    </compatibility>
+    <auto_install>MULTIVENDOR</auto_install>
+    <settings edition_type="ROOT,STOREFRONT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="commissions_header">
+                        <type>header</type>
+                    </item>
+                    <item id="include_shipping" edition_type="ROOT">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="include_taxes_in_commission" edition_type="ROOT">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="collect_taxes_from_vendors">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                    <item id="allow_vendors_to_change_plan" edition_type="ROOT">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item>
+            DROP TABLE IF EXISTS ?:vendor_plans;
+        </item>
+        <item>
+            CREATE TABLE ?:vendor_plans (
+                plan_id int(11) unsigned NOT NULL auto_increment,
+                status char(1) NOT NULL default 'A',
+                position smallint(5) NOT NULL default '0',
+                is_default tinyint(1) NOT NULL default '0',
+                price decimal(12,2) NOT NULL default '0.00',
+                periodicity enum('month','year','onetime') NOT NULL default 'month',
+                commission decimal(12,2) NOT NULL default '0.00',
+                fixed_commission decimal(12,2) NOT NULL default '0.00',
+                products_limit int(11) NOT NULL default '0',
+                revenue_limit decimal(12,2) NOT NULL default '0.00',
+                vendor_store tinyint(1) NOT NULL default '0',
+                categories text,
+                storefronts text,
+                usergroups text,
+                PRIMARY KEY  (plan_id),
+                KEY position (position, status)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:vendor_plans;
+        </item>
+        
+        <item>
+            DROP TABLE IF EXISTS ?:vendor_plan_descriptions;
+        </item>
+        <item>
+            CREATE TABLE ?:vendor_plan_descriptions (
+                plan_id int(11) unsigned NOT NULL default '0',
+                lang_code char(2) NOT NULL default '',
+                plan varchar(255) NOT NULL default '',
+                description text,
+                PRIMARY KEY  (plan_id,lang_code)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:vendor_plan_descriptions;
+        </item>
+        
+        <item>
+            ALTER TABLE ?:companies ADD plan_id int(11) unsigned NOT NULL default 0;
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:companies DROP plan_id
+        </item>
+        
+        <item>
+            ALTER TABLE ?:vendor_payouts ADD plan_id int(11) unsigned;
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:vendor_payouts DROP plan_id
+        </item>
+
+        <item>
+            ALTER TABLE ?:vendor_payouts ADD extra MEDIUMBLOB;
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:vendor_payouts DROP extra;
+        </item>
+        <!-- ?:vendor payouts: extra fields add during fn_vendor_plans_install() function -->
+        
+        <item for="demo" type="file">database/demo.sql</item>
+        <item for="demo" type="file" table="vendor_plan_descriptions" lang="en">database/demo_en.sql</item>
+        <item for="demo" type="file" table="vendor_plan_descriptions" lang="ru">database/demo_ru.sql</item>
+    </queries>
+    <functions>
+        <item for="install">fn_vendor_plans_install</item>
+        <item for="uninstall">fn_vendor_plans_uninstall</item>
+    </functions>
+    <email_templates>
+        <templates>
+            <item>
+                <code><![CDATA[vendor_plans_payment]]></code>
+                <area><![CDATA[A]]></area>
+                <status><![CDATA[A]]></status>
+                <default_subject><![CDATA[{{ __("vendor_plans.plan_payment") }}]]></default_subject>
+                <default_template><![CDATA[{{ snippet("header") }}
+{{ __("vendor_plans.plan_payment_text", {"[plan]": plan.plan, "[price]": plan.price, "[href]": url}) }}
+<br /><br />
+{{ snippet("vendorplans.plandetails") }}
+{{ snippet("footer") }}]]></default_template>
+                <addon><![CDATA[vendor_plans]]></addon>
+            </item>
+            <item>
+                <code><![CDATA[vendor_plans_plan_changed]]></code>
+                <area><![CDATA[A]]></area>
+                <status><![CDATA[A]]></status>
+                <default_subject>{% if new_account %}<![CDATA[{{ __("vendor_plans.plan_has_been_set") }}]]>{% else %}<![CDATA[{{ __("vendor_plans.plan_has_been_changed") }}]]>{% endif %}</default_subject>
+                <default_template><![CDATA[{{ snippet("header") }}
+
+{% if new_account %}{{ __("vendor_plans.plan_has_been_set_text", {"[plan]": plan.plan}) }}{% else %}{{ __("vendor_plans.plan_has_been_changed_text", {"[plan]": plan.plan}) }}{% endif %}
+<br /><br />
+{{ snippet("vendorplans.plandetails") }}
+{{ snippet("footer") }}]]></default_template>
+                <addon><![CDATA[vendor_plans]]></addon>
+            </item>
+            <item>
+                <code><![CDATA[vendor_plans_vendor_plan_changed_info_for_admin]]></code>
+                <area><![CDATA[A]]></area>
+                <status><![CDATA[A]]></status>
+                <default_subject>{% if new_account %}<![CDATA[{{ __("vendor_plans.vendor_plan_has_been_set", {"[vendor]": vendor_name, "[plan]": plan.plan}) }}]]>{% else %}<![CDATA[{{ __("vendor_plans.vendor_plan_has_been_changed", {"[vendor]": vendor_name, "[plan]": plan.plan}) }}]]>{% endif %}</default_subject>
+                <default_template><![CDATA[{{ snippet("header") }}
+{% if new_account %}
+{{ __("vendor_plans.vendor_plan_has_been_set_text", {"[vendor]": vendor_name, "[old_plan]":old_plan.plan, "[new_plan]": plan.plan}) }}
+{% else %}
+{{ __("vendor_plans.vendor_plan_has_been_changed_text", {"[vendor]": vendor_name, "[old_plan]":old_plan.plan, "[new_plan]": plan.plan}) }}
+<br /><br />
+{{ __("vendor_plans.old_plan") }}:
+<br /><br />
+{{ snippet("vendorplans.plandetails", {"plan": old_plan}) }}
+{% endif %}
+<br /><br />
+{{ __("vendor_plans.new_plan") }}:
+<br /><br />
+{{ snippet("vendorplans.plandetails") }}
+{{ snippet("footer") }}]]></default_template>
+                <addon><![CDATA[vendor_plans]]></addon>
+            </item>
+            <item>
+                <code><![CDATA[vendor_plans_revenue]]></code>
+                <area><![CDATA[A]]></area>
+                <status><![CDATA[A]]></status>
+                <default_subject><![CDATA[{{ __("vendor_plans.revenue_exceeded_subj") }}]]></default_subject>
+                <default_template><![CDATA[{{ snippet("header") }}
+{{ __("vendor_plans.revenue_exceeded_text", {"[vendor]": company.company, "[href]": company_url, "[plan]": plan.plan}) }}
+{{ snippet("footer") }}]]></default_template>
+                <addon><![CDATA[vendor_plans]]></addon>
+            </item>
+        </templates>
+        <snippets>
+            <item>
+                <code><![CDATA[vendorplans.plandetails]]></code>
+                <default_template><![CDATA[<table>
+    <tr>
+        <td>{{ __("vendor_plans.plan") }}:</td>
+        <td>{{ plan.plan }}</td>
+    </tr>
+    <tr>
+        <td>{{ __("price") }}:</td>
+        <td>{{ plan.price|price }}&nbsp;({{ __("vendor_plans.periodicity_" ~ plan.periodicity)|lower }})</td>
+    </tr>
+    <tr>
+        <td>{{ __("vendor_plans.products_limit") }}:</td>
+        <td>{% if plan.products_limit %} {{ plan.products_limit }} {% else %} {{ __("vendor_plans.unlimited") }} {% endif %}</td>
+    </tr>
+    <tr>
+        <td>{{ __("vendor_plans.revenue_up_to") }}:</td>
+        <td>{% if plan.revenue_limit > 0 %} {{ plan.revenue_limit|price }} {% else %} {{ __("vendor_plans.unlimited") }} {% endif %}</td>
+    </tr>
+    <tr>
+        <td>{{ __("vendor_plans.transaction_fee") }}:</td>
+        <td>{{ plan.commission }}(%)</td>
+    </tr>
+    <tr>
+        <td>{{ __("vendor_plans.fixed_transaction_fee") }}:</td>
+        <td>{{ plan.fixed_commission|price }}</td>
+    </tr>
+    <tr>
+        <td>{{ __("vendor_plans.vendor_store") }}:</td>
+        <td>{% if plan.vendor_store %} {{ __("yes") }} {% else %} {{ __("no") }} {% endif %}</td>
+    </tr>
+    {% if plan.description %}
+    <tr>
+        <td>{{ __("description") }}:</td>
+        <td>{{ plan.description }}</td>
+    </tr>
+    {% endif %}
+</table>]]></default_template>
+                <status><![CDATA[A]]></status>
+                <name>
+                    <en><![CDATA[Vendor plans: plan details]]></en>
+                </name>
+                <addon><![CDATA[vendor_plans]]></addon>
+            </item>
+        </snippets>
+    </email_templates>
+</addon>

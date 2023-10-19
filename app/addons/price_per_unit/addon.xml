@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>price_per_unit</id>
+    <version>1.0</version>
+    <priority>4330</priority>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+
+    <queries>
+        <item for="install">
+            ALTER TABLE ?:products ADD COLUMN units_in_product decimal(12,3) unsigned not null default '0', ADD COLUMN show_price_per_x_units decimal(12,3) unsigned not null default '1';
+        </item>
+        <item for="install">
+            ALTER TABLE ?:product_descriptions ADD COLUMN unit_name varchar(255) default '';
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:products DROP COLUMN units_in_product, DROP COLUMN show_price_per_x_units;
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:product_descriptions DROP COLUMN unit_name;
+        </item>
+    </queries>
+</addon>

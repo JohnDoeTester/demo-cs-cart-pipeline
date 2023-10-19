@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>vendor_locations</id>
+    <version>1.0</version>
+    <priority>10000</priority>
+    <position>0</position>
+    <status>active</status>
+    <compatibility>
+        <core_edition>MULTIVENDOR</core_edition>
+    </compatibility>
+    <settings>
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="provider">
+                        <type>selectbox</type>
+                        <default_value>google</default_value>
+                        <variants>
+                            <item id="google">
+                            </item>
+                            <item id="yandex">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="start_search_radius">
+                        <type>input</type>
+                        <default_value>10</default_value>
+                    </item>
+                    <item id="max_search_radius">
+                        <type>input</type>
+                        <default_value>700</default_value>
+                    </item>
+                    <item id="distance_unit">
+                        <type>selectbox</type>
+                        <variants>
+                            <item id="km"></item>
+                            <item id="miles"></item>
+                        </variants>
+                        <default_value>km</default_value>
+                    </item>
+                    <item id="filter_by">
+                        <type>selectbox</type>
+                        <variants>
+                            <item id="none"></item>
+                            <item id="city"></item>
+                            <item id="country"></item>
+                        </variants>
+                        <default_value>none</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="yandex">
+                <items>
+                    <item id="yandex_api_key">
+                        <type>input</type>
+                    </item>
+                    <item id="yandex_commercial">
+                        <type>checkbox</type>
+                    </item>
+                </items>
+            </section>
+            <section id="google">
+                <items>
+                    <item id="google_api_key">
+                        <type>input</type>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+
+    <queries>
+        <item for="install">DROP TABLE IF EXISTS ?:vendor_locations;</item>
+        <item for="install">
+            CREATE TABLE `?:vendor_locations` (
+                company_id        int default '0'              not null,
+                place_id          varchar(512) default ''      not null,
+                lat               float(10, 6)                 not null,
+                lng               float(10, 6)                 not null,
+                country           varchar(32) default ''       not null,
+                state             varchar(64) default ''       not null,
+                locality          varchar(64) default ''       not null,
+                route             varchar(255) default ''      not null,
+                postal_code       varchar(16) default ''       not null,
+                street_number     varchar(16) default ''       not null,
+                formatted_address text,
+                PRIMARY KEY (company_id),
+                KEY locality_country_idx (locality, country)
+            ) CHARACTER SET utf8 COLLATE utf8_general_ci;
+        </item>
+
+        <item for="uninstall">DROP TABLE IF EXISTS ?:vendor_locations;</item>
+        <item for="demo" type="file">database/demo.sql</item>
+    </queries>
+
+</addon>

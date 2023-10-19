@@ -1,0 +1,8 @@
+The library has been modified
+---
+
+- [-] skins/lightgray/skin.min.css
+/*# sourceMappingURL=skin.min.css.map */
+
+https://github.com/tinymce/tinymce/issues/5489
+

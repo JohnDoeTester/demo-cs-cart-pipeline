@@ -1,0 +1,41 @@
+// Phone number
+
+// Phone number with country selection
+.form-horizontal .input-append.input-append--phone-mask {
+    display: flex;
+}
+
+.input-append--phone-mask {
+    display: flex;
+    width: 100%;
+}
+
+.form-edit .controls .input-append--phone-mask .btn-group,
+.form-edit.form-horizontal .controls .input-append--phone-mask .btn-group {
+    margin-top: 0;
+}
+
+.input-append--phone-mask .btn-group:last-child .btn.dropdown-toggle:first-child {
+    border-radius: 0 @inputBorderRadius @inputBorderRadius 0;
+}
+
+.btn-group--phone-mask {
+    flex-shrink: 0;
+}
+
+.btn-group--phone-mask .dropdown-menu {
+    --list-items: 7;
+    --base-line-height: @baseLineHeight;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: ~"calc((4px + var(--base-line-height)) * (var(--list-items) + 0.5) + 12px)";
+}
+
+@media (min-width: 768px) {
+    .setup-wizard-panel .sw_size_2 input.input-phone--phone-number-with-country-selection {
+        width: 100%;
+    }
+    .setup-wizard-panel .sw_size_2 .input-append--phone-mask {
+        max-width: 229px;
+    }
+}

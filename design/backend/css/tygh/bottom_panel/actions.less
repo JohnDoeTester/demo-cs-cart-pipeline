@@ -1,0 +1,40 @@
+.bp-actions {
+    display: none;
+    grid-area: actions;
+
+    &__item {
+        height: 100%;
+
+        &:hover,
+        &:focus {
+            outline: 0;
+        }
+
+        &:hover,
+        &--active {
+            opacity: 1;
+            color: #fff;
+        }
+    }
+
+    @media (min-width: 768px) {
+        display: -ms-grid;
+        display: grid;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        justify-items: center;
+        -ms-grid-columns: 40px 40px;
+        grid-template-columns: 40px 40px;
+    }
+}
+
+.bp {
+    &-panel--personal_demo&-panel--admin &-actions&-actions--one-column,
+    &-panel--personal_demo&-panel--vendor &-actions&-actions--one-column {
+        @media (min-width: 768px) {
+            -ms-grid-columns: 40px;
+            grid-template-columns: 40px;
+        }
+    }
+}

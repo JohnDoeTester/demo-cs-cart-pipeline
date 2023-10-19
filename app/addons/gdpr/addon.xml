@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>gdpr</id>
+    <version>1.0</version>
+    <priority>9999</priority>
+    <position>45</position>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings edition_type="ROOT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="gdpr_cookie_consent">
+                        <type>selectbox</type>
+                        <default_value>explicit</default_value>
+                        <variants>
+                            <item id="none">
+                            </item>
+                            <item id="implicit">
+                            </item>
+                            <item id="explicit">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="privacy_policy_page">
+                        <type>selectbox</type>
+                        <default_value>3</default_value>
+                    </item>
+                    <item id="gdpr_cookie_consent_texts">
+                        <type>template</type>
+                        <default_value>cookie_consent_texts.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="gdpr">
+                <items>
+                    <item id="gdpr_settings">
+                        <type>template</type>
+                        <default_value>settings.tpl</default_value>
+                    </item>
+                    <item id="gdpr_settings_data">
+                        <type>hidden</type>
+                        <default_value><![CDATA[{"checkout_place_order":{"enable":"Y"},"checkout_profiles_update":{"enable":"N"},"user_registration":{"enable":"Y"},"profiles_update":{"enable":"Y"},"product_subscription":{"enable":"Y"},"apply_for_vendor":{"enable":"Y"},"newsletters_subscribe":{"enable":"Y"},"call_requests":{"enable":"Y"},"discussions_add_review":{"enable":"Y"}}]]></default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:gdpr_user_agreements;</item>
+        <item>
+            CREATE TABLE `?:gdpr_user_agreements` (
+            `agreement_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `user_id` mediumint(8) unsigned DEFAULT 0,
+            `email` varchar(128) DEFAULT '',
+            `type` varchar(128) DEFAULT '',
+            `timestamp` int(11) unsigned DEFAULT 0,
+            `agreement` text,
+            PRIMARY KEY (`agreement_id`),
+            KEY `idx_user_id_email` (`user_id`,`email`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>DROP TABLE IF EXISTS ?:gdpr_user_data;</item>
+        <item>
+            CREATE TABLE `?:gdpr_user_data` (
+            `user_id` mediumint(8) unsigned DEFAULT 0,
+            `anonymized` char(1) DEFAULT 'N',
+            PRIMARY KEY (`user_id`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:gdpr_user_agreements;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:gdpr_user_data;</item>
+    </queries>
+    <functions>
+        <item for="install">fn_gdpr_install</item>
+        <item for="uninstall">fn_gdpr_uninstall</item>
+    </functions>
+</addon>

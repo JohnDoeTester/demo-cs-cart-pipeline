@@ -1,0 +1,83 @@
+ // Icons
+.btn [class^="exicon-"]:not(.cs-icon),
+.btn [class*=" exicon-"]:not(.cs-icon),
+.btn [class^="icon-"]:not(.cs-icon),
+.btn [class*=" icon-"]:not(.cs-icon) {
+    display: inline-block;
+    color: @textButtonColor;
+     opacity: 1;
+    vertical-align: initial;
+    .icon-white {
+        color: #fff;
+    }
+ }
+.btn:hover [class^="exicon-"], .btn:hover [class*=" exicon-"], .btn:hover [class^="icon-"], .btn:hover [class*=" icon-"] {
+     opacity: 1;
+ }
+.cs-icon-large,
+.cs-icon-xlarge {
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+}
+.cs-icon-large {
+    font-size: 2em;
+}
+.cs-icon-xlarge {
+    font-size: 3em;
+}
+
+ // FA icons
+.icon-caret-down {
+    opacity: 0.3;
+    cursor: pointer;
+}
+.icon-caret-right {
+    margin-top: 4px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+.subheader.collapsed span:before {
+    opacity: 1;
+    content: "\f0da";
+}
+.icon-desc {
+    opacity: 0.3;
+    margin-left: 3px;
+    text-align: left;
+}
+.icon-desc:before {
+    content: "\f0d8";
+}
+.icon-asc {
+    opacity: 0.3;
+    margin-left: 3px;
+    text-align: left;
+}
+.icon-asc:before {
+    content: "\f0d7";
+}
+.icons-bar a {
+    margin-right: 5px;
+}
+.unedited-element, .undeleted-element {
+    cursor: not-allowed;
+}
+.icon-white {
+    color: #fff;
+}
+a[class^="icon-"], a[class*=" icon-"], a[class^="exicon-"], a[class*=" exicon-"],
+a [class^="icon-"], a [class*=" icon-"], a [class^="exicon-"], a [class*=" exicon-"] {
+    display: inline-block;
+}
+[class^="icon-"].hidden, [class*=" icon-"].hidden, [class^="exicon-"].hidden, [class*=" exicon-"].hidden {
+    display: none;
+}
+[class^="icon-"].icon-white, [class*=" icon-"].icon-white, [class^="exicon-"].icon-white, [class*=" exicon-"].icon-white {
+    color: #fff;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before, [class^="exicon-"]:before, [class*=" exicon-"]:before,
+[class^="icon-"]:hover, [class*=" icon-"]:hover, [class^="exicon-"]:hover, [class*=" exicon-"]:hover,
+a:hover [class^="icon-"], a:hover [class*=" icon-"], a:hover [class^="exicon-"], a:hover [class*=" exicon-"] {
+    text-decoration: none;
+}

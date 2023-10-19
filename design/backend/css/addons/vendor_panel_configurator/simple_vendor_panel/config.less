@@ -1,0 +1,35 @@
+// design/backend/css/config.less
+
+// Overridden by user settings:
+// design/backend/templates/addons/vendor_panel_configurator/hooks/index/styles.post.tpl
+// ---
+
+:root {
+    @media (min-width: @TabletBreakpoint + 1) {
+        --content-width: ~"100vw - 20px * 2 - "@menuSidebarWidth;
+    }
+}
+
+@mainColor: #024567;   // Admin main color #0388cc + 20% darken
+@menuSidebarBg: none;
+@menuSidebarColor: #eef1f3;
+// /Overridden by user settings
+
+// Typography
+@baseFontSize:          15px;
+@baseLineHeight:        26px;
+
+@headingsFontWeight:    700;
+
+// Component sizing
+@dropdownItemPadding: 9px;
+
+@baseBorderRadius:      6px;
+@borderRadiusLarge:     10px;
+@borderRadiusSmall:     4px;
+
+// Main menu sidebar
+@menuSidebarFontSize: @baseFontSize + 2px;
+@menuSidebarWidth: 240px;
+@menuSidebarColorActive: rgba(0, 0, 0, 0.07);
+

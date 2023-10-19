@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>geo_maps</id>
+    <version>1.0</version>
+    <priority>1000</priority>
+    <position>0</position>
+    <status>active</status>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings>
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="provider">
+                        <type>selectbox</type>
+                        <default_value>google</default_value>
+                        <variants>
+                            <item id="google">
+                            </item>
+                            <item id="yandex">
+                            </item>
+                        </variants>
+                    </item>
+                    <item id="show_shippings_on_product">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="yandex">
+                <items>
+                    <item id="yandex_api_key">
+                        <type>input</type>
+                    </item>
+                    <item id="yandex_commercial">
+                        <type>checkbox</type>
+                    </item>
+                    <item id="yandex_map">
+                        <type>template</type>
+                        <default_value>map.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="google">
+                <items>
+                    <item id="google_api_notice">
+                        <type>info</type>
+                        <handler>fn_geo_maps_settings_google_api_notice_handler</handler>
+                    </item>
+                    <item id="google_api_key">
+                        <type>input</type>
+                    </item>
+                    <item id="google_map">
+                        <type>template</type>
+                        <default_value>map.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+</addon>

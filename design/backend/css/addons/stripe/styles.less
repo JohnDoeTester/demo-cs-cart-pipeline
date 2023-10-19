@@ -1,0 +1,30 @@
+.stripe-payment-form {
+    &__card,
+    &__expiry,
+    &__cvc,
+    &__postal_code {
+        padding: 4px 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: white;
+        min-height: 21px;
+    }
+
+    &__card {
+        width: 256px;
+    }
+
+    &__expiry {
+        max-width: 75px;
+    }
+
+    &__cvc {
+        width: 45px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.ty-control-group.error .sc-field {
+    border-color: #bf4d4d;
+}

@@ -1,0 +1,304 @@
+.store-locator {
+
+    .pickup {
+
+        &__offices {
+            align-items: flex-start;
+            align-content: flex-start;
+
+            &-wrapper {
+                display: flex;
+                flex-direction: column;
+                box-sizing: border-box;
+                
+                flex-basis: 30%;
+
+                overflow-y: hidden;
+
+                height: 500px;
+                max-height: 500px;
+
+                border: 1px solid @base;
+                border-right: 0;
+
+                border-radius: 6px 0 0 6px;
+            }
+
+            &--list {
+
+                .ty-one-store {
+                    padding: 0 !important;
+                    min-height: auto;
+
+                    .ty-sdek-store__label.ty-one-store__label {
+                        border: 0 !important;
+                        border-radius: 0 !important;
+                    }
+
+                    border-bottom: 1px solid @base;
+                    padding-top: 10px !important;
+                    padding-bottom: 10px !important;
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                }
+
+                .ty-sdek-office__selected {
+                    border-radius: 0 !important;
+                    border-left-color: @secondary_button !important;
+                    background-color: #fff !important;
+
+                    .ty-one-store__name {
+                        color: @secondary_button;
+                    }
+
+                }
+            }
+
+            @media (min-width: 768px) {
+                overflow-y: auto;
+            }
+        }
+
+        &__search {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            flex-shrink: 0;
+
+            &-field {
+                margin: 0 0 8px 0;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &--list {
+
+            .pickup__offices-wrapper {
+                flex-basis: 100%;
+                border: 0;
+
+                overflow: initial;
+
+                height: auto;
+                max-height: none;
+            }
+
+            .pickup__offices.store-locator__fields-row--wrapped .ty-one-store {
+
+                @media (min-width: 768px) {
+                    flex-basis: 33.3%;
+                }
+            }
+        }
+    }
+
+    .pickup {
+        &--map-list, &--list {
+            display: flex;
+            flex-direction: row-reverse;
+            width: 100%;
+        }
+
+        &__map-wrapper {
+            display: flex;
+            flex-basis: 70%;
+            height: 500px;
+
+            border-radius: 0 6px 6px 0;
+            overflow: hidden;
+
+            @media (max-width: 767px) {
+                border-radius: 0;
+            }
+        }
+
+        &__map-container {
+            flex-basis: 100%;
+        }
+
+        &--map-list, &--list {
+
+            .ty-one-city {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                align-content: flex-start;
+                width: 100%;
+
+                &__name {
+                    position: -webkit-sticky;
+                    position: sticky;
+                    top: 0;
+
+                    padding: 1px 20px;
+                    margin: -1px 0 0 0;
+
+                    width: 100%;
+
+                    background-color: #fff;
+
+                    border-left: 3px solid transparent;
+                    border-top: 1px solid #dce3ea;
+                    border-bottom: 1px solid #dce3ea;
+
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+
+                &__hidden {
+                    display: none;
+                }
+            }
+
+            .ty-one-store {
+                width: 100%;
+                margin: 0px;
+
+                border-left: 3px solid transparent;
+
+                &.hidden {
+                    display: none;
+                }
+
+                &__name {
+                    font-size: 16px;
+                    padding: 0;
+                }
+
+                &__description .ty-one-office__address {
+                    font-size: 12px;
+                    color: #6c6c6c;
+                }
+
+                &__description .ty-one-office__worktime {
+                    font-size: 12px;
+                    color: #6c6c6c;
+                }
+
+                &__label {
+                    padding: 0 20px;
+                }
+
+                &__radio-0 {
+                    display: none;
+                }
+
+                * {
+                    box-sizing: border-box;
+                }
+
+                box-sizing: border-box;
+            }
+        }
+        &--map-list {
+            .pickup__search {
+                background-color: rgba(0, 0, 0, 0.02);
+            }
+            .ty-one-store {
+                
+                background-color: rgba(0, 0, 0, 0.02);
+
+                &__label {
+                    cursor: pointer;
+
+                    * {
+                        cursor: pointer;
+                    }
+                }
+
+                &:hover {
+                    background: rgba(0, 0, 0, 0.05);
+                }
+            }
+        }
+        &--list {
+            .ty-one-store {
+
+                @media (min-width: 768px) {
+                    min-height: 145px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .store-locator {
+
+        .pickup {
+            &--map-list, &--list {
+                flex-wrap: wrap;
+                position: relative;
+            }
+
+            &__offices-wrapper {
+                flex-basis: 100%;
+                height: auto;
+                max-height: unset;
+
+                border: 0;
+            }
+
+            &__map-wrapper {
+                flex-direction: column;
+                flex-basis: 100%;
+                height: auto;
+                border: 0;
+            }
+
+            &__map-container {
+                flex-basis: 70vh;
+                height: 70vh;
+                border: 1px solid #acbdcd;
+
+                &--mobile-hint {
+                    display: flex;
+
+                    min-height: 30px;
+                    z-index: 999;
+
+                    justify-content: center;
+                    align-items: center;
+
+                    color: white;
+                    background-color: #acbdcd;
+                    border-top: 2px solid white;
+
+                    padding: 5px;
+
+                    font-size: 0.9em;
+                }
+
+            }
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    .store-locator { 
+
+        .pickup__map-container--mobile-hint {
+            display: none;
+        }
+    }
+}
+.ty-store-locator__not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 140px;
+    color: #bdc3c7;
+    font-size: 115%;
+    text-align: center;
+    background: #f8f9f9;
+
+    &__hidden {
+        display: none;
+    }
+}

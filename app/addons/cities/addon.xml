@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+	<id>cities</id>
+	<version>1.0</version>
+    <default_language>en</default_language>
+	<priority>4600</priority>
+    <status>active</status>
+    <unmanaged>1</unmanaged>
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:cities;</item>
+        <item>DROP TABLE IF EXISTS ?:city_descriptions;</item>
+        <item for="install">
+            CREATE TABLE ?:cities (
+            city_id int(11) unsigned NOT NULL AUTO_INCREMENT,
+            country_code varchar(2) NOT NULL,
+            state_code varchar(32) NOT NULL DEFAULT '',
+            status char(1) NOT NULL DEFAULT 'A',
+            zipcode TEXT NOT NULL DEFAULT '',
+            PRIMARY KEY (city_id),
+            KEY state_code (state_code)
+            ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+        </item>
+        <item for="install">
+            CREATE TABLE ?:city_descriptions (
+            city_id int(11) unsigned NOT NULL DEFAULT '0',
+            lang_code char(2) NOT NULL DEFAULT '',
+            city varchar(255) NOT NULL DEFAULT '',
+            PRIMARY KEY (city_id,lang_code)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+        </item>
+        <item>REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_cities', 'Y', 'administration', 'cities', 'N')</item>
+        <item>REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('view_cities', 'Y', 'administration', 'cities', 'Y')</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'manage_cities'</item>
+        <item for="uninstall">DELETE FROM ?:privileges WHERE privilege = 'view_cities'</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:cities`</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:city_descriptions`</item>
+	</queries>
+	<functions>
+        <item for="install">fn_cities_install</item>
+		<item for="uninstall">fn_cities_uninstall</item>
+    </functions>
+</addon>

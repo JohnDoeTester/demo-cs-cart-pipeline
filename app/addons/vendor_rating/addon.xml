@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<addon scheme="4.0">
+    <id>vendor_rating</id>
+    <version>1.0</version>
+    <priority>900</priority>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR</auto_install>
+
+    <autoload>
+        <psr4 prefix="Tygh\Addons\VendorRating\">src</psr4>
+        <psr4 prefix="socialist\formula\">lib/vendor/seregas/formula/src</psr4>
+        <psr4 prefix="Tygh\Addons\VendorRating\Tests\Unit\">tests</psr4>
+    </autoload>
+    <bootstrap>\Tygh\Addons\VendorRating\Bootstrap</bootstrap>
+    <installer>\Tygh\Addons\VendorRating\Installer</installer>
+
+    <settings layout="separate" edition_type="ROOT">
+        <sections>
+            <section id="service">
+                <items>
+                    <item id="formula">
+                        <type>hidden</type>
+                        <default_value>paidOrdersCount + paidOrdersTotal + activeProductsCount + manualVendorRating</default_value>
+                    </item>
+                    <item id="start_rating_period">
+                        <type>hidden</type>
+                        <default_value>0</default_value>
+                    </item>
+                    <item id="rating_above_price">
+                        <type>hidden</type>
+                        <default_value>N</default_value>
+                    </item>
+                    <item id="bronze_rating_lower_limit">
+                        <type>hidden</type>
+                        <default_value>50</default_value>
+                    </item>
+                    <item id="silver_rating_lower_limit">
+                        <type>hidden</type>
+                        <default_value>80</default_value>
+                    </item>
+                    <item id="gold_rating_lower_limit">
+                        <type>hidden</type>
+                        <default_value>90</default_value>
+                    </item>
+                    <item id="config_tpl">
+                        <type>template</type>
+                        <default_value>config.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+
+    <queries>
+        <item for="install">DROP TABLE IF EXISTS ?:manual_rating</item>
+        <item for="install">DROP TABLE IF EXISTS ?:absolute_rating</item>
+        <item for="install">
+            CREATE TABLE ?:manual_rating (
+                object_id int(11) unsigned not null default 0,
+                object_type varchar(32) not null default 'company',
+                updated_timestamp int(11) unsigned not null default 0,
+                rating int(11) unsigned not null default 0,
+                PRIMARY KEY (object_id, object_type)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="install">
+            CREATE TABLE ?:absolute_rating (
+                object_id int(11) unsigned not null default 0,
+                object_type varchar(32) not null default 'company',
+                updated_timestamp int(11) unsigned not null default 0,
+                rating int(11) unsigned not null default 0,
+                PRIMARY KEY (object_id, object_type)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:manual_rating</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:absolute_rating</item>
+    </queries>
+</addon>

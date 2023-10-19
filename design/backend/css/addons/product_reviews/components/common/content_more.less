@@ -1,0 +1,39 @@
+/*
+    common/content_more.tpl
+*/
+
+.cs-content-more__text--advantages:before,
+.cs-content-more__text--disadvantages:before,
+.cs-content-more__text--comment:before {
+    font-family: FontAwesome;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    width: 20px;
+    font-size: 12px;
+    border-radius: 10px;
+    vertical-align: top;
+}
+
+.cs-content-more__text--advantages:before {
+    content: var(--cs-product-reviews-advantages);
+    color: @successText;
+    background-color: @successBackground;
+}
+
+.cs-content-more__text--disadvantages:before {
+    content: var(--cs-product-reviews-disadvantages);
+    color: @errorText;
+    background-color: @errorBackground;
+}
+
+.cs-content-more__text--comment:before {
+    content: var(--cs-product-reviews-info);
+    color: @infoText;
+    background-color: @infoBackground;
+}
+
+.cs-content-more__text--review-reply span {
+    font-weight: bold;
+}

@@ -1,0 +1,17 @@
+{
+    "name": "jsoprano/php-apple-signin-php56",
+    "type": "library",
+    "description": "A simple library to decode and parse Apple Sign In client tokens.",
+    "keywords": ["apple","sign","in","ios","php","jwt","jwk"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juan Soprano",
+            "email": "jsoprano@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "AppleSignIn\\": "" }
+    }
+}

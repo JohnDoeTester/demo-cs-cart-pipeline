@@ -1,0 +1,91 @@
+// Sign-in form
+#main_column_login {
+    height: 100%;
+    &:before {
+        content: ' ';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
+}
+
+.font-style {
+    font-size: 15px;
+    line-height: 26px;
+}
+
+.signin-modal {
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    height: auto !important;
+    min-width: 300px;
+    max-width: 600px;
+    margin-left: 0;
+    border: 1px solid @inputBorder;
+    .border-radius(@baseBorderRadius);
+    .box-shadow(none);
+    .font-style;
+
+    &__form {
+        margin-bottom: 0;
+    }
+    &__form-header {
+        margin: 4px 0;
+        color: #555;
+        font-size: 17px;
+        line-height: 26px;
+        font-weight: 700;
+        a {
+            color: #555;
+        }
+    }
+    &__form-label--password {
+        display: inline;
+        margin-right: 20px;
+    }
+    &__form-label {
+        && {
+            background: none;
+            .font-style;
+        }
+    }
+    &__form-field {
+        && {
+            width: 100%;
+            margin-bottom: 13px;
+            height: 36px;
+            .font-style;
+        }
+    }
+    &__footer {
+        text-align: left;
+        border-top: 1px solid #eee;
+        .border-radius(0 0 @baseBorderRadius @baseBorderRadius);
+        .box-shadow(none);
+
+        a {
+            height: @inputHeight;
+            line-height: @inputHeight;
+        }
+        .btn.btn-primary {
+            height: 36px;
+            border-radius: 6px;
+            padding: 4px 15px;
+            .font-style;
+        }
+    }
+    .control-group:last-child {
+        margin-bottom: 0;
+    }
+    .help-inline {
+        color: #b94a48;
+    }
+    .cm-failed-field {
+        border-color: #b94a48 !important;
+        color: #b94a48;
+    }
+    .modal-body {
+        width: 298px;
+    }
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>zapier</id>
+    <version>1.0</version>
+    <priority>4320</priority>
+    <status>active</status>
+    <default_language>en</default_language>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings edition_type="ROOT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="text_general">
+                        <type>template</type>
+                        <default_value>general.tpl</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:zapier_hooks;</item>
+        <item>
+            CREATE TABLE `?:zapier_hooks` (
+            `hook_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+            `hook_url` varchar(255) default '',
+            `trigger_name` varchar(255) default '',
+            PRIMARY KEY  (`hook_id`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:zapier_hooks;</item>
+        <item for="install" editions="MULTIVENDOR,ULTIMATE">
+            REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('manage_zapier_hooks', 'Y', 'administration', 'zapier_hooks', 'N');
+        </item>
+        <item for="install" editions="MULTIVENDOR,ULTIMATE">
+            REPLACE INTO ?:privileges (privilege, is_default, section_id, group_id, is_view) VALUES ('view_zapier_hooks', 'Y', 'administration', 'zapier_hooks', 'Y');
+        </item>
+        <item for="uninstall" editions="MULTIVENDOR,ULTIMATE">
+            DELETE FROM ?:privileges WHERE privilege IN ('manage_zapier_hooks', 'view_zapier_hooks');
+        </item>
+    </queries>
+</addon>

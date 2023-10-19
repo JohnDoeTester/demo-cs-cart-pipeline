@@ -1,0 +1,63 @@
+.bp-tooltip {
+    display: inline-block;
+    opacity: 0;
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: 8px;
+    padding: 9px;
+    border-radius: var(--bp-radius);
+    color: #fff;
+    font-size: 14px;
+    font-family: var(--bp-font);
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+
+    &__secondary {
+        color: #fff;
+        font-size: 12px;
+        line-height: 1.3;
+        white-space: normal;
+        min-width: 200px;
+        margin-top: 4px;
+    }
+
+    &:after {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -10px;
+        border: solid transparent;
+        border-width: 10px;
+        border-top-color: rgba(0, 0, 0, 0.8);
+        pointer-events: none;
+        content: "";
+    }
+
+    .no-touchevents [data-bp-tooltip]:hover & {
+        opacity: 1;
+        -webkit-transform: translateY(-4px);
+        -ms-transform: translateY(-4px);
+        transform: translateY(-4px);
+    }
+
+    &--left {
+        left: 2px;
+
+        &:after {
+            left: 26px;
+        }
+    }
+
+    &--right {
+        right: 2px;
+
+        &:after {
+            left: calc(100% - 10px);
+        }
+    }
+}

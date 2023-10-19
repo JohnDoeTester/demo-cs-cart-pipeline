@@ -1,0 +1,8 @@
+/* Lite Checkout */
+@supports (-webkit-appearance: none) {
+    .selector:not(*:root), .litecheckout .litecheckout__field--selectbox .litecheckout__input {
+        padding-top: 10px !important;
+        padding-left: 6px !important;
+    }
+}
+/* End of Lite Checkout */

@@ -1,0 +1,83 @@
+@global_individual_secondary: @gray;
+@global_individual_active_background: @tableBackgroundHover;
+@global_individual_active_border: darken(@tableBackgroundHover, 5%);
+
+@global_individual_disabled: @gray;
+@global_individual_secondary_disabled: @grayLight;
+@global_individual_active_background_disabled: @inputDisabledBackground;
+@global_individual_active_border_disabled: darken(@inputDisabledBackground, 5%);
+
+.global-individual {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    &__buttons {
+        display: -ms-grid;
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 8px;
+        margin-left: auto;
+    }
+
+    &__field-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn&__btn {
+        margin: 0;
+        padding: 1px 6px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        box-sizing: content-box;
+        background: none;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        color: @global_individual_secondary;
+        font-family: FontAwesome;
+        -webkit-font-smoothing: antialiased;
+        box-shadow: none;
+        transition: none;
+
+        &:checked {
+            background: none;
+        }
+
+        &:before {
+            content: "\f0e8";
+        }
+
+        &&:after {
+            content: "";
+            display: none;
+        }
+
+        .ui-widget & {
+            font-family: FontAwesome;
+        }
+
+        &--individual {
+            color: @mainColor;
+            border-color: @global_individual_active_border;
+            background-color: @global_individual_active_background;
+        }
+
+        &--disabled {
+            pointer-events: none;
+            color: @global_individual_secondary_disabled;
+        }
+
+        &--individual&--disabled {
+            color: @global_individual_disabled;
+            border-color: @global_individual_active_border_disabled;
+            background-color: @global_individual_active_background_disabled;
+        }
+    }
+}

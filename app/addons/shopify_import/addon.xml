@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>shopify_import</id>
+    <version>1.0</version>
+    <priority>4328362</priority>
+    <status>active</status>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <default_language>en</default_language>
+    <compatibility>
+        <dependencies>product_variations</dependencies>
+    </compatibility>
+    <queries>
+        <item for="install">DROP TABLE IF EXISTS ?:shopify_imports;</item>
+        <item for="install">
+            CREATE TABLE ?:shopify_imports (
+                import_id int(11) unsigned NOT NULL auto_increment,
+                company_id int(11) unsigned NOT NULL,
+                status char(1) NOT NULL DEFAULT 'N',
+                updated_at int(11) unsigned NOT NULL DEFAULT '0',
+                PRIMARY KEY (import_id),
+                KEY idx_company_id (company_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+
+        <item for="uninstall">DROP TABLE IF EXISTS ?:shopify_imports;</item>
+    </queries>
+</addon>

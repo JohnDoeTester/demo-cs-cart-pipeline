@@ -1,0 +1,27 @@
+.native-captcha {
+
+    margin-bottom: 10px;
+    min-width: 200px;
+
+    &__image-container {
+        background: rgb(245, 245, 245);
+        text-align: center;
+        padding: 5px 0;
+        border: 1px solid #c4c4c4;
+        border-bottom: 0;
+        border-radius: 5px 5px 0 0;
+    }
+
+    &__answer {
+        width: 100%;
+        margin-bottom: 0;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+    }
+
+    @media (min-width: 480px) {
+        &--short {
+            max-width: 310px;
+        }
+    }
+}

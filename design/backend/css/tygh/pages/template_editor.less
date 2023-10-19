@@ -1,0 +1,75 @@
+// Template Editor
+.te-permissions .checkbox-list label {
+    min-width: 126px;
+}
+
+.sidebar-row .te-file-tree {
+    min-height: ~"calc(100vh - 199px)";
+    max-height: ~"calc(100vh - 199px)";
+    top: 0px !important;
+}
+
+.sidebar-open .sidebar-row .te-file-tree {
+    min-height: ~"calc(100vh - 90px)";
+    max-height: ~"calc(100vh - 90px)";
+    top: 0px !important;
+}
+
+.te-content-container {
+    display: block;
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    width: auto;
+}
+
+.te-content {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    
+    .te-ace-editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        .ace_gutter {
+            border-right: 1px solid #f0f0f0;
+            background: transparent;
+        }
+    }
+}
+.te-content #template_image {
+    margin-top: 10px;
+    text-align: center;
+}
+.te-path {
+    margin-left: 10px;
+    a:last-child {
+        color: #a5a5a5;
+    }
+}
+.cm-te-messages {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.empty-text {
+    margin: 30px 20px;
+    text-align: center;
+    h2 {
+        margin-bottom: 20px;
+    }
+}
+.switch {
+    z-index: 2;
+}

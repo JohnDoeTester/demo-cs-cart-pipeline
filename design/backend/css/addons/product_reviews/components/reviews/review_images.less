@@ -1,0 +1,74 @@
+/*
+    addons/product_reviews/views/product_reviews/components/reviews/review_images.tpl
+*/
+
+.cs-product-reviews-reviews-review-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid #ebebeb;
+}
+.cs-product-reviews-reviews-review-images:hover .cs-product-reviews-reviews-review-images__link {
+    background: #000;
+}
+.cs-product-reviews-reviews-review-images:hover .cs-product-reviews-reviews-review-images__image {
+    opacity: 0.5;
+}
+.cs-product-reviews-reviews-review-images:not(:hover) .cs-product-reviews-reviews-review-images__delete-checkbox:not(:checked) + .cs-product-reviews-reviews-review-images__delete-btn {
+    display: none;
+}
+.cs-product-reviews-reviews-review-images__toolbar {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.cs-product-reviews-reviews-review-images__delete-label {
+    margin: 0;
+}
+.cs-product-reviews-reviews-review-images__delete-checkbox,
+.form-horizontal .cs-product-reviews-reviews-review-images__delete-checkbox {
+    display: none;
+}
+.cs-product-reviews-reviews-review-images__delete-btn {
+    padding: 4px 12px;
+    border-radius: @baseBorderRadius;
+}
+.cs-product-reviews-reviews-review-images__delete-label:hover .cs-product-reviews-reviews-review-images__delete-btn {
+    background: rgba(255, 255, 255, 0.2);
+}
+.cs-product-reviews-reviews-review-images__delete-icon {
+    color: #fff;
+}
+.cs-product-reviews-reviews-review-images__delete-label:not(:hover) .cs-product-reviews-reviews-review-images__delete-checkbox:not(:checked) .cs-product-reviews-reviews-review-images__delete-icon {
+    opacity: 0.5;
+}
+.cs-product-reviews-reviews-review-images__delete-checkbox:checked + .cs-product-reviews-reviews-review-images__delete-btn .cs-product-reviews-reviews-review-images__delete-icon {
+    color: @errorText;
+}
+.cs-product-reviews-reviews-review-images__delete-checkbox:checked + .cs-product-reviews-reviews-review-images__delete-btn {
+    background: @errorBackground;
+}
+.cs-product-reviews-reviews-review-images__link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background: #fff;
+}
+.cs-product-reviews-reviews-review-images__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    width: 100%;
+    cursor: zoom-in;
+}
+.ty-owl-previewer__dialog .cs-product-reviews-reviews-review-images__image {
+    cursor: default;
+    width: auto;
+    max-height: ~"calc(100vh - 244px)";    // Popup content height (40px + 51px + 13px + 60px + 40px + 40px)
+}

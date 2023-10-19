@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>advanced_import</id>
+    <version>1.0.0</version>
+    <compatibility>
+        <core_version>
+            <min>4.7.2</min>
+            <max>5.0.0</max>
+        </core_version>
+    </compatibility>
+    <priority>1000</priority>
+    <position>0</position>
+    <status>active</status>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <default_language>en</default_language>
+    <queries>
+        <item for="install">
+            DROP TABLE IF EXISTS ?:import_presets
+        </item>
+        <item for="install">
+            DROP TABLE IF EXISTS ?:import_preset_descriptions
+        </item>
+        <item for="install">
+            DROP TABLE IF EXISTS ?:import_preset_fields
+        </item>
+        <item for="install">
+            DROP TABLE IF EXISTS ?:import_preset_states
+        </item>
+        <item for="install">
+            CREATE TABLE ?:import_presets (
+                preset_id int(11) unsigned not null auto_increment,
+                company_id int(11) unsigned not null default 0,
+                object_type varchar(32) not null default 'products',
+                file_extension varchar(6) not null default '',
+                options text,
+                PRIMARY KEY (preset_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET=UTF8
+        </item>
+        <item for="install">
+            CREATE TABLE ?:import_preset_descriptions (
+                preset_id int(11) unsigned not null default 0,
+                lang_code char(2) not null default '',
+                preset varchar(255) not null default '',
+                PRIMARY KEY (`preset_id`,`lang_code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=UTF8
+        </item>
+        <item for="install">
+            CREATE TABLE ?:import_preset_fields (
+                field_id int(11) unsigned not null auto_increment,
+                preset_id int(11) unsigned not null default 0,
+                name varchar(255) not null default '',
+                related_object_type varchar(32) not null default 'product_field',
+                related_object varchar(255) not null default '',
+                modifier text,
+                PRIMARY KEY (field_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET=UTF8
+        </item>
+        <item for="install">
+            CREATE TABLE ?:import_preset_states (
+                preset_id int(11) unsigned not null default 0,
+                company_id int(11) unsigned not null default 0,
+                last_launch int(11) unsigned not null default 0,
+                last_status char(1) not null default 'X',
+                last_result text,
+                file varchar(255) not null default '',
+                file_type varchar(32) not null default '',
+                PRIMARY KEY (preset_id, company_id)
+            ) ENGINE=MyISAM DEFAULT CHARSET=UTF8
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:import_presets
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:import_preset_descriptions
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:import_preset_fields
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:import_preset_states
+        </item>
+    </queries>
+</addon>

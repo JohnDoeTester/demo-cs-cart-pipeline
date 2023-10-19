@@ -1,0 +1,34 @@
+.bp-panel {
+    display: -ms-grid;
+    display: grid;
+    z-index: 10100;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: var(--bp-bottom-panel-height);
+    background-color: var(--bp-panel-bg);
+    -webkit-box-shadow: var(--bp-panel-shadow);
+    box-shadow: var(--bp-panel-shadow);
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    box-shadow: var(--bp-panel-shadow);
+    transition: all 0.2s;
+    grid-template-areas: "nav close";
+    -ms-grid-columns: auto 40px;
+    grid-template-columns: auto 40px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    @media (min-width: 768px) {
+        grid-template-areas: "logo nav . modes . actions close";
+        -ms-grid-columns: 100px auto auto 1fr auto auto 40px;
+        grid-template-columns: 100px auto auto 1fr auto auto 40px;
+    }
+
+}
+
+html:not(.bp-panel-active) .bp-panel {
+    -webkit-transform: translateY(calc(100% + 10px));
+    -ms-transform: translateY(calc(100% + 10px));
+    transform: translateY(~"calc(100% + 10px)");
+}

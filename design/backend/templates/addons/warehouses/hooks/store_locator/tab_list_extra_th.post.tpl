@@ -1,0 +1,1 @@
+<th data-ca-sortable-column="true">{__("warehouses.store_type")}</th>

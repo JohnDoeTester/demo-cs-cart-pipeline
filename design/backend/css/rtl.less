@@ -1,0 +1,140 @@
+html[dir="rtl"] {
+    label.cm-required {
+        padding-right: 10px;
+        padding-left: 0;
+    }
+
+    .tooltip-arrow {
+        top: -10px;
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0,0,0,0.8) rgba(0, 0, 0, 0);
+    }
+
+    .tooltip.arrow-top .tooltip-arrow {
+        left: 3px;
+        right: auto;
+        border-width: 10px 10px 0 0;
+        border-color: rgba(0,0,0,0.8) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    }
+
+    .arrow-down.top .tooltip-arrow {
+        right: auto;
+        left: 10px;
+        border-width: 10px 10px 0 0;
+        border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+    }
+
+    .select2-container--open .select2-dropdown {
+        left: auto;
+        right: 0;
+    }
+
+    .colorpicker .sp-container {
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    .flag {
+        margin-right: 5px;
+    }
+
+    a>.flag {
+        padding: 0;
+        margin-right: 5px;
+    }
+
+    .icon-chevron-right {
+        background-position: -432px -72px;
+    }
+
+    .icon-chevron-left {
+        background-position: -456px -72px;
+    }
+
+    .ui-dialog {
+        left: auto !important;
+    }
+
+    .te-content #template_text {
+        direction: rtl;
+    }
+
+    .nested-tree ul li a {
+        padding: 3px 0px 3px 5px;
+    }
+
+    /** tooltip in graph at admin-side **/
+    .google-visualization-tooltip {
+        direction: ltr;
+        text-align: left;
+    }
+
+    .google-visualization-tooltip-item:first-element {
+        direction: rtl;
+        float: left;
+    }
+    /** /tooltip in graph at admin-side **/
+
+    i.icon-arrow-left {
+        transform: rotate(180deg);
+    }
+
+    i.icon.icon-angle-left {
+        transform: rotate(180deg);
+    }
+
+    i.icon.icon-double-angle-right {
+        transform: rotate(180deg);
+    }
+
+    i.icon.icon-double-angle-left {
+        transform: rotate(180deg);
+    }
+
+    i.icon.icon-angle-right {
+        transform: rotate(180deg);
+    }
+
+    .icon-chevron-right {
+        transform: rotate(180deg);
+    }
+
+    .icon-chevron-left {
+        transform: rotate(180deg);
+    }
+    
+    .dashboard .date {
+        unicode-bidi: plaintext;
+    }
+    /** daterangepicker at admin-side **/
+    .daterangepicker {
+        min-width: 625px;
+
+        &.opensleft:before,
+        &.opensleft:after {
+            right: 130px;
+            left: auto;
+        }
+
+        .ranges {
+
+            > ul > li {
+                direction: ltr;
+                text-align: left;
+            }
+        }
+    }
+    /** /daterangepicker at admin-side **/
+    .cm-phone,
+    .cm-mask-phone,
+    [name="phone"],
+    [name="user_data[b_phone]"],
+    [name="user_data[s_phone]"] {
+        direction: rtl !important;
+        text-align: left !important;
+    }
+}
+
+html[dir="rtl"] svg + [aria-label] {
+    left: -10000px !important;
+    right: auto !important;
+}

@@ -1,0 +1,111 @@
+//
+// Mixins
+// --------------------------------------------------
+
+
+// Flexbox
+// --------------------------------------------------
+.display-flex() {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.display-flex-inline() {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+.flex-dir-column() {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.flex-dir-row() {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+}
+
+.flex-wrap() {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+.flex-justify-content(@ies_param, @other_param) {
+    -webkit-box-pack: @ies_param;
+    -webkit-justify-content: @other_param;
+    -ms-flex-pack: @ies_param;
+    justify-content: @other_param;
+}
+
+.flex-align-items(@param) {
+    -webkit-box-align: @param;
+    -webkit-align-items: @param;
+    -ms-flex-align: @param;
+    align-items: @param;
+}
+
+.fit-height {
+    min-height: -webkit-max-content;
+    min-height: -moz-max-content;
+    min-height: max-content;
+}
+
+.flex(@param1, @param2, @param3) {
+    -webkit-box-flex: @param1;
+    -webkit-flex: @param1 @param2 @param3;
+    -moz-box-flex: @param1;
+    -ms-flex: @param1 @param2 @param3;
+    flex: @param1 @param2 @param3;
+}
+
+// Cursors
+// --------------------------------------------------
+.cursor-grab() {
+    cursor: pointer;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.cursor-grabbing {
+    cursor: move;
+    cursor:  -webkit-grabbing;
+    cursor:  -moz-grabbing;
+    cursor:  grabbing;
+}
+
+// Text break
+// --------------------------------------------------
+.word-break() {
+    word-break: break-all;
+    word-break: break-word;
+}
+
+.show-off() {
+    visibility: hidden !important;
+    display: none !important;
+
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+// Hidden control group
+// --------------------------------------------------
+.ifControlGroupHiddenInput(@isControlGroupHidden) when (@isControlGroupHidden) {
+    border-color: transparent;
+}
+
+.ifControlGroupHiddenIcon(@isControlGroupHidden) when (@isControlGroupHidden) {
+    opacity: 0;
+}

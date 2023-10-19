@@ -1,0 +1,179 @@
+// Images
+.themes {
+    #theme_image {
+        margin-bottom: 20px;
+    }
+    .themes-list > .span3:first-child, .themes-list > .span3:nth-child(5) {
+        margin-left: 0;
+    }
+    .screenshot {
+        border: 1px solid #e9e9e9;
+        width: 100%;
+        max-width: 285px;
+        position: relative;
+        .transition(all 150ms ease-in-out);
+    }
+    h4.lead {
+        font-size: 16px;
+        margin: -4px 0;
+    }
+    .no-image {
+        width: 248px;
+        height: 194px;
+    }
+    .theme-no-styles {
+        .muted {
+            display: block;
+            margin-top: 5px;
+        }
+        .btn {
+            margin-top: 15px;
+        }
+    }
+    .theme-subtitle {
+        margin-bottom: 20px;
+        padding-bottom: 17px;
+        border-bottom: 1px solid #DDD;
+        .label {
+            display: inline-block;
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        .btn {
+            margin-top: -3px;
+        }
+    }
+    .theme-title {
+        width: 185px;
+        strong {
+            display: block;
+        }
+        p.muted, strong {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .themes-current {
+        margin-top: 10px;
+        .themes-options {
+            margin: 6px 30px;
+        }
+        h4 {
+            margin: 0px;
+        }
+        p {
+            margin: 20px 0 20px;
+        }
+    }
+    .themes-available {
+        margin: 15px 0 75px;
+        h4 {
+            display: inline-block;
+        }
+        .row {
+            margin-bottom: 20px;
+        }
+        .theme {
+            position: relative;
+            float: left;
+            margin-bottom: 20px;
+            padding: 7px;
+            .transition(all 150ms ease-in-out);
+            .border-radius(@baseBorderRadius);
+            &:hover {
+                background: #f5f5f5;
+            }
+            .theme-actions {
+                margin: 8px 0 2px 0;
+            }
+          .theme-use {
+            position: absolute;
+            display: none;
+            width: 100%;
+            top: 45%;
+            text-align: center;
+            z-index: 10;
+          }
+          .theme-in-use {
+            background: #868686;
+            color: #FFF;
+            display: inline-block;
+            padding: 6px 13px;
+            .border-radius(@baseBorderRadius);
+            position: absolute;
+            visibility: hidden;
+            top: 110px;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            z-index: 2;
+            .transition(all 150ms ease-in-out);
+
+            &:hover {
+                text-decoration: none;
+            }
+          }
+          .theme-title {
+            width: auto;
+            margin-bottom: 5px;
+          }
+          .theme-actions {
+            visibility: hidden;
+          }
+          &:hover {
+            .theme-actions {
+              visibility: visible;
+            }
+            .theme-use,
+            .theme-in-use {
+              display: block;
+              visibility: visible;
+              opacity: 1;
+            }
+            .screenshot {
+              opacity: 0.3;
+              border: 1px solid #B1B1B1;
+            }
+          }
+        }
+        .theme-selected {
+            .box-shadow(0px 0px 10px #B1B1B1);
+        }
+    }
+}
+.themes-side {
+    width: 100%;
+    .span7 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .form-horizontal.sidebar-row .controls {
+        margin-left: 110px;
+    }
+}
+
+.sidebar img.theme-screenshot {
+    width: 220px !important;
+}
+.no-image {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    border: 1px solid #ebebeb;
+    background-color: #f9f9f9;
+    color: #c8c8c8;
+    cursor: default;
+    .cs-icon {
+        display: inline-block;
+        line-height: 0;
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -16px;
+        font-size: @inputHeight;
+    }
+}

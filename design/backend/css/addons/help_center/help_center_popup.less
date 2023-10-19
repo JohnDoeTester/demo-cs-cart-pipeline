@@ -1,0 +1,114 @@
+// Help center popup
+[aria-describedby="content_help_center_popup"][aria-describedby="content_help_center_popup"] {
+    border-radius: var(--help-center-border-radius-large);
+}
+
+// Hide popup title
+[aria-describedby="content_help_center_popup"] .ui-dialog-titlebar {
+    border: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+[aria-describedby="content_help_center_popup"] .ui-dialog-title {
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+// Add padding for close button in header popup
+[aria-describedby="content_help_center_popup"] .help-center-section__header {
+    padding-right: ~"calc(1.5 * var(--help-center-responsive-padding) + 24px)";
+}
+
+// Close popup button
+[aria-describedby="content_help_center_popup"] .ui-dialog-titlebar-close {
+    top: 16px;
+    right: 8px;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    transform: scale(1);
+}
+
+[aria-describedby="content_help_center_popup"] .ui-dialog-titlebar-close.ui-dialog-titlebar-close {
+    padding: 0;
+}
+
+[aria-describedby="content_help_center_popup"] .ui-dialog-titlebar-close:before {
+    display: none;
+}
+
+[aria-describedby="content_help_center_popup"] .ui-button-icon {
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+}
+
+[aria-describedby="content_help_center_popup"] .ui-button-icon:before {
+    content: '×';
+    display: block;
+    margin-top: -0.1em;
+    font-size: 40px;
+    line-height: 1;
+    text-indent: 0;
+}
+
+[aria-describedby="content_help_center_popup"] .ui-button.ui-dialog-titlebar-close .ui-icon-closethick {
+    background-image: none;
+}
+
+// Help center popup container
+.help-center-popup .object-container {
+    padding: 0;
+}
+
+// Open popup button
+.help-center-popup__btn {
+    padding: ((@navbarHeight - @baseLineHeight) / 2) 16px ((@navbarHeight - @baseLineHeight) / 2);  // padding: 9px 16px 9px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+// Open popup icon
+.help-center-popup__icon {
+    position: relative;
+    margin-top: -2px;
+    width: var(--help-center-popup-btn-icon-width);
+    height: var(--help-center-popup-btn-icon-width);
+    font-size: var(--help-center-popup-btn-icon-width);
+    line-height: var(--help-center-popup-btn-icon-width);
+    vertical-align: middle;
+    color: @topPanelTextColorLight !important;
+}
+
+.help-center-popup__icon.help-center-popup__icon.help-center-popup__icon {
+    // Revert .show-off();
+    visibility: visible !important;
+    display: inline-block !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.help-center-popup__icon:after {
+    content: attr(data-ca-help-center-counter);
+    position: absolute;
+    right: -4px;
+    top: -7px;
+    min-width: 1.36em;
+    max-width: ~"calc(100% + 16px + 4px)";
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 999px;
+    font-size: 11px;
+    line-height: 1.36;
+    font-family: @sansFontFamily;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+    background-color:@errorText;
+}

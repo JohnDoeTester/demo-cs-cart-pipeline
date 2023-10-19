@@ -1,0 +1,36 @@
+@media (min-width: @TabletBreakpoint + 1) {
+    // Popover
+    .notifications-center__root {
+        position: fixed;
+        top: 0;
+        min-width: auto;
+        max-width: 650px;
+
+        &&&&& {
+            left: ~"calc("@menuSidebarWidth~" + var(--content-offset))";
+
+            // Arrow popover
+            &:before,
+            &:after {
+                --notifications-center-arrow-top: 10px;
+                --notifications-center-arrow-width: 8px;
+                --notifications-center-arrow-color: rgba(0,0,0,0.2);
+    
+                top: var(--notifications-center-arrow-top);
+                left: ~"calc(-1 * var(--notifications-center-arrow-width))";
+                right: auto;
+                border: var(--notifications-center-arrow-width) solid transparent;
+                border-left-width: 0;
+                border-right-color: var(--notifications-center-arrow-color);
+            }
+            
+            &:after {
+                --notifications-center-arrow-top: 11px;
+                --notifications-center-arrow-width: 7px;
+                --notifications-center-arrow-color: #f7f7f7;
+            }
+        }
+        
+    }
+
+}

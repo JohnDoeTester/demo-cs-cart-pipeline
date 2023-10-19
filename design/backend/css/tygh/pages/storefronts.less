@@ -1,0 +1,54 @@
+.storefront {
+    &__url {
+        word-wrap: anywhere;
+        word-break: break-all;
+    }
+
+    &__selector--wrapper {
+        display: inline-block;
+        min-height: @inputHeight;
+        vertical-align: top;
+        margin: 0;
+    }
+
+    &__tools {
+        min-height: @inputHeight;
+    }
+}
+
+.object-picker__simple--localizations {
+    display: flex;
+    
+    .btn.cm-ajax {
+        white-space: nowrap;
+    }
+
+    .select2-selection {
+        border-radius: 4px 0 0 4px;
+    }
+}
+
+.object-picker__storefronts-name-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.localization__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #ededed;
+    min-height: 43px;
+
+    &__delete-button {
+        display: none;
+    }
+}
+
+.localization__container:hover {
+    .localization__container__delete-button {
+       display: block;
+    }
+}

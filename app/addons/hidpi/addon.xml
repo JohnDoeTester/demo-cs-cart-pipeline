@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>hidpi</id>
+    <version>1.0</version>
+    <priority>1</priority>
+    <position>0</position>
+    <default_language>en</default_language>
+    <status>active</status>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings edition_type="ROOT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="default_upload_high_res_image">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <queries>
+        <item>
+            ALTER TABLE ?:images ADD is_high_res char(1) NOT NULL DEFAULT 'N';
+        </item>
+        <item for="uninstall">
+            ALTER TABLE ?:images DROP is_high_res;
+        </item>
+    </queries>
+</addon>

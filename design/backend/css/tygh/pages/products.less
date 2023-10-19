@@ -1,0 +1,123 @@
+// Products
+.product-code {
+    display: inline-block;
+    margin: 0;
+    max-width: 250px;
+
+    &__rma {
+        min-width: 100px;
+    }
+
+    &__label {
+        display: block;
+        font-size: 11px;
+        .word-break();
+    }
+
+    &__label-normal {
+        display: block;
+        .word-break();
+    }
+
+    .shift-input {
+        display: inline-block;
+        margin-top: 5px;
+    }
+}
+
+.products-hint {
+    margin-bottom: 10px;
+
+    &__code {
+        margin-bottom: 0px;
+        .word-break();
+    }
+}
+
+.product-options {
+    margin-top: 9px;
+
+    .controls {
+        padding-top: 5px;
+
+        .help-inline {
+            display: block;
+            padding: 6px 0 0;
+        }
+    }
+}
+
+.mrg-check {
+    margin-top: -5px !important;
+}
+
+// FIXME: move this fix into longtap styles
+.cm-longtap-target {
+    -webkit-touch-callout: none;
+    touch-callout: none;
+}
+
+.products-list {
+    &__image {
+        &--img {
+            max-width: none;
+            max-width: unset;
+        }
+
+        &--fix {
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+    }
+}
+
+.product-list {
+
+    &__name {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        &-body {
+            line-height: 1.5em;
+            max-height: 3em;
+            overflow: hidden;
+            display: block;
+
+            // Webkit
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+    }
+
+    &__labels--secondary {
+        opacity: 0.75;
+    }
+}
+
+.products-update {
+    &__table {
+        width: 100%;
+    }
+}
+
+.products__features .control-group .object-selector {
+    margin-bottom: 0;
+}
+
+.products-select-fields__column {
+    min-width: 200px;
+}
+
+.object-picker--categories.object-categories-add .select2-selection__choice .object-picker__selection--categories {
+    flex-grow: 1;
+}
+
+.object-picker__results-label-icon.object-picker__results-label-icon--categories {
+    color: white;
+}
+
+.object-picker__selection--product-categories .select2__category-company {
+    float: right;
+}

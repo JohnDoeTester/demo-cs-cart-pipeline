@@ -1,0 +1,87 @@
+.stripe-payment-form {
+    &__card,
+    &__expiry,
+    &__cvc,
+    &__postal_code {
+        padding: 8px;
+        border: 1px solid #acbdcd;
+        background: white;
+        min-height: 21px;
+    }
+
+    &__expiry {
+        max-width: 75px;
+    }
+
+    &__cvc {
+        width: 45px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__payment-button {
+        min-width: 280px;
+
+        &__image {
+            height: 40px;
+            margin-right: 6px;
+        }
+    }
+
+    &__section--unsupported-payment {
+        width: 100%;
+        font-weight: bold;
+    }
+}
+
+.ty-control-group.error .sc-field {
+    border-color: #bf4d4d;
+}
+
+.stripe-payment-icon {
+    &--google_pay, 
+    &--apple_pay {
+        background-image: none;
+        vertical-align: top;
+    }
+}
+
+.stripe-payment-button {
+    vertical-align: top;
+    height: 36px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+    margin-bottom: 10px;
+
+    &--apple_pay {
+        -webkit-appearance: -apple-pay-button;
+        -apple-pay-button-type: buy;
+        -apple-pay-button-style: black;
+    }
+
+    &--google_pay {
+        width: 155px;
+        display: inline-block;
+        margin-right: 0;
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+.stripe-test-mode-notification {
+    color: #777;
+    font-size: 12px;
+}
+
+.ty-product-bigpicture .ty-product-block__button .stripe-payment-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    &.hidden {
+        display: none;
+    }
+}

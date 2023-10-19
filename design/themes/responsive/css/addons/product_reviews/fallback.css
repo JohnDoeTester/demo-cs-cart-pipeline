@@ -1,0 +1,55 @@
+/* Adds support for the "gap" property to the Safari browser. */
+/* TODO: Delete fallback.css and fallback.js files after Safari browser supports "gap" property */
+
+/* BOTTOM */
+
+/* gap: var(--space-xs) */
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-post-message > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-post__content > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-product-rating-overview > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-product-stars-details > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-write-review > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-new-review__body > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-new-review-customer > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-new-review-customer-profile > *:not(:last-child) {
+    margin-bottom: var(--space-xs);
+}
+
+/* gap: var(--space-s) */
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-product-rating > *:not(:last-child) {
+    margin-bottom: var(--space-s);
+}
+
+/* gap: var(--space-m) */
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-reviews-sidebar > *:not(:last-child) {
+    margin-bottom: var(--space-m);
+}
+
+/* gap: var(--space-l) */
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-reviews-view__main-content > .ty-pagination-container > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-view__posts > *:not(:last-child) {
+    margin-bottom: var(--space-l);
+}
+
+
+
+/* RIGHT */
+
+/* gap: var(--space-xs) */
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-post-location > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-post-images > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-new-review-customer-profile__location > *:not(:last-child) {
+    margin-right: var(--space-xs);
+}
+
+/* gap: var(--space-m) */
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-post-header > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-product-rating-overview-short > *:not(:last-child),
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-post-customer__address > *:not(:last-child) {
+    margin-right: var(--space-m);
+}
+
+/* gap: var(--space-l) */
+_::-webkit-full-page-media, _:future, :root:not(.supported-gap) .ty-product-review-reviews-navigation > *:not(:last-child) {
+    margin-right: var(--space-l);
+}

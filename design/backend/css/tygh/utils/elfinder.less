@@ -1,0 +1,157 @@
+/* Elfinder */
+.elfinder {
+    border: 1px solid #ddd;
+    .border-radius(0);
+    margin-top: 7px;
+    margin-bottom: 14px;
+
+    .ui-helper-clearfix::after {
+        content: '';
+    }
+}
+
+.elfinder-button-search-menu {
+    display: none !important;
+}
+
+.elfinder-toolbar {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.elfinder-navbar {
+    background: #f5f5f5 !important;
+    font-size: 12px !important;
+    border-right: 1px solid #ddd !important;
+    padding-top: 10px !important;
+    display: block !important;
+
+    .ui-state-active {
+        .border-radius(0);
+    }
+}
+
+.elfinder-buttonset {
+    border: 0 !important;
+
+    .elfinder-button {
+        border: 1px solid #b9b9b9 !important;
+        border-radius: 4px;
+    }
+}
+
+.elfinder-toolbar-button-separator {
+    border: 1px solid #f5f5f5;
+}
+
+.elfinder-cwd-wrapper .elfinder-cwd {
+    padding-top: 4px;
+}
+
+.elfinder-cwd-view-icons .elfinder-cwd-filename, .elfinder-cwd-view-list td {
+    font-size: 12px !important;
+}
+
+.elfinder-button-search {
+    width: 220px !important;
+
+    input {
+        font-size: 12px !important;
+        margin-bottom: 0;
+        min-height: unset;
+    }
+}
+
+.elfinder-dialog {
+    position: absolute !important;
+    background-color: #fcfcfc !important;
+
+    .ui-widget-content {
+        background-color: #fcfcfc !important;
+        margin-top: 10px;
+    }
+
+    .ui-dialog-titlebar {
+        font-size: @baseFontSize !important;
+        padding: 1.2em 1em !important;
+    }
+
+    .elfinder-info-title,
+    .elfinder-info-tb,
+    .ui-dialog-content {
+        font-size: @baseFontSize !important;
+    }
+
+    button {
+        padding: 2px 12px 3px !important;
+        margin-top: 7px !important;
+        margin-bottom: 5px !important;
+    }
+}
+
+.elfinder-quicklook {
+    z-index: @zindexModal !important;
+}
+
+.elfinder-quicklook-title,
+.elfinder-quicklook-info-data {
+    font-size: @baseFontSize !important;
+}
+
+.elfinder-cwd-wrapper .ui-state-default {
+    background-image: -webkit-linear-gradient(#fcfcfc, #fcfcfc) !important;
+    background-image: -moz-linear-gradient(#fcfcfc, #fcfcfc) !important;
+    background-image: -o-linear-gradient(#fcfcfc, #fcfcfc) !important;
+    background-image: linear-gradient(#fcfcfc, #fcfcfc) !important;
+}
+
+.elfinder-statusbar {
+    border-top: 1px solid #ddd;
+    background-color: #f5f5f5 !important;
+    padding: .4em .5em !important;
+
+    div {
+        font-size: 11px !important;
+    }
+}
+
+.elfinder-disabled .elfinder-navbar .ui-state-active {
+    background: #bbb !important;
+    border-color: #bbb !important;
+}
+
+/* upload files Elfinder */
+.el-finder-modal {
+    z-index: 500002 !important;
+}
+
+.muted.shift-left {
+    padding-left: 5px;
+}
+.spinner {
+	background: url('../media/images/spinner.gif') no-repeat center center;
+}
+
+textarea[readonly].copy-field {
+    cursor: text;
+    background-color: @inputBackground;
+
+    height: 256px;
+    width: 100%;
+}
+
+.ty-breadcrumbs__a {
+  color: #555;
+}
+
+.ui-dialog-titlebar-close.elfinder-quicklook-titlebar-icon span.ui-icon {
+    display: inline-block;
+}
+
+.ui-dialog .ui-dialog-titlebar-close.elfinder-quicklook-titlebar-icon {
+    opacity: 1;
+    width: auto;
+    left: 3px;
+    right: auto;
+    top: 20px;
+}

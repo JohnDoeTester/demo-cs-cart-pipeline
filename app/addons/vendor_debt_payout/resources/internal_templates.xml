@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<internal_templates scheme="1.0">
+    <templates>
+        <item>
+            <code><![CDATA[vendor_debt_payout_negative_balance_reached]]></code>
+            <area><![CDATA[A]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{% if date %} {{ __("vendor_debt_payout.negative_balance_reached.subject") }} {% else %} {{ __("vendor_debt_payout.suspended_status_reached.subject") }} {% endif %}]]></default_subject>
+            <template/>
+            <default_template><![CDATA[{% if date %} {{ __("vendor_debt_payout.negative_balance_reached.message", {"[amount]": amount, "[date]": date}) }} {% else %} {{ __("vendor_debt_payout.suspended_status_reached.message", {"[amount]": amount, "[vendor_plan_lowers_allowed_balance]": vendor_plan_lowers_allowed_balance}) }} {% endif %}]]></default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_debt_payout]]></addon>
+        </item>
+        <item>
+            <code><![CDATA[vendor_debt_payout_internal_admin_notification_vendor_status_changed_to_suspended]]></code>
+            <area><![CDATA[A]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{{ __("vendor_debt_payout.vendor_status_changed.subject", {"[vendor_name]": vendor_name, "[status]": status_to}) }}]]></default_subject>
+            <template/>
+            <default_template>
+                <![CDATA[{{ __("vendor_debt_payout.vendor_status_changed.reason", {"[amount]": amount, "[date]": date}) }}]]>
+            </default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_debt_payout]]></addon>
+        </item>
+        <item>
+            <code><![CDATA[vendor_debt_payout_internal_admin_notification_vendor_status_changed_to_disabled]]></code>
+            <area><![CDATA[A]]></area>
+            <status><![CDATA[A]]></status>
+            <subject/>
+            <default_subject><![CDATA[{{ __("vendor_debt_payout.vendor_status_changed.subject", {"[vendor_name]": vendor_name, "[status]": status_to}) }}]]></default_subject>
+            <template/>
+            <default_template>
+                <![CDATA[{{ __("vendor_debt_payout.vendor_status_changed.reason", {"[amount]": amount, "[date]": date}) }}]]>
+            </default_template>
+            <params_schema/>
+            <params/>
+            <addon><![CDATA[vendor_debt_payout]]></addon>
+        </item>
+    </templates>
+    <snippets/>
+</internal_templates>

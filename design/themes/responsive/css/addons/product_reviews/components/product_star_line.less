@@ -1,0 +1,41 @@
+/*
+    templates/addons/product_reviews/views/product_reviews/components/product_star_line.tpl
+*/
+
+.ty-product-review-product-star-line {
+    display: grid;
+    grid-template-columns: 7fr 14fr 4fr;
+    grid-gap: var(--space-s);
+    align-items: center;
+}
+
+.ty-product-review-product-star-line__quantity {
+    max-width: 70px;
+}
+
+.ty-product-review-product-star-line__percentage {
+    max-width: 40px;
+    text-align: right;
+}
+
+.ty-product-review-product-star-line__line {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    background-color: @decorative;
+    width: 100%;
+    height: var(--width-s);
+}
+
+.ty-product-review-product-star-line__line::-webkit-progress-bar {
+	background-color: @decorative;
+}
+
+.ty-product-review-product-star-line__line::-webkit-progress-value {
+    background: var(--ty-product-reviews-accent-color);
+}
+
+.ty-product-review-product-star-line__line::-moz-progress-bar {
+    background: var(--ty-product-reviews-accent-color);
+}
