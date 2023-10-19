@@ -18,3 +18,4 @@ upgrades/
 var/
 ./var
 var
+vendor.php
